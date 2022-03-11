@@ -1,0 +1,15 @@
+    
+    <br>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">UPLOAD</button>
+     
+    <ng-template #template >
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">CONTENT</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Carefully fill the Required Contents to Sell & for Customers to See & Patronize you...
+      </div>
+    </ng-template>

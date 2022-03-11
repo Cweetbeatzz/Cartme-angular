@@ -1,0 +1,59 @@
+<!-- ###################################################### -->
+<header class="header">
+    <nav class="navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow text-center">
+        <div class="w-100 d-inline-block container-fluid pt-3 my-auto mx-auto">
+            <div class="col-sm-6 mx-auto">
+                <a class="navbar-brand text-center w-100 pb-2"><strong>CART-ME</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ###################################################### -->
+        <div class="w-100 d-inline-block container my-auto">
+            <div class="navbar-collapse collapse mx-auto">
+                <ul class="navbar-nav text-center  mb-3">
+                    <li class="nav-item li">
+                        <a class="nav-link text-dark" [routerLinkActiveOptions]="{exact:true}" [routerLink]=" [ '/home'] " routerLinkActive="router-link-active "><strong>HOME</strong></a>
+                    </li>
+                    <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/register']" routerLinkActive="router-link-active"><strong>REGISTER</strong></a>
+                    </li>
+                    <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/login']" routerLinkActive="router-link-active "><strong>LOGIN</strong></a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/cart'] " routerLinkActive="router-link-active "><strong>CART</strong></a>
+                    </li>
+                    <!-- <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/categories'] " routerLinkActive="router-link-active "><strong>CATEGORIES</strong></a>
+                    </li> -->
+                    <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/products'] " routerLinkActive="router-link-active "><strong>KITCHEN</strong></a>
+                    </li>
+                    <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/about']" routerLinkActive="router-link-active "><strong>ABOUT</strong></a>
+                    </li>
+
+                    <li class="nav-item li">
+                        <a class="nav-link text-dark " [routerLink]="[ '/contact'] " routerLinkActive="router-link-active "><strong>CONTACT</strong></a>
+                    </li>
+                    <!-- <li class="nav-item li">
+                        <a class="nav-link  text-dark " [routerLink]="[ '/admin'] " routerLinkActive="router-link-active "><strong>ADMIN</strong></a>
+                    </li> -->
+                    <!-- <li class="nav-item li">
+                        <a class="nav-link text-dark btn btn-default" (submit)="Logout"><strong>LOGOUT</strong></a>
+                    </li> -->
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<!-- ###################################################### -->
+
+<!-- ###################################################### -->
+<router-outlet></router-outlet>

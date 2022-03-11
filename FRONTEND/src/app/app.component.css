@@ -1,0 +1,11 @@
+.all {
+    /* background-color: rgb(179, 198, 216); */
+    padding-left: 0px;
+    margin-left: 0%;
+    padding-right: 0px;
+    margin-right: 0%;
+    width: 100%;
+    /* height: 100vh; */
+    position: relative;
+    overflow: hidden;
+}

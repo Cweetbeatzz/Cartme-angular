@@ -1,0 +1,93 @@
+.RegisterLabel {
+    text-align: center;
+    margin-top: 15px;
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+}
+
+.button {
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: rgb(38, 196, 38);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+}
+
+.button:hover {
+    background-color: rgb(34, 78, 34);
+    color: white;
+}
+
+.register-form {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+input:not(.button) {
+    outline: none;
+    border: none;
+    font-size: 20;
+    padding: 5px 10px;
+    margin: 5px;
+    height: 44px;
+    border-radius: 15px;
+    background-color: rgb(219, 210, 210);
+    color: black;
+}
+
+input.button {
+    margin: 10px;
+    font-size: 20px;
+}
+
+button#submit {
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    /* display: flex; */
+    /* margin-top: 110px; */
+}
+
+.dont-have-account {
+    margin-top: 25px;
+}
+
+.card {
+    border-radius: 20px;
+    /* width: 100%; */
+    background-color: rgb(255, 255, 255);
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .95rem rgba(15, 15, 15, 0.7);
+}
+
+.btn-default {
+    background-color: rgb(87, 83, 83);
+    color: rgb(255, 255, 255);
+}
+
+.btn-default:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: none;
+}

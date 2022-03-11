@@ -1,0 +1,35 @@
+<br>
+
+<div class="text-center">
+    <h4><strong>CATEGORIES</strong></h4>
+    <!-- <hr class="btn-dark" style="width: 300px;" /> -->
+</div>
+<div class="text-center">
+    <p>
+        <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/uploadcategory']">Create New</a>
+    </p>
+</div>
+<!-- <hr> -->
+
+<div class="text-center container">
+    <table class="table table-borderless table-striped">
+        <thead>
+            <tr>
+                <th>
+                    NAME
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                   {{categories}}
+                </td>
+                <td>
+                    | <a class="btn btn-primary btn-sm"  [routerLink]="['/editcategory']"><strong>EDIT</strong></a> |
+                    <a class="btn btn-danger btn-sm"  asp-controller="Categories"><strong>DELETE</strong></a> |
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

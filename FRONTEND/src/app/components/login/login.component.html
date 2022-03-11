@@ -1,0 +1,47 @@
+<br>
+<div class="container">
+    <div class="card box-shadow col-sm-8 mx-auto">
+        <div class="card-head">
+            <div class="LoginLabel">
+                <h2 class="pt-4">
+                    <strong>LOGIN</strong>
+                </h2>
+            </div>
+        </div>
+        <hr>
+        <div class="card-body col-sm-8 w-100 mx-auto">
+            <form class="form" #form="ngForm" method="POST" autocomplete="off" (submit)="Onsubmit(form)">
+                <div class="form-group">
+                    <input placeholder="Email" type="email" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="formModel.Email" required>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Password" type="password" class="form-control" name="password" #Password="ngModel" [(ngModel)]="formModel.Password" required>
+                </div>
+                <hr>
+                <div>
+                    <button type="submit" id="submit" class="button" value="Onsubmit" [disabled]="form.invalid">
+                            SUBMIT
+                        </button>
+                </div>
+                <div class="forgotpassword ">
+                    <a [routerLink]="[ '/forgotpassword'] " routerLinkActive="router-link-active ">Forgot Password?</a>
+                </div>
+                <div>
+                    <button mat-fab-button class="btn btn-default " [routerLink]="[ '/register'] " routerLinkActive="router-link-active ">
+                            <strong>
+                                Dont have an Account?
+                            </strong>
+                        </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<hr class="btn-info " />
+
+<app-footer></app-footer>
+<router-outlet></router-outlet>
