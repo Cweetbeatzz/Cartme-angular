@@ -5,6 +5,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {StoreModule} from '@ngrx/store'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { ProductsEditComponent } from './components/products-edit/products-edit.
 import { ProductsDeleteComponent } from './components/products-delete/products-delete.component';
 import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
+import {userReducer} from '../app/Ngrx/reducers/userReducers';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { AdminAccessGuard } from './Guard/admin-access.guard';
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
+    StoreModule.forRoot({user:userReducer}),
 
   ],
   providers: [CategoriesService, UsersService, ProductsService],

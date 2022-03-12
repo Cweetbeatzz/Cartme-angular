@@ -1,3 +1,4 @@
+import {createReducer} from '@ngrx/store'
 import {
   USER_CREATE_FAIL,
   USER_CREATE_REQUEST,
@@ -21,8 +22,12 @@ import {
 } from "../constants/userConstants";
 
 //##################################################################
+const state = { loading: true, users: [] }
+export const userReducer = createReducer(state)
 
-export const userListReducer = (state = { loading: true, users: [] },action:any) => {
+
+export const userListReducer = (state: any,action:any) => {
+const userList = createReducer(state)
   switch (action.type) {
     case USER_LIST_REQUEST:
       return { loading: true };
@@ -37,10 +42,8 @@ export const userListReducer = (state = { loading: true, users: [] },action:any)
 
 //##################################################################
 
-export const userByIdReducer = (
-  state = { loading: true, users: {} },
-  action:any
-) => {
+export const userByIdReducer = (state = { loading: true, users: {} },action:any) => {
+  const userById = createReducer(state)
   switch (action.type) {
     case USER_DETAILS_REQUEST:
       return { loading: true };
@@ -56,6 +59,7 @@ export const userByIdReducer = (
 //##################################################################
 
 export const createUserReducer = (state = {}, action:any) => {
+  const userCreate = createReducer(state)
   switch (action.type) {
     case USER_CREATE_REQUEST:
       return { loading: true };
@@ -71,6 +75,7 @@ export const createUserReducer = (state = {}, action:any) => {
 //##################################################################
 
 export const updateUserReducer = (state = {}, action:any) => {
+  const userupdate = createReducer(state)
   switch (action.type) {
     case USER_UPDATE_REQUEST:
       return { loading: true };
@@ -86,6 +91,7 @@ export const updateUserReducer = (state = {}, action:any) => {
 //##################################################################
 
 export const deleteUserReducer = (state = {}, action:any) => {
+  const userDelete = createReducer(state)
   switch (action.type) {
     case USER_DELETE_REQUEST:
       return { loading: true };
@@ -101,6 +107,7 @@ export const deleteUserReducer = (state = {}, action:any) => {
 //##################################################################
 
 export const loginUserReducer = (state = { loading: true }, action:any) => {
+  const userLogin = createReducer(state)
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return { loading: true };

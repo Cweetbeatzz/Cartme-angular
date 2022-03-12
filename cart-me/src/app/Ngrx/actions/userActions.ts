@@ -1,3 +1,5 @@
+import {createAction} from '@ngrx/store'
+
 import {
   USER_CREATE_FAIL,
   USER_CREATE_REQUEST,
@@ -21,15 +23,13 @@ import {
 } from "../constants/userConstants";
 
 //#######################################################
-export const getAllUsersAction =  ()  => async(dispatch:any)=>{}
+export const getAllUsersAction =  createAction('getAllUsersAction')
 //#######################################################
-export const getUsersByIdAction =  ()  => async(dispatch:any)=>{}
+export const getUsersByIdAction =  createAction('getUsersByIdAction')
 //#######################################################
-export const CreateUsersAction =  (props:any)  => async(dispatch:any)=>{
-  const { firstname,lastname,username,email,address,phone,state,country,postcode,password} = props
-}
+export const CreateUsersAction =  createAction('CreateUsersAction')  
 //#######################################################
-export const UpdateUsersAction =  ()  => async(dispatch:any)=>{}
+export const UpdateUsersAction =  createAction('UpdateUsersAction')
 //#######################################################
-export const DeleteUsersAction =  ()  => async(dispatch:any)=>{}
+export const DeleteUsersAction =  createAction('DeleteUsersAction')
 //#######################################################
