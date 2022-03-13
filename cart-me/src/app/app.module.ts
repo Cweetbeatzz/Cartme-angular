@@ -25,9 +25,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
-import { UploadCategoryComponent } from './components/categories/upload-category/upload-category.component';
+import { UploadCategoryComponent } from './components/upload-category/upload-category.component';
 import { CategoriesService } from './services/Categories/categories.service';
-import { EditCategoryComponent } from './components/categories/edit-category/edit-category.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 import { UsersService } from './services/Account/users.service';
 import { ProductsuploadComponent } from './components/productsupload/productsupload.component';
 import { ProductsEditComponent } from './components/products-edit/products-edit.component';
@@ -35,6 +35,7 @@ import { ProductsDeleteComponent } from './components/products-delete/products-d
 import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
 import {userListReducer} from '../app/Ngrx/reducers/userReducers';
+import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {userListReducer} from '../app/Ngrx/reducers/userReducers';
     ProductsuploadComponent,
     ProductsEditComponent,
     ProductsDeleteComponent,
+    CategoryDeleteComponent,
   ],
   imports: [
     BrowserModule,
