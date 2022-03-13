@@ -24,13 +24,23 @@ import {
 } from "../constants/userConstants";
 
 //#######################################################
+
 export const getAllUsersAction =  createAction(USER_LIST_SUCCESS,props<{cust:Customers}>())
+
 //#######################################################
+
 export const getUsersByIdAction =  createAction(USER_DETAILS_SUCCESS,props<{cust:Customers}>())
+
 //#######################################################
-export const CreateUsersAction =  createAction(USER_CREATE_SUCCESS,props<{cust:Customers}>())  
+
+export const CreateUsersAction =  createAction(USER_CREATE_SUCCESS,props<{cust:Customers}>()) 
+
 //#######################################################
+
 export const UpdateUsersAction =  createAction(USER_UPDATE_SUCCESS,props<{cust:Customers}>())
+
 //#######################################################
+
 export const DeleteUsersAction =  createAction(USER_DELETE_SUCCESS,props<{cust:Customers}>())
+
 //#######################################################
