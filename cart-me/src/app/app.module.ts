@@ -36,6 +36,7 @@ import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
 import {userListReducer} from '../app/Ngrx/reducers/userReducers';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { CategoryDeleteComponent } from './components/category-delete/category-d
     MaterialModule,
     RouterModule, HttpClientModule,
     StoreModule.forRoot({user:userListReducer}),
+    // StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 
   ],
   providers: [CategoriesService, UsersService, ProductsService],

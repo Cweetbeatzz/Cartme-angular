@@ -32,7 +32,7 @@ const initialState = { loading: true, users: [] }
 
 //##################################################################
 
-export const userListReducer =(state:any,action:any)=>{
+export const userListReducer = (state:any,action:any)=>{
   return userReducer(state,action)
 }
 
