@@ -34,7 +34,7 @@ import { ProductsEditComponent } from './components/products-edit/products-edit.
 import { ProductsDeleteComponent } from './components/products-delete/products-delete.component';
 import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
-import {userReducer} from '../app/Ngrx/reducers/userReducers';
+import {userListReducer} from '../app/Ngrx/reducers/userReducers';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import {userReducer} from '../app/Ngrx/reducers/userReducers';
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    StoreModule.forRoot({user:userReducer}),
+    StoreModule.forRoot({user:userListReducer}),
 
   ],
   providers: [CategoriesService, UsersService, ProductsService],

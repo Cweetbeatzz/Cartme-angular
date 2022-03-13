@@ -1,4 +1,5 @@
-import {createAction} from '@ngrx/store'
+import {createAction, props} from '@ngrx/store'
+import { Customers } from 'src/app/models/Customers/customers';
 
 import {
   USER_CREATE_FAIL,
@@ -23,13 +24,13 @@ import {
 } from "../constants/userConstants";
 
 //#######################################################
-export const getAllUsersAction =  createAction('getAllUsersAction')
+export const getAllUsersAction =  createAction(USER_LIST_SUCCESS,props<{cust:Customers}>())
 //#######################################################
-export const getUsersByIdAction =  createAction('getUsersByIdAction')
+export const getUsersByIdAction =  createAction(USER_DETAILS_SUCCESS,props<{cust:Customers}>())
 //#######################################################
-export const CreateUsersAction =  createAction('CreateUsersAction')  
+export const CreateUsersAction =  createAction(USER_CREATE_SUCCESS,props<{cust:Customers}>())  
 //#######################################################
-export const UpdateUsersAction =  createAction('UpdateUsersAction')
+export const UpdateUsersAction =  createAction(USER_UPDATE_SUCCESS,props<{cust:Customers}>())
 //#######################################################
-export const DeleteUsersAction =  createAction('DeleteUsersAction')
+export const DeleteUsersAction =  createAction(USER_DELETE_SUCCESS,props<{cust:Customers}>())
 //#######################################################
