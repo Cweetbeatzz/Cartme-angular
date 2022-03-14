@@ -43,21 +43,26 @@ export class UsersService {
     }
   }
   //#######################################################################
-  Register() {
-    var body = {
-      Firstname: this.formModel.value.Firstname,
-      Lastname: this.formModel.value.Lastname,
-      Username: this.formModel.value.Username,
-      Email: this.formModel.value.Email,
-      Address: this.formModel.value.Address,
-      State: this.formModel.value.State,
-      Country: this.formModel.value.Country,
-      Phone: this.formModel.value.Phone,
-      PostalCode: this.formModel.value.PostalCode,
-      Password: this.formModel.value.Passwords.Password
-    }
+  // Register() {
+  //   var body = {
+  //     Firstname: this.formModel.value.Firstname,
+  //     Lastname: this.formModel.value.Lastname,
+  //     Username: this.formModel.value.Username,
+  //     Email: this.formModel.value.Email,
+  //     Address: this.formModel.value.Address,
+  //     State: this.formModel.value.State,
+  //     Country: this.formModel.value.Country,
+  //     Phone: this.formModel.value.Phone,
+  //     PostalCode: this.formModel.value.PostalCode,
+  //     Password: this.formModel.value.Passwords.Password
+  //   }
 
-    return this.http.post(this.ApiUrl + '/api/Account/Register', body);
+  //   return this.http.post(this.ApiUrl + '/api/Account/Register', body);
+  // }
+
+    Register(formData: Customers) {
+
+    return this.http.post(this.ApiUrl + '/api/Account/Register', formData);
   }
 
   //#######################################################################
@@ -73,7 +78,7 @@ export class UsersService {
 
   }
   //#######################################################################
-  EditUser(formData: any) {
+  EditUser(formData: Customers) {
 
     return this.http.put(this.ApiUrl + '/api/Account/Edit', formData);
 
@@ -82,6 +87,12 @@ export class UsersService {
   DeleteUser(formData: any) {
 
     return this.http.delete(this.ApiUrl + '/api/Account/Delete', formData);
+
+  }
+  //#######################################################################
+  getUser(formData: Customers) {
+
+    return this.http.get(this.ApiUrl + '/api/Account/get', );
 
   }
   //#######################################################################
