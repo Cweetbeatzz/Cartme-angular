@@ -38,6 +38,7 @@ import { AdminAccessGuard } from './Guard/admin-access.guard';
 import {userListReducer} from '../app/Ngrx/reducers/userReducers';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { environment } from 'src/environments/environment';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { environment } from 'src/environments/environment';
     ProductsEditComponent,
     ProductsDeleteComponent,
     CategoryDeleteComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
