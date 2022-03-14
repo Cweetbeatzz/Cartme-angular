@@ -17,6 +17,16 @@ export class ProductsService {
   GetAllProduct(product: Products) {
     return this.http.get(this.APIURL + '/api/Food/')
   }
+   //#########################################################################################
+
+  GetProductById(product: Products) {
+    return this.http.get(this.APIURL + '/api/Food/{id}')
+  }
+     //#########################################################################################
+
+  GetProductByCategory(product: Products) {
+    return this.http.get(this.APIURL + '/api/Food/{category}')
+  }
   //#########################################################################################
   UploadProduct(product: Products) {
     return this.http.post(this.APIURL + '/api/Food/Create', product)
