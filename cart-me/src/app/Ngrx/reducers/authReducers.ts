@@ -1,9 +1,12 @@
-import { createReducer } from "@ngrx/store"
+import { createReducer, on } from "@ngrx/store"
+import { loginUsersSuccessAction } from "../actions/authActions"
 import { initialState } from "../state/authState"
 
 //##################################################################
 
-const _authReducer = createReducer(initialState)
+const _authReducer = createReducer(initialState,on(loginUsersSuccessAction,(state,action)=>{
+ return{...state,user:action.cust}
+}))
 
 //##################################################################
 

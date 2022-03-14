@@ -5,7 +5,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {StoreModule} from '@ngrx/store'
+import { StoreModule} from '@ngrx/store'
+import { EffectsModule} from '@ngrx/effects'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,6 +73,7 @@ import { environment } from 'src/environments/environment';
     MaterialModule,
     RouterModule, HttpClientModule,
     StoreModule.forRoot({user:userListReducer}),
+    EffectsModule.forRoot([]),
     // StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 
   ],

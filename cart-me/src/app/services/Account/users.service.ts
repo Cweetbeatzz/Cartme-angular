@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Customers } from 'src/app/models/Customers/customers';
+import { Login } from 'src/app/models/Login/login';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -60,7 +61,7 @@ export class UsersService {
   }
 
   //#######################################################################
-  Login(formData: any) {
+  Login(formData: Login) {
 
     return this.http.post(this.ApiUrl + '/api/Account/login', formData);
 
