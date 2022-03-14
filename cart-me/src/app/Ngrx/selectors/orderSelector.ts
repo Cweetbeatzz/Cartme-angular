@@ -1,0 +1,1 @@
+export const ORDER_STATE_NAME = 'order'

@@ -1,0 +1,1 @@
+export const CATEGORY_STATE_NAME = 'category'
