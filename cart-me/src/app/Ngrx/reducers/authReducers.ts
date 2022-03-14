@@ -1,12 +1,21 @@
 import { createReducer, on } from "@ngrx/store"
-import { loginUsersSuccessAction } from "../actions/authActions"
+import { 
+ loginUsersFailAction, 
+ loginUsersRequestAction, 
+ loginUsersSuccessAction } from "../actions/authActions"
 import { initialState } from "../state/authState"
 
 //##################################################################
 
 const _authReducer = createReducer(
  initialState,
+ on(loginUsersRequestAction,(state,action)=>{
+ return{...state,user:action.cust}
+}),
  on(loginUsersSuccessAction,(state,action)=>{
+ return{...state,user:action.cust}
+}),
+ on(loginUsersFailAction,(state,action)=>{
  return{...state,user:action.cust}
 }),
 )
