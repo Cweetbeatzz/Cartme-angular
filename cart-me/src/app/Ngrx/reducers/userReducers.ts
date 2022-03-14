@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store'
-import { getAllUsersAction } from '../actions/userActions';
+import { getAllUsersSuccessAction } from '../actions/userActions';
 import {
   USER_CREATE_FAIL,
   USER_CREATE_REQUEST,
@@ -21,19 +21,18 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
 } from "../constants/userConstants";
+import { initialState } from '../state/userState';
 
 //##################################################################
-const initialState = { loading: true, users: [] }
 
- const userReducer = createReducer(initialState,on(getAllUsersAction,(state,action)=>{
-   let users = []
+ const _userReducer = createReducer(initialState,on(getAllUsersSuccessAction,(state,action)=>{
    return {...state,}
  }))
 
 //##################################################################
 
 export const userListReducer = (state:any,action:any)=>{
-  return userReducer(state,action)
+  return _userReducer(state,action)
 }
 
 //##################################################################

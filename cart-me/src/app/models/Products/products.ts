@@ -1,5 +1,4 @@
 export interface Products {
- Id: number //#########################
  ChefName: string  //#########################
  MealName: string //#########################
  Slug: string  //#########################
