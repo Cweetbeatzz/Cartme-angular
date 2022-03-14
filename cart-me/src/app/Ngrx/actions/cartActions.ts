@@ -1,12 +1,13 @@
-import { createAction } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
+import { Cartitems } from "src/app/models/CartItems/cartitems";
 import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "../constants/cartConstants";
 
 
 
 //#######################################################
 
-const createCartAction = createAction(ADD_CART_ITEM)
+export const createCartAction = createAction(ADD_CART_ITEM,props<{cart:Cartitems}>())
 
 //#######################################################
 
-const deleteCartAction = createAction(REMOVE_CART_ITEM)
+export const deleteCartAction = createAction(REMOVE_CART_ITEM,props<{cart:Cartitems}>())
