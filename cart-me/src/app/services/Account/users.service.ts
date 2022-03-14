@@ -67,7 +67,7 @@ export class UsersService {
 
   }
   //#######################################################################
-  LogOut(formData: any) {
+  LogOut(formData: Login) {
 
     return this.http.post(this.ApiUrl + '/api/Account/logout', formData);
 

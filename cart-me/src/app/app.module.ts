@@ -35,7 +35,7 @@ import { ProductsEditComponent } from './components/products-edit/products-edit.
 import { ProductsDeleteComponent } from './components/products-delete/products-delete.component';
 import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
-import {userListReducer} from '../app/Ngrx/reducers/userReducers';
+import {userReducer} from '../app/Ngrx/reducers/userReducers';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { environment } from 'src/environments/environment';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -74,7 +74,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    StoreModule.forRoot({user:userListReducer}),
+    StoreModule.forRoot({user:userReducer}),
     EffectsModule.forRoot([]),
     // StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 

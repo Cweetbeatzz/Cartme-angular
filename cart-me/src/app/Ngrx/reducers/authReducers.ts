@@ -4,12 +4,15 @@ import { initialState } from "../state/authState"
 
 //##################################################################
 
-const _authReducer = createReducer(initialState,on(loginUsersSuccessAction,(state,action)=>{
+const _authReducer = createReducer(
+ initialState,
+ on(loginUsersSuccessAction,(state,action)=>{
  return{...state,user:action.cust}
-}))
+}),
+)
 
 //##################################################################
 
-export const loginUserReducer = (state: any, action:any) => {
+export const authReducer = (state: any, action:any) => {
  return _authReducer(state,action)
 }

@@ -17,7 +17,7 @@ constructor (private action$: Actions, private authservice:UsersService){}
  login$ = createEffect(() => {
   return this.action$.pipe(ofType(loginUsersRequestAction),exhaustMap((action)=>{
    return this.authservice.Login(action.cust).pipe(map((data)=> {
-    const user = this.authservice
+    const user = this.authservice.Login(data)
     return loginUsersSuccessAction({user});
    }) )
   }))
