@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
+import { StoreDevtoolsModule} from '@ngrx/store-devtools'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,7 +77,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     RouterModule, HttpClientModule,
     StoreModule.forRoot({user:userReducer}),
     EffectsModule.forRoot([]),
-    // StoreDevtoolsModule.instrument({logOnly:environment.production,}),
+    StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 
   ],
   providers: [CategoriesService, UsersService, ProductsService],

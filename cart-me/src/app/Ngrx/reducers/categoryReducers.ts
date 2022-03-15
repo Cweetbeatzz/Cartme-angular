@@ -20,6 +20,7 @@ import { initialState } from "../state/categoryState";
 
 const _categoryReducer = createReducer(
  initialState,
+
   on(getAllCategoriesRequestAction,(state,action)=>{
    return {...state,}
  }),
@@ -80,6 +81,6 @@ const _categoryReducer = createReducer(
 
  //##################################################################
 
- export const categoryReducer =(state: Categories | undefined,action: Action)=>{
+ export const categoryReducer = (state: Categories | undefined,action: Action)=>{
   return _categoryReducer(state,action)
  }
