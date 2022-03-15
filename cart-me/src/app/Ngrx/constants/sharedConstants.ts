@@ -1,1 +1,1 @@
-export const LOADING_ACTION = "LOADING_ACTION";
+export const LOADING_ACTION = "[shared component] LOADING_ACTION";
