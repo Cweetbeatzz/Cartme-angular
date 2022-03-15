@@ -22,13 +22,13 @@ import {
 
 
 export const getAllProductsRequestAction = createAction(PRODUCT_LIST_REQUEST,props<{products:Products}>())
-export const getAllProductsSuccessAction = createAction(PRODUCT_LIST_SUCCESS,props<{products:Products}>())
+export const getAllProductsSuccessAction = createAction(PRODUCT_LIST_SUCCESS,props<{products:Products[]}>())
 export const getAllProductsFailAction = createAction(PRODUCT_LIST_FAIL,props<{products:Products}>())
  
  //#######################################################
  
 export const getAllProductsByCategoryRequestAction = createAction(PRODUCT_CATEGORY_LIST_REQUEST,props<{products:Products}>())
-export const getAllProductsByCategorySuccessAction = createAction(PRODUCT_CATEGORY_LIST_SUCCESS,props<{products:Products}>())
+export const getAllProductsByCategorySuccessAction = createAction(PRODUCT_CATEGORY_LIST_SUCCESS,props<{products:Products[]}>())
 export const getAllProductsByCategoryFailAction = createAction(PRODUCT_CATEGORY_LIST_FAIL,props<{products:Products}>())
 
 //#######################################################

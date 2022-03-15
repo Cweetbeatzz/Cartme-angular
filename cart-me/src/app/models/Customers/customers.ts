@@ -1,4 +1,5 @@
 export interface Customers {
+ id?:string,
  Firstname: string,
  Lastname: string,
  Username: string,

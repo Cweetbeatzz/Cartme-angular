@@ -19,7 +19,7 @@ import {
 
 
 export const getAllCategoriesRequestAction = createAction(CATEGORY_LIST_REQUEST,props<{category:Categories}>())
-export const getAllCategoriesSuccessAction = createAction(CATEGORY_LIST_SUCCESS,props<{category:Categories}>())
+export const getAllCategoriesSuccessAction = createAction(CATEGORY_LIST_SUCCESS,props<{category:Categories[]}>())
 export const getAllCategoriesFailAction = createAction(CATEGORY_LIST_FAIL,props<{category:Categories}>())
 
 //#######################################################

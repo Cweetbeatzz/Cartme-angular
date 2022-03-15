@@ -26,7 +26,7 @@ import { initialState } from '../state/userState';
    return {...state,}
  }),
  on(getAllUsersSuccessAction,(state,action)=>{
-   return {...state,}
+   return {...state,action:action.users}
  }),
  on(getAllUsersFailAction,(state,action)=>{
    return {...state,}
@@ -50,7 +50,7 @@ import { initialState } from '../state/userState';
    return {...state,}
  }),
  on(CreateUsersSuccessAction,(state,action)=>{
-   return {...state,}
+   return {...state,action:action.users}
  }),
  on(CreateUsersFailAction,(state,action)=>{
    return {...state,}

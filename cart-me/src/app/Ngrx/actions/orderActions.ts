@@ -11,7 +11,7 @@ import {
 
 
 export const createOrderRequestAction = createAction(ORDER_CREATE_REQUEST,props<{order:Order}>())
-export const createOrderSuccessAction = createAction(ORDER_CREATE_SUCCESS,props<{order:Order}>())
+export const createOrderSuccessAction = createAction(ORDER_CREATE_SUCCESS,props<{order:Order[]}>())
 export const createOrderFailAction = createAction(ORDER_CREATE_FAIL,props<{order:Order}>())
 
 //#######################################################

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Customers } from 'src/app/models/Customers/customers';
 import { Login } from 'src/app/models/Login/login';
 import { environment } from 'src/environments/environment';
@@ -60,8 +62,7 @@ export class UsersService {
   //   return this.http.post(this.ApiUrl + '/api/Account/Register', body);
   // }
 
-    Register(formData: Customers) {
-
+  Register(formData: Customers) {
     return this.http.post(this.ApiUrl + '/api/Account/Register', formData);
   }
 
@@ -90,9 +91,21 @@ export class UsersService {
 
   }
   //#######################################################################
-  getUser(formData: Customers) {
+  getUser():Observable<Customers[]> {
 
-    return this.http.get(this.ApiUrl + '/api/Account/get', );
+    return this.http.get<Customers[]>(this.ApiUrl + '/api/Account/get' ).pipe(map((data )=>{
+      const users:Customers[] = [];
+      for (let key in data) {
+        users.push({...data[key], id:key})
+      }
+      return users
+    }));
+
+  }
+  //#######################################################################
+  getUserById(formData: Customers,id:any){
+
+     return this.http.get(this.ApiUrl + '/api/Account/getuserById', );
 
   }
   //#######################################################################
