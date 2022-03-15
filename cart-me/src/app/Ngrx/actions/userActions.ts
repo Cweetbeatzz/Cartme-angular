@@ -27,9 +27,9 @@ export const getAllUsersFailAction =  createAction(USER_LIST_FAIL,props<{users:C
 
 //#######################################################
 
-export const getUsersByIdRequestAction =  createAction(USER_DETAILS_REQUEST,props<{users:Customers}>())
-export const getUsersByIdSuccessAction =  createAction(USER_DETAILS_SUCCESS,props<{users:Customers}>())
-export const getUsersByIdFailAction =  createAction(USER_DETAILS_FAIL,props<{users:Customers}>())
+export const getUsersByIdRequestAction =  createAction(USER_DETAILS_REQUEST,props<{id:string}>())
+export const getUsersByIdSuccessAction =  createAction(USER_DETAILS_SUCCESS,props<{id:string}>())
+export const getUsersByIdFailAction =  createAction(USER_DETAILS_FAIL,props<{id:string}>())
 
 //#######################################################
 
@@ -43,10 +43,10 @@ export const UpdateUsersRequestAction =  createAction(USER_UPDATE_REQUEST,props<
 export const UpdateUsersSuccessAction =  createAction(USER_UPDATE_SUCCESS,props<{users:Customers}>())
 export const UpdateUsersFailAction =  createAction(USER_UPDATE_FAIL,props<{users:Customers}>())
 
-//#######################################################
+//####################################################### 
 
-export const DeleteUsersRequestAction =  createAction(USER_DELETE_REQUEST,props<{users:Customers}>())
-export const DeleteUsersSuccessAction =  createAction(USER_DELETE_SUCCESS,props<{users:Customers,id:string}>())
-export const DeleteUsersFailAction =  createAction(USER_DELETE_FAIL,props<{users:Customers}>())
+export const DeleteUsersRequestAction =  createAction(USER_DELETE_REQUEST,props<{id:string}>())
+export const DeleteUsersSuccessAction =  createAction(USER_DELETE_SUCCESS,props<{id:string}>())
+export const DeleteUsersFailAction =  createAction(USER_DELETE_FAIL,props<{id:string}>())
 
 //#######################################################

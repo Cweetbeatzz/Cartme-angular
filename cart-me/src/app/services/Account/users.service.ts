@@ -85,9 +85,9 @@ export class UsersService {
 
   }
   //#######################################################################
-  DeleteUser(formData: any) {
+  DeleteUser(id:string) {
 
-    return this.http.delete(this.ApiUrl + '/api/Account/Delete', formData);
+    return this.http.delete(`${this.ApiUrl}/api/Account/Delete/${id}`);
 
   }
   //#######################################################################
@@ -103,9 +103,9 @@ export class UsersService {
 
   }
   //#######################################################################
-  getUserById(formData: Customers,id:any){
+  getUserById(id:string){
 
-     return this.http.get(this.ApiUrl + '/api/Account/getuserById', );
+     return this.http.get(`${this.ApiUrl}/api/Account/getUserById/${id}`);
 
   }
   //#######################################################################

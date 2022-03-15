@@ -62,7 +62,12 @@ import { initialState } from '../state/userState';
    return {...state,}
  }),
  on(UpdateUsersSuccessAction,(state,action)=>{
-   return {...state,}
+   let oldState = {...state}
+   //
+   const updatedUser = state.oldState.map((user)=>{
+     return action.users.id === user.id? action.users : user
+   })
+   return {...state, users:updatedUser}
  }),
  on(UpdateUsersFailAction,(state,action)=>{
    return {...state,}
@@ -73,8 +78,12 @@ import { initialState } from '../state/userState';
  on(DeleteUsersRequestAction,(state,action)=>{
    return {...state,}
  }),
- on(DeleteUsersSuccessAction,(state,action)=>{
-   return {...state,}
+ on(DeleteUsersSuccessAction,(state,{id})=>{
+   //
+   const deleteUser = state.user.filter((user)=>{
+     return user.id !== id
+   })
+   return {...state,users:deleteUser}
  }),
  on(DeleteUsersFailAction,(state,action)=>{
    return {...state,}
