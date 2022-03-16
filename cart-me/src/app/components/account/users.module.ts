@@ -6,6 +6,10 @@ import { AdminAccessGuard } from "src/app/Guard/admin-access.guard";
 import { AdminComponent } from "./admin/admin.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserDeleteComponent } from './user-delete/user-delete.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserRolesComponent } from './user-roles/user-roles.component';
 
 const routes:Routes = [
    {
@@ -31,6 +35,10 @@ const routes:Routes = [
   RegisterComponent,
      LoginComponent,
      AdminComponent,
+     UserEditComponent,
+     UserDeleteComponent,
+     UserUpdateComponent,
+     UserRolesComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),]
 })
