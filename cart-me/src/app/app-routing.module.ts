@@ -3,9 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { EditCategoryComponent } from './components/edit-category/edit-category.component';
-import { UploadCategoryComponent } from './components/upload-category/upload-category.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DetailPropertiesComponent } from './components/detail-properties/detail-properties.component';
@@ -52,7 +49,9 @@ const routes: Routes = [];
       path: 'cart', component: CartComponent
     },
     {
-      path: 'categories', component: CategoriesComponent
+      path: 'categories', loadChildren:() => import('./components/categories/category.module').then((x)=>{
+        x.CategoryModule
+      })
     },
     {
       path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
@@ -60,12 +59,7 @@ const routes: Routes = [];
     {
       path: 'products', component: ProductsComponent
     },
-    {
-      path: 'uploadcategory', component: UploadCategoryComponent
-    },
-    {
-      path: 'editcategory/:id', component: EditCategoryComponent
-    },
+ 
     {
       path: '', component: HomeComponent
     },

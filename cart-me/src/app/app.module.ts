@@ -27,17 +27,13 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
-import { UploadCategoryComponent } from './components/upload-category/upload-category.component';
 import { CategoriesService } from './services/Categories/categories.service';
-import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 import { UsersService } from './services/Account/users.service';
 import { ProductsuploadComponent } from './components/productsupload/productsupload.component';
 import { ProductsEditComponent } from './components/products-edit/products-edit.component';
 import { ProductsDeleteComponent } from './components/products-delete/products-delete.component';
 import { ProductsService } from './services/Product/products.service';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
-import {userReducer} from './Ngrx/reducers/user.reducers';
-import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { environment } from 'src/environments/environment';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AppReducer } from './Ngrx/store/app.state';
@@ -59,12 +55,9 @@ import { AppReducer } from './Ngrx/store/app.state';
     ProductsComponent,
     CategoriesComponent,
     CartComponent,
-    UploadCategoryComponent,
-    EditCategoryComponent,
     ProductsuploadComponent,
     ProductsEditComponent,
     ProductsDeleteComponent,
-    CategoryDeleteComponent,
     LoadingSpinnerComponent,
   ],
   imports: [
