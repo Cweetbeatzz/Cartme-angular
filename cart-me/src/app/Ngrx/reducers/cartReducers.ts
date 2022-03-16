@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { createCartAction, deleteCartAction } from "../actions/cartActions"
-import { initialState } from "../state/cartState"
+import { initialState } from "../state/cart.state"
 
 const _cartReducer = createReducer(
  initialState,

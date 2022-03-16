@@ -1,5 +1,5 @@
 
 
-export const store =()=>{
- 
+export interface AppState{
+ users:
 }

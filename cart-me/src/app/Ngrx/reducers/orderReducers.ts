@@ -6,7 +6,7 @@ import {
  getOrderDetailsByIdFailAction, 
  getOrderDetailsByIdRequestAction, 
  getOrderDetailsByIdSuccessAction } from "../actions/orderActions";
-import { initialSate } from "../state/orderState";
+import { initialSate } from "../state/order.state";
 
 const _orderReducer = createReducer(
  initialSate,

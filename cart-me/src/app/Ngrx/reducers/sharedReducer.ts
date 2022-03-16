@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { setLoadingSpinner } from "../actions/sharedActions"
-import { initialState } from "../state/sharedState"
+import { initialState } from "../state/shared.state"
 
 //##################################################################
 

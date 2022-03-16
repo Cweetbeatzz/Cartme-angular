@@ -19,7 +19,7 @@ import {
   updateProductsFailAction, 
   updateProductsRequestAction,
   updateProductsSuccessAction} from "../actions/productActions"
-import { initialState } from "../state/productState"
+import { initialState } from "../state/product.state"
 
 //##################################################################
 

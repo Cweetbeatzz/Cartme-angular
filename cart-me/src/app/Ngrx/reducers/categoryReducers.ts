@@ -16,7 +16,7 @@ import {
  updateCategoryFailAction,
  updateCategoryRequestAction,
  updateCategorySuccessAction} from "../actions/categoryAction";
-import { initialState } from "../state/categoryState";
+import { initialState } from "../state/category.state";
 
 const _categoryReducer = createReducer(
  initialState,

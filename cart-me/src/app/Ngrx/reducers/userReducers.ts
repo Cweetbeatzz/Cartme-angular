@@ -16,7 +16,7 @@ import {
   UpdateUsersRequestAction,
   UpdateUsersSuccessAction} from '../actions/userActions';
 
-import { initialState } from '../state/userState';
+import { initialState } from '../state/user.state';
 
 //##################################################################
 
