@@ -54,7 +54,7 @@ import { AppReducer } from './Ngrx/store/app.state';
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    StoreModule.forRoot(AppReducer),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 

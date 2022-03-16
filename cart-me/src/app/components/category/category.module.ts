@@ -6,6 +6,9 @@ import { CategoryDeleteComponent } from "./category-delete/category-delete.compo
 import { EditCategoryComponent } from "./edit-category/edit-category.component";
 import { UploadCategoryComponent } from "./upload-category/upload-category.component";
 import { CategoriesComponent } from "./categories/categories.component";
+import { StoreModule } from "@ngrx/store";
+import { categoryReducer } from "src/app/Ngrx/reducers/category.reducers";
+import { CATEGORY_STATE_NAME } from "src/app/Ngrx/selectors/category.selector";
 
 const routes:Routes = [
    {
@@ -29,7 +32,8 @@ const routes:Routes = [
    UploadCategoryComponent,
     EditCategoryComponent,
  ],
- imports:[CommonModule,ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),]
+ imports:[CommonModule,ReactiveFormsModule, 
+  FormsModule,RouterModule.forChild(routes),StoreModule.forFeature(CATEGORY_STATE_NAME,categoryReducer)]
 })
 
 export class CategoryModule{}

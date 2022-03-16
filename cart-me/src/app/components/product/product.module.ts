@@ -2,6 +2,9 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
+import { StoreModule } from "@ngrx/store";
+import { productReducer } from "src/app/Ngrx/reducers/product.reducers";
+import { PRODUCT_STATE_NAME } from "src/app/Ngrx/selectors/product.selector";
 import { DetailPropertiesComponent } from "./detail-properties/detail-properties.component";
 import { ProductsDeleteComponent } from "./products-delete/products-delete.component";
 import { ProductsEditComponent } from "./products-edit/products-edit.component";
@@ -37,7 +40,8 @@ const routes:Routes = [
     ProductsDeleteComponent,
     DetailPropertiesComponent,
  ],
- imports:[CommonModule,ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),]
+ imports:[CommonModule,ReactiveFormsModule, 
+  FormsModule,RouterModule.forChild(routes),StoreModule.forFeature(PRODUCT_STATE_NAME,productReducer)]
 })
 
 export class ProductModule{}
