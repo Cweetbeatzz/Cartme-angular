@@ -2,7 +2,7 @@ import { createReducer, on } from "@ngrx/store"
 import { 
  loginUsersFailAction, 
  loginUsersRequestAction, 
- loginUsersSuccessAction } from "../actions/authActions"
+ loginUsersSuccessAction } from "../actions/auth.actions"
 import { initialState } from "../state/auth.state"
 
 //##################################################################

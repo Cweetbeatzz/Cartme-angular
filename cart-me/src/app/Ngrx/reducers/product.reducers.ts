@@ -18,7 +18,7 @@ import {
   getProductsByIdSuccessAction, 
   updateProductsFailAction, 
   updateProductsRequestAction,
-  updateProductsSuccessAction} from "../actions/productActions"
+  updateProductsSuccessAction} from "../actions/product.actions"
 import { initialState } from "../state/product.state"
 
 //##################################################################

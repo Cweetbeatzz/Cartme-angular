@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Categories } from 'src/app/models/Categories/categories';
-import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/categoryAction';
+import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
 
 @Component({
   selector: 'app-edit-category',

@@ -12,7 +12,7 @@ import {
  getAllCategoriesRequestAction, 
  getAllCategoriesSuccessAction, 
  updateCategoryRequestAction, 
- updateCategorySuccessAction} from "../actions/categoryAction";
+ updateCategorySuccessAction} from "../actions/category.action";
 
 
 @Injectable()

@@ -14,7 +14,7 @@ import {
   getUsersByIdSuccessAction, 
   UpdateUsersFailAction,
   UpdateUsersRequestAction,
-  UpdateUsersSuccessAction} from '../actions/userActions';
+  UpdateUsersSuccessAction} from '../actions/user.actions';
 
 import { initialState } from '../state/user.state';
 

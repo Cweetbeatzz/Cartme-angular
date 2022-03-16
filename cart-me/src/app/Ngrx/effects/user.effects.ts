@@ -12,7 +12,7 @@ import {
  getUsersByIdRequestAction,
  getUsersByIdSuccessAction,
  UpdateUsersRequestAction,
- UpdateUsersSuccessAction} from "../actions/userActions";
+ UpdateUsersSuccessAction} from "../actions/user.actions";
 
 
 @Injectable()

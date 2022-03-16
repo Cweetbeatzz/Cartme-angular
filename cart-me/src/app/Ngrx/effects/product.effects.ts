@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { exhaustMap, map } from "rxjs/operators";
 import { ProductsService } from "src/app/services/Product/products.service";
-import { createCategorySuccessAction } from "../actions/categoryAction";
+import { createCategorySuccessAction } from "../actions/category.action";
 import { 
  createProductsRequestAction, 
  deleteProductsRequestAction, 
@@ -14,7 +14,7 @@ import {
  getProductsByIdRequestAction, 
  getProductsByIdSuccessAction, 
  updateProductsRequestAction, 
- updateProductsSuccessAction } from "../actions/productActions";
+ updateProductsSuccessAction } from "../actions/product.actions";
 
 @Injectable()
 

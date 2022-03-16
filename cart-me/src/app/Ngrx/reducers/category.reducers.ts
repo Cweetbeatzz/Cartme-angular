@@ -15,7 +15,7 @@ import {
  getAllCategoriesSuccessAction, 
  updateCategoryFailAction,
  updateCategoryRequestAction,
- updateCategorySuccessAction} from "../actions/categoryAction";
+ updateCategorySuccessAction} from "../actions/category.action";
 import { initialState } from "../state/category.state";
 
 const _categoryReducer = createReducer(

@@ -5,7 +5,7 @@ import {
  createOrderSuccessAction, 
  getOrderDetailsByIdFailAction, 
  getOrderDetailsByIdRequestAction, 
- getOrderDetailsByIdSuccessAction } from "../actions/orderActions";
+ getOrderDetailsByIdSuccessAction } from "../actions/order.actions";
 import { initialSate } from "../state/order.state";
 
 const _orderReducer = createReducer(
