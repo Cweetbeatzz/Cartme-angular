@@ -2,10 +2,10 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { CategoryDeleteComponent } from "../category-delete/category-delete.component";
-import { EditCategoryComponent } from "../edit-category/edit-category.component";
-import { UploadCategoryComponent } from "../upload-category/upload-category.component";
-import { CategoriesComponent } from "./categories.component";
+import { CategoryDeleteComponent } from "./category-delete/category-delete.component";
+import { EditCategoryComponent } from "./edit-category/edit-category.component";
+import { UploadCategoryComponent } from "./upload-category/upload-category.component";
+import { CategoriesComponent } from "./categories/categories.component";
 
 const routes:Routes = [
    {

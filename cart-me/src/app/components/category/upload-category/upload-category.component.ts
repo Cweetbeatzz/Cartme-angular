@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { createCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
 import { AppState } from 'src/app/Ngrx/store/app.state';
-import { CategoriesService } from 'src/app/services/Categories/categories.service';
 
 @Component({
   selector: 'app-upload-category',
