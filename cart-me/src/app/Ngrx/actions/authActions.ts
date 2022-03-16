@@ -1,7 +1,7 @@
 
 import { createAction, props } from "@ngrx/store";
 import { Login } from "src/app/models/Login/login";
-import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "../constants/userConstants";
+import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "../constants/user.constants";
 
 //#######################################################
 

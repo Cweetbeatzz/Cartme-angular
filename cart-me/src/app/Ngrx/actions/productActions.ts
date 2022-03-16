@@ -18,7 +18,7 @@ import {
    PRODUCT_LIST_SUCCESS, 
    PRODUCT_UPDATE_FAIL, 
    PRODUCT_UPDATE_REQUEST, 
-   PRODUCT_UPDATE_SUCCESS } from "../constants/productConstants";
+   PRODUCT_UPDATE_SUCCESS } from "../constants/product.constants";
 
 
 export const getAllProductsRequestAction = createAction(PRODUCT_LIST_REQUEST,props<{products:Products}>())

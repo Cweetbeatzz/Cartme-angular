@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { Cartitems } from "src/app/models/CartItems/cartitems";
-import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "../constants/cartConstants";
+import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "../constants/cart.constants";
 
 
 

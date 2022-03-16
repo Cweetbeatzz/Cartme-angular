@@ -15,7 +15,7 @@ import {
  CATEGORY_LIST_SUCCESS, 
  CATEGORY_UPDATE_FAIL, 
  CATEGORY_UPDATE_REQUEST, 
- CATEGORY_UPDATE_SUCCESS } from "../constants/categoryConstants"
+ CATEGORY_UPDATE_SUCCESS } from "../constants/category.constants"
 
 
 export const getAllCategoriesRequestAction = createAction(CATEGORY_LIST_REQUEST,props<{category:Categories}>())
