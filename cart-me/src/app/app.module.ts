@@ -40,6 +40,7 @@ import {userReducer} from './Ngrx/reducers/user.reducers';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { environment } from 'src/environments/environment';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { AppReducer } from './Ngrx/store/app.state';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    StoreModule.forRoot({user:userReducer}),
+    StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
 

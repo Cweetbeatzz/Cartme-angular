@@ -1,5 +1,10 @@
 import { Products } from "src/app/models/Products/products";
 
+
+export interface ProductState{
+products:Products[]
+}
+
 export const initialState:Products = {
  ChefName: "",
  MealName: "",

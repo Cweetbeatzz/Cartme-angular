@@ -45,8 +45,8 @@ export const UpdateUsersFailAction =  createAction(USER_UPDATE_FAIL,props<{users
 
 //####################################################### 
 
-export const DeleteUsersRequestAction =  createAction(USER_DELETE_REQUEST,props<{id:string}>())
-export const DeleteUsersSuccessAction =  createAction(USER_DELETE_SUCCESS,props<{id:string}>())
-export const DeleteUsersFailAction =  createAction(USER_DELETE_FAIL,props<{id:string}>())
+export const DeleteUsersRequestAction =  createAction(USER_DELETE_REQUEST,props<{id:number}>())
+export const DeleteUsersSuccessAction =  createAction(USER_DELETE_SUCCESS,props<{id:number}>())
+export const DeleteUsersFailAction =  createAction(USER_DELETE_FAIL,props<{id:number}>())
 
 //#######################################################
