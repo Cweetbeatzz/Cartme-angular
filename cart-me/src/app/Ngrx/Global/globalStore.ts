@@ -1,6 +1,6 @@
 import { Login } from "src/app/models/Login/login";
-import { loginUserReducer } from "../reducers/authReducers";
-import { userListReducer } from "../reducers/userReducers";
+import { loginUserReducer } from "../reducers/auth.reducers";
+import { userListReducer } from "../reducers/user.reducers";
 
 //##################################################################
 
