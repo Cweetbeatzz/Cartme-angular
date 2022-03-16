@@ -1,4 +1,5 @@
-import { createReducer, on } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
+import { Order } from "src/app/models/order/Order";
 import { 
  createOrderFailAction, 
  createOrderRequestAction, 
@@ -38,6 +39,6 @@ const _orderReducer = createReducer(
 
 //##################################################################
 
-export const orderReducer = (state:any,action:any)=>{
+export const orderReducer = (state: Order | undefined,action: Action)=>{
   return _orderReducer(state,action)
 }

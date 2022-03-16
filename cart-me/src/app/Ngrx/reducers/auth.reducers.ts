@@ -1,4 +1,5 @@
-import { createReducer, on } from "@ngrx/store"
+import { Action, createReducer, on } from "@ngrx/store"
+import { Login } from "src/app/models/Login/login"
 import { 
  loginUsersFailAction, 
  loginUsersRequestAction, 
@@ -22,6 +23,6 @@ const _authReducer = createReducer(
 
 //##################################################################
 
-export const authReducer = (state: any, action:any) => {
+export const authReducer = (state: Login | undefined, action: Action) => {
  return _authReducer(state,action)
 }

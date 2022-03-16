@@ -1,4 +1,5 @@
-import {createReducer, on} from '@ngrx/store'
+import {Action, createReducer, on} from '@ngrx/store'
+import { Customers } from 'src/app/models/Customers/customers';
 import { 
   CreateUsersFailAction,
   CreateUsersRequestAction,
@@ -91,7 +92,7 @@ import { initialState } from '../state/user.state';
 
 //##################################################################
 
-export const userReducer = (state:any,action:any)=>{
+export const userReducer = (state: Customers | undefined,action: Action)=>{
   return _userReducer(state,action)
 }
 

@@ -13,7 +13,7 @@ const _sharedReducer = createReducer(
 
 //##################################################################
 
-export const loginUserReducer = (state: any, action:any) => {
+export const sharedReducer = (state: any, action:any) => {
  return _sharedReducer(state,action)
 }
 //##################################################################
