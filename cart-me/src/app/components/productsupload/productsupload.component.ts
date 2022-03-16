@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
   selector: 'app-productsupload',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsuploadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store:Store<AppState>) { }
 
   ngOnInit(): void {
   }

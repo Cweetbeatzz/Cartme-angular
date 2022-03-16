@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Categories } from 'src/app/models/Categories/categories';
 import { deleteCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
+import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
   selector: 'app-category-delete',
@@ -10,7 +10,7 @@ import { deleteCategorySuccessAction } from 'src/app/Ngrx/actions/category.actio
 })
 export class CategoryDeleteComponent implements OnInit {
 
-  constructor(private store: Store<{categories:{categories:Categories}}>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }

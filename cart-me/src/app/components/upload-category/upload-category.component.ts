@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { createCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
+import { AppState } from 'src/app/Ngrx/store/app.state';
 import { CategoriesService } from 'src/app/services/Categories/categories.service';
 
 @Component({
@@ -10,12 +13,12 @@ import { CategoriesService } from 'src/app/services/Categories/categories.servic
 })
 export class UploadCategoryComponent implements OnInit {
 
-  constructor(private route: Router, private http: HttpClient, private categoryservice: CategoriesService) { }
+  constructor(private route: Router, private http: HttpClient, private store:Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
   uploadCategory() {
-    //this.http.post(this.categoryservice.UploadCategory).subscribe();
+    this.store.dispatch(createCategorySuccessAction())
   }
 }

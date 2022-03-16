@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
   selector: 'app-products-edit',
@@ -8,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsEditComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute,private store:Store<AppState>) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) =>{

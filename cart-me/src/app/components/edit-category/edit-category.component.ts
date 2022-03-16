@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Categories } from 'src/app/models/Categories/categories';
 import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
+import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
   selector: 'app-edit-category',
@@ -10,7 +10,7 @@ import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/category.actio
 })
 export class EditCategoryComponent implements OnInit {
 
-  constructor(private store: Store<{categories:{categories:Categories}}>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
