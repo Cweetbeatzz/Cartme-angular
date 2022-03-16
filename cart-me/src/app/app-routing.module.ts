@@ -49,7 +49,7 @@ const routes: Routes = [];
       path: 'cart', component: CartComponent
     },
     {
-      path: 'categories', loadChildren:() => import('./components/categories/category.module').then((x)=>{
+      path: 'categories', loadChildren:() => import('./components/category/categories/category.module').then((x)=>{
         x.CategoryModule
       })
     },

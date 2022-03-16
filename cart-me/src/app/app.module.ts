@@ -25,7 +25,7 @@ import { DetailPropertiesComponent } from './components/detail-properties/detail
 import { MaterialModule } from './material/material.module';
 import { AdminComponent } from './components/account/admin/admin.component';
 import { ProductsComponent } from './components/products/products.component';
-import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoriesComponent } from './components/category/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CategoriesService } from './services/Categories/categories.service';
 import { UsersService } from './services/Account/users.service';
