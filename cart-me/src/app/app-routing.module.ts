@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/account/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DetailPropertiesComponent } from './components/detail-properties/detail-properties.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/account/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/account/register/register.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
 
