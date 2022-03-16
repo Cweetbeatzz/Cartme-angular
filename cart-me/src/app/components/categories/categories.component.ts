@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Categories } from 'src/app/models/Categories/categories';
 import { getAllCategoriesSuccessAction } from 'src/app/Ngrx/actions/category.action';
+import { getCategory } from 'src/app/Ngrx/selectors/category.selector';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
@@ -11,16 +13,17 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
 })
 export class CategoriesComponent implements OnInit {
 
-  categories = ["AFRICAN MEALS","CHINESE MEALS","AMERICAN MEALS"]
+  categories: Observable<Categories[]> | undefined ;
   
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.categories = this.store.select(getCategory)
   }
 
-  GetAllCategories() {
-    this.store.dispatch(getAllCategoriesSuccessAction())
-  }
+  // GetAllCategories() {
+  //   this.store.dispatch(getAllCategoriesSuccessAction())
+  // }
 
 
  

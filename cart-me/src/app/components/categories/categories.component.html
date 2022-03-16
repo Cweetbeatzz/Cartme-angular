@@ -21,9 +21,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let cat in categories | async">
                 <td>
-                   {{categories}}
+                   {{cat.name}}
                 </td>
                 <td>
                     | <a class="btn btn-primary btn-sm"  [routerLink]="['/editcategory']"><strong>EDIT</strong></a> |
