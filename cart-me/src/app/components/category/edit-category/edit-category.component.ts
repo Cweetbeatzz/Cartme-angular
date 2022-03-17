@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { Categories } from 'src/app/models/Categories/categories';
 import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
+import { getCategoryById } from 'src/app/Ngrx/selectors/category.selector';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 
 @Component({
@@ -8,14 +13,71 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
   templateUrl: './edit-category.component.html',
   styleUrls: ['./edit-category.component.css']
 })
-export class EditCategoryComponent implements OnInit {
+export class EditCategoryComponent implements OnInit,OnDestroy {
 
-  constructor(private store: Store<AppState>) { }
+  //##################################################################
+
+  category:Categories | undefined
+  CategoryForm: FormGroup = new FormGroup({});
+  categorySub: Subscription = new Subscription;
+
+  constructor(private route:ActivatedRoute,private store: Store<AppState>) { }
+
+ //##################################################################
 
   ngOnInit(): void {
+    //get the id of an object
+    this.route.paramMap.subscribe((params)=>{
+      const id = params.get('id')
+      this.categorySub = this.store.select(getCategoryById,{id}).subscribe((data)=>{
+       this.category = data
+       this.validateee()
+      })
+    })
   }
+  //##################################################################
+
+  validateee(){
+    this.CategoryForm = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(null,[ Validators.required, Validators.maxLength(50)])
+  });
+  } 
+
+  // ##########################################
+// VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
+
+ showCategoryNameErrors(){
+   const getCategoryName = this.CategoryForm?.get('name');
+   if (getCategoryName?.touched && !getCategoryName.valid) {
+     if (getCategoryName.errors?.required) {
+       return 'Category Name is Required'
+     }
+     if (getCategoryName.errors?.maxLength) {
+       return 'Category Name must not exceed 50 characters'
+     }
+   }
+   return
+ }
+
+  //##################################################################
 
   editCategory() {
-    this.store.dispatch(updateCategorySuccessAction())
+   if (!this.CategoryForm?.valid) {
+     return
+   }
+
+    const catForm:Categories = {
+     name: this.CategoryForm.value.name
+    }
+    this.store.dispatch(updateCategorySuccessAction({category:catForm}))
+  }
+
+  //##################################################################
+
+  ngOnDestroy(): void {
+    if (this.categorySub) {
+      this.categorySub.unsubscribe()
+    }
   }
 }

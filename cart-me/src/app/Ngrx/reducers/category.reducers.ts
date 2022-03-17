@@ -49,7 +49,8 @@ const _categoryReducer = createReducer(
    return {...state,}
  }),
  on(createCategorySuccessAction,(state,action)=>{
-   return {...state,}
+   let cat = {...action.category}
+   return {...state,action:cat}
  }),
  on(createCategoryFailAction,(state,action)=>{
    return {...state,}
@@ -61,7 +62,13 @@ const _categoryReducer = createReducer(
    return {...state,}
  }),
  on(updateCategorySuccessAction,(state,action)=>{
-   return {...state,}
+
+   let oldState = {...state}
+   
+   const updatedCategory = state.oldState.map((user)=>{
+     return action.users.id === user.id? action.users : user
+   })
+   return {...state,updatedCategory}
  }),
  on(updateCategoryFailAction,(state,action)=>{
    return {...state,}
