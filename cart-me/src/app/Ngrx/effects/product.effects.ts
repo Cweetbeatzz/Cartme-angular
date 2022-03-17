@@ -54,22 +54,20 @@ constructor (private action$: Actions, private productservice:ProductsService){}
 
   //##########################################################
 
- getByCategory$ = createEffect(() => {
-  return this.action$.pipe(ofType(getAllProductsByCategoryRequestAction),exhaustMap((action)=>{
-   return this.productservice.GetProductByCategory(action.products).pipe(map((data)=> {
-    const allProductsByCategory = this.productservice.GetProductByCategory(data)
-    return getAllProductsByCategorySuccessAction({allProductsByCategory});
-   }) )
-  }))
- })
+//  getByCategory$ = createEffect(() => {
+//   return this.action$.pipe(ofType(getAllProductsByCategoryRequestAction),exhaustMap((action)=>{
+//    return this.productservice.GetProductByCategory(action.products).pipe(map((data)=> {
+//     return getAllProductsByCategorySuccessAction({allProductsByCategory});
+//    }) )
+//   }))
+//  })
 
  //##########################################################
 
  update$ = createEffect(() => {
   return this.action$.pipe(ofType(updateProductsRequestAction),exhaustMap((action)=>{
    return this.productservice.UpdateProduct(action.products).pipe(map((data)=> {
-    const updateProduct = this.productservice.UpdateProduct(data)
-    return updateProductsSuccessAction({updateProduct});
+    return updateProductsSuccessAction({products:action.products});
    }) )
   }))
  })
@@ -78,9 +76,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
 
  delete$ = createEffect(() => {
   return this.action$.pipe(ofType(deleteProductsRequestAction),exhaustMap((action)=>{
-   return this.productservice.DeleteProduct(action.products).pipe(map((data)=> {
-    const deleteProduct = this.productservice.DeleteProduct(data)
-    return deleteProductsSuccessAction({deleteProduct});
+   return this.productservice.DeleteProduct(action.id).pipe(map((data)=> {
+    return deleteProductsSuccessAction({id:action.id});
    }) )
   }))
  })

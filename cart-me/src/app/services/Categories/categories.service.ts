@@ -32,8 +32,8 @@ export class CategoriesService {
   }
   //#########################################################################################
 
-  DeleteCategory(category: Categories) {
-    return this.http.delete(this.APIURL + '/api/Categories/Delete/{id}')
+  DeleteCategory(id: string) {
+    return this.http.delete(`${this.APIURL}/api/Categories/Delete/${id}`)
   }
   //#########################################################################################
   GetCategoryById(id: string) {

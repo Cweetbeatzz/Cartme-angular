@@ -42,12 +42,12 @@ export class ProductsService {
   }
   //#########################################################################################
 
-  DeleteProduct(product: Products) {
-    return this.http.delete(this.APIURL + '/api/Food/Delete')
+  DeleteProduct(id:string) {
+    return this.http.delete(`${this.APIURL}/api/Food/Delete${id}`)
   }
   //#########################################################################################
 
-  SearchProduct(product: Products) {
-    return this.http.get(this.APIURL + '/api/Food/search')
+  SearchProduct(search: string) {
+    return this.http.get(`${this.APIURL}/api/Food/${search}`)
   }
 }

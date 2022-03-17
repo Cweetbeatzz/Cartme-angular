@@ -55,8 +55,7 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
  update$ = createEffect(() => {
   return this.action$.pipe(ofType(updateCategoryRequestAction),exhaustMap((action)=>{
    return this.categoryservice.UpdateCategory(action.category).pipe(map((data)=> {
-    const updateCategory = this.categoryservice.UpdateCategory(data)
-    return updateCategorySuccessAction({updateCategory});
+    return updateCategorySuccessAction({category:action.category});
    }) )
   }))
  })
@@ -65,9 +64,8 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
 
  delete$ = createEffect(() => {
   return this.action$.pipe(ofType(deleteCategoryRequestAction),exhaustMap((action)=>{
-   return this.categoryservice.DeleteCategory(action.category).pipe(map((data)=> {
-    const deleteCategory = this.categoryservice.DeleteCategory(data)
-    return deleteCategorySuccessAction({deleteCategory});
+   return this.categoryservice.DeleteCategory(action.id).pipe(map((data)=> {
+    return deleteCategorySuccessAction({id:action.id});
    }) )
   }))
  })

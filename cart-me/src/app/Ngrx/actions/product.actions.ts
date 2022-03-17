@@ -51,6 +51,6 @@ export const updateProductsFailAction = createAction(PRODUCT_UPDATE_FAIL,props<{
  
  //#######################################################
  
-export const deleteProductsRequestAction = createAction(PRODUCT_DELETE_REQUEST,props<{products:Products}>())
-export const deleteProductsSuccessAction = createAction(PRODUCT_DELETE_SUCCESS,props<{products:Products}>())
-export const deleteProductsFailAction = createAction(PRODUCT_DELETE_FAIL,props<{products:Products}>())
+export const deleteProductsRequestAction = createAction(PRODUCT_DELETE_REQUEST,props<{id:string}>())
+export const deleteProductsSuccessAction = createAction(PRODUCT_DELETE_SUCCESS,props<{id:string}>())
+export const deleteProductsFailAction = createAction(PRODUCT_DELETE_FAIL,props<{id:string}>())
