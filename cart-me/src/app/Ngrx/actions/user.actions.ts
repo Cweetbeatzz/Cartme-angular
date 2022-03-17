@@ -21,7 +21,7 @@ import {
 
 //#######################################################
 
-export const getAllUsersRequestAction =  createAction(USER_LIST_REQUEST,props<{users:Customers}>())
+export const getAllUsersRequestAction =  createAction(USER_LIST_REQUEST)
 export const getAllUsersSuccessAction =  createAction(USER_LIST_SUCCESS,props<{users:Customers[]}>())
 export const getAllUsersFailAction =  createAction(USER_LIST_FAIL,props<{users:Customers}>())
 

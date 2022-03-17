@@ -95,9 +95,6 @@ export class UsersService {
 
     return this.http.get<Customers[]>(this.ApiUrl + '/api/Account/get' ).pipe(map((data )=>{
       const users:Customers[] = [];
-      for (let key in data) {
-        users.push({...data[key], id:key})
-      }
       return users
     }));
 

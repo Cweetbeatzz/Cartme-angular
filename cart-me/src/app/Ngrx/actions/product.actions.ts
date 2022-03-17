@@ -21,7 +21,7 @@ import {
    PRODUCT_UPDATE_SUCCESS } from "../constants/product.constants";
 
 
-export const getAllProductsRequestAction = createAction(PRODUCT_LIST_REQUEST,props<{products:Products}>())
+export const getAllProductsRequestAction = createAction(PRODUCT_LIST_REQUEST,)
 export const getAllProductsSuccessAction = createAction(PRODUCT_LIST_SUCCESS,props<{products:Products[]}>())
 export const getAllProductsFailAction = createAction(PRODUCT_LIST_FAIL,props<{products:Products}>())
  

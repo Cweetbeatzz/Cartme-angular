@@ -46,8 +46,8 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
 
  get$ = createEffect(() => {
   return this.action$.pipe(ofType(getAllCategoriesRequestAction),mergeMap((action)=>{
-   return this.categoryservice.GetAllCategory().pipe(map((data)=> {
-    return getAllCategoriesSuccessAction({data});
+   return this.categoryservice.GetAllCategory().pipe(map((category) => {
+    return getAllCategoriesSuccessAction({category});
    }) )
   }))
  })

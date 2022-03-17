@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Categories } from 'src/app/models/Categories/categories';
 import { environment } from 'src/environments/environment';
 
@@ -13,8 +15,11 @@ export class CategoriesService {
 
   //#########################################################################################
 
-  GetAllCategory() {
-    return this.http.get(this.APIURL + '/api/Categories/')
+  GetAllCategory():Observable<Categories[]> {
+    return this.http.get(this.APIURL + '/api/Categories/').pipe(map((data)=>{
+      const categories:Categories[] = [];
+      return categories
+    }))
   }
   //#########################################################################################
   UploadCategory(category: Categories) {

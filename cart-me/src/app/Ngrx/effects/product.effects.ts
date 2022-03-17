@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { exhaustMap, map } from "rxjs/operators";
+import { exhaustMap, map, mergeMap } from "rxjs/operators";
 import { ProductsService } from "src/app/services/Product/products.service";
 import { createCategorySuccessAction } from "../actions/category.action";
 import { 
@@ -46,8 +46,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
  //##########################################################
 
  get$ = createEffect(() => {
-  return this.action$.pipe(ofType(getAllProductsRequestAction),exhaustMap((action)=>{
-   return this.productservice.GetAllProduct(action.products).pipe(map((products)=> {
+  return this.action$.pipe(ofType(getAllProductsRequestAction),mergeMap((action)=>{
+   return this.productservice.GetAllProduct().pipe(map((products)=> {
     return getAllProductsSuccessAction({products});
    }) )
   }))

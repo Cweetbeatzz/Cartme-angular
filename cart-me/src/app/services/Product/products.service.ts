@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Products } from 'src/app/models/Products/products';
 import { environment } from 'src/environments/environment';
 
@@ -14,12 +15,15 @@ export class ProductsService {
 
   //#########################################################################################
 
-  GetAllProduct(product: Products) {
-    return this.http.get(this.APIURL + '/api/Food/')
+  GetAllProduct() {
+    return this.http.get(this.APIURL + '/api/Food/').pipe(map((data)=>{
+      const products:Products[] = []
+      return products
+    }))
   }
    //#########################################################################################
 
-  GetProductById(product: Products) {
+  GetProductById(id:string) {
     return this.http.get(this.APIURL + '/api/Food/{id}')
   }
      //#########################################################################################
