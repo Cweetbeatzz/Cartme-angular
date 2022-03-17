@@ -24,9 +24,9 @@ export const getAllCategoriesFailAction = createAction(CATEGORY_LIST_FAIL,props<
 
 //#######################################################
 
-export const getAllCategoriesByIdRequestAction = createAction(CATEGORY_DETAILS_REQUEST,props<{category:Categories}>())
-export const getAllCategoriesByIdSuccessAction = createAction(CATEGORY_DETAILS_SUCCESS,props<{category:Categories}>())
-export const getAllCategoriesByIdFailAction = createAction(CATEGORY_DETAILS_FAIL,props<{category:Categories}>())
+export const getAllCategoriesByIdRequestAction = createAction(CATEGORY_DETAILS_REQUEST,props<{id:string}>())
+export const getAllCategoriesByIdSuccessAction = createAction(CATEGORY_DETAILS_SUCCESS,props<{id:string}>())
+export const getAllCategoriesByIdFailAction = createAction(CATEGORY_DETAILS_FAIL,props<{id:string}>())
 
 //#######################################################
 

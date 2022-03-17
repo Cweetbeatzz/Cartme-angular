@@ -24,7 +24,7 @@ export class ProductsService {
    //#########################################################################################
 
   GetProductById(id:string) {
-    return this.http.get(this.APIURL + '/api/Food/{id}')
+    return this.http.get(`${this.APIURL}/api/Food/${id}`)
   }
      //#########################################################################################
 

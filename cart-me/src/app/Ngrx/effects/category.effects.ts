@@ -36,9 +36,8 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
 
  getById$ = createEffect(() => {
   return this.action$.pipe(ofType(getAllCategoriesByIdRequestAction),exhaustMap((action)=>{
-   return this.categoryservice.GetCategoryById(action.category).pipe(map((data)=> {
-    const allCategoriesById = this.categoryservice.GetCategoryById(data)
-    return getAllCategoriesByIdSuccessAction({allCategoriesById});
+   return this.categoryservice.GetCategoryById(action.id).pipe(map((data)=> {
+    return getAllCategoriesByIdSuccessAction({id:action.id});
    }) )
   }))
  })

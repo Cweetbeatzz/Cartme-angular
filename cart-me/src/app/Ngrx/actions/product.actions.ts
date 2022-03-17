@@ -33,9 +33,9 @@ export const getAllProductsByCategoryFailAction = createAction(PRODUCT_CATEGORY_
 
 //#######################################################
 
-export const getProductsByIdRequestAction = createAction(PRODUCT_DETAILS_REQUEST,props<{products:Products}>())
-export const getProductsByIdSuccessAction = createAction(PRODUCT_DETAILS_SUCCESS,props<{products:Products}>())
-export const getProductsByIdFailAction = createAction(PRODUCT_DETAILS_FAIL,props<{products:Products}>())
+export const getProductsByIdRequestAction = createAction(PRODUCT_DETAILS_REQUEST,props<{id:string}>())
+export const getProductsByIdSuccessAction = createAction(PRODUCT_DETAILS_SUCCESS,props<{id:string}>())
+export const getProductsByIdFailAction = createAction(PRODUCT_DETAILS_FAIL,props<{id:string}>())
  
  //#######################################################
  

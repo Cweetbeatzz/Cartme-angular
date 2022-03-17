@@ -37,9 +37,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
 
  getById$ = createEffect(() => {
   return this.action$.pipe(ofType(getProductsByIdRequestAction),exhaustMap((action)=>{
-   return this.productservice.GetProductById(action.products).pipe(map((data)=> {
-    const ProductsById = this.productservice.GetProductById(products)
-    return getProductsByIdSuccessAction({products});
+   return this.productservice.GetProductById(action.id).pipe(map((data)=> {
+    return getProductsByIdSuccessAction({id:action.id});
    }) )
   }))
  })
