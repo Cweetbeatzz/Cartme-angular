@@ -4,7 +4,6 @@ export interface AuthState{
 auth:Login[]
 }
 
-export const initialState :Login ={
- Password: "",
- Email: ""
+export const initialState :AuthState ={
+ auth: []
 };

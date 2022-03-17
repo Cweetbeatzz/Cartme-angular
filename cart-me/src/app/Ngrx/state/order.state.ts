@@ -4,9 +4,6 @@ export interface OrderState{
  order:Order[]
 }
 
-export const initialSate:Order={
- userId: "",
- products: [],
- amount: 0,
- qty: 0
+export const initialSate:OrderState={
+ order: []
 }

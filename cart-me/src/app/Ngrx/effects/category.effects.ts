@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { exhaustMap, map } from "rxjs/operators";
+import { exhaustMap, map, mergeMap } from "rxjs/operators";
 import { CategoriesService } from "src/app/services/Categories/categories.service";
 import { 
  createCategoryRequestAction,
@@ -45,10 +45,9 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
  //##########################################################
 
  get$ = createEffect(() => {
-  return this.action$.pipe(ofType(getAllCategoriesRequestAction),exhaustMap((action)=>{
-   return this.categoryservice.GetAllCategory(action.category).pipe(map((data)=> {
-    const allCategories = this.categoryservice.GetAllCategory(data)
-    return getAllCategoriesSuccessAction({allCategories});
+  return this.action$.pipe(ofType(getAllCategoriesRequestAction),mergeMap((action)=>{
+   return this.categoryservice.GetAllCategory().pipe(map((data)=> {
+    return getAllCategoriesSuccessAction({data});
    }) )
   }))
  })

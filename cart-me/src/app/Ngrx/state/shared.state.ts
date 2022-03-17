@@ -6,6 +6,5 @@ export interface SharedState{
 }
 
 
-export const initialState:Shared = {
- loading: false
+export const initialState:SharedState = {
 }

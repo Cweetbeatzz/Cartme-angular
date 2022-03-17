@@ -11,6 +11,9 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { UsersComponent } from './users/users.component';
+import { EffectsModule } from "@ngrx/effects";
+import { AuthEffects } from "src/app/Ngrx/effects/auth.effects";
+import { UserEffects } from "src/app/Ngrx/effects/user.effects";
 
 const routes:Routes = [
    {
@@ -54,7 +57,9 @@ const routes:Routes = [
      UserRolesComponent,
      UsersComponent,
  ],
- imports:[CommonModule,ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),]
+ imports:[CommonModule,
+  ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),
+  EffectsModule.forFeature([AuthEffects,UserEffects])]
 })
 
 export class UserModule{}

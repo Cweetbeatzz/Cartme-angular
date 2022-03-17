@@ -5,6 +5,6 @@ export interface CategoryState{
  categories:Categories[]
 }
 
-export const initialState:Categories={
- name: ""
+export const initialState:CategoryState={
+ categories: []
 }

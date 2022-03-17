@@ -38,8 +38,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
  getById$ = createEffect(() => {
   return this.action$.pipe(ofType(getProductsByIdRequestAction),exhaustMap((action)=>{
    return this.productservice.GetProductById(action.products).pipe(map((data)=> {
-    const ProductsById = this.productservice.GetProductById(data)
-    return getProductsByIdSuccessAction({ProductsById});
+    const ProductsById = this.productservice.GetProductById(products)
+    return getProductsByIdSuccessAction({products});
    }) )
   }))
  })
@@ -47,9 +47,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
 
  get$ = createEffect(() => {
   return this.action$.pipe(ofType(getAllProductsRequestAction),exhaustMap((action)=>{
-   return this.productservice.GetAllProduct(action.products).pipe(map((data)=> {
-    const allProducts = this.productservice.GetAllProduct(data)
-    return getAllProductsSuccessAction({allProducts});
+   return this.productservice.GetAllProduct(action.products).pipe(map((products)=> {
+    return getAllProductsSuccessAction({products});
    }) )
   }))
  })
