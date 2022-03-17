@@ -79,9 +79,8 @@ export class UsersService {
 
   }
   //#######################################################################
-  EditUser(formData: Customers) {
-
-    return this.http.put(this.ApiUrl + '/api/Account/Edit', formData);
+  EditUser(data: Customers) {
+    return this.http.put(this.ApiUrl + '/api/Account/Edit', data);
 
   }
   //#######################################################################

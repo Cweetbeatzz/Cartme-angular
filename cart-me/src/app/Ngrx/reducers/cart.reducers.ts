@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store"
 import { Cartitems } from "src/app/models/CartItems/cartitems"
 import { createCartAction, deleteCartAction } from "../actions/cart.actions"
-import { initialState } from "../state/cart.state"
+import { CartState, initialState } from "../state/cart.state"
 
 const _cartReducer = createReducer(
  initialState,
@@ -21,6 +21,6 @@ const _cartReducer = createReducer(
 
 //##################################################################
 
-export const cartReducer = (state: Cartitems | undefined,action: Action)=>{
+export const cartReducer = (state: CartState | undefined,action: Action)=>{
   return _cartReducer(state,action)
 }

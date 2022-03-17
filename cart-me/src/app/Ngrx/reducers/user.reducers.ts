@@ -1,5 +1,4 @@
 import {Action, createReducer, on} from '@ngrx/store'
-import { Customers } from 'src/app/models/Customers/customers';
 import { 
   CreateUsersFailAction,
   CreateUsersRequestAction,
@@ -17,7 +16,7 @@ import {
   UpdateUsersRequestAction,
   UpdateUsersSuccessAction} from '../actions/user.actions';
 
-import { initialState } from '../state/user.state';
+import { initialState, UserState } from '../state/user.state';
 
 //##################################################################
 
@@ -66,7 +65,7 @@ import { initialState } from '../state/user.state';
  on(UpdateUsersSuccessAction,(state,action)=>{
    let oldState = {...state}
    //
-   const updatedUser = state.oldState.map((user)=>{
+   const updatedUser = state.users.map((user)=>{
      return action.users.id === user.id? action.users : user
    })
    return {...state, users:updatedUser}
@@ -82,7 +81,7 @@ import { initialState } from '../state/user.state';
  }),
  on(DeleteUsersSuccessAction,(state,{id})=>{
    //
-   const deleteUser = state.user.filter((user)=>{
+   const deleteUser = state.users.filter((user)=>{
      return user.id !== id
    })
    return {...state,users:deleteUser}
@@ -93,7 +92,7 @@ import { initialState } from '../state/user.state';
 
 //##################################################################
 
-export const userReducer = (state: Customers | undefined,action: Action)=>{
+export const userReducer = (state: UserState | undefined,action: Action)=>{
   return _userReducer(state,action)
 }
 

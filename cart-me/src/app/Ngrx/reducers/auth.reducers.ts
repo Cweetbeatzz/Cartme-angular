@@ -4,7 +4,7 @@ import {
  loginUsersFailAction, 
  loginUsersRequestAction, 
  loginUsersSuccessAction } from "../actions/auth.actions"
-import { initialState } from "../state/auth.state"
+import { AuthState, initialState } from "../state/auth.state"
 
 //##################################################################
 
@@ -23,6 +23,6 @@ const _authReducer = createReducer(
 
 //##################################################################
 
-export const authReducer = (state: Login | undefined, action: Action) => {
+export const authReducer = (state: AuthState | undefined, action: Action) => {
  return _authReducer(state,action)
 }

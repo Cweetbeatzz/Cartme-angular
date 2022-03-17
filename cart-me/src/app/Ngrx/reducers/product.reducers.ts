@@ -1,5 +1,4 @@
 import { Action, createReducer, on } from "@ngrx/store"
-import { Products } from "src/app/models/Products/products"
 import { 
   createProductsFailAction,
   createProductsRequestAction,
@@ -19,7 +18,7 @@ import {
   updateProductsFailAction, 
   updateProductsRequestAction,
   updateProductsSuccessAction} from "../actions/product.actions"
-import { initialState } from "../state/product.state"
+import { initialState, ProductState } from "../state/product.state"
 
 //##################################################################
 
@@ -68,7 +67,8 @@ import { initialState } from "../state/product.state"
    return {...state,}
  }),
  on(createProductsSuccessAction,(state,action)=>{
-   return {...state,}
+    let prod = {...action.products}
+    return {...state,products:[...state.products]}
  }),
  on(createProductsFailAction,(state,action)=>{
    return {...state,}
@@ -80,7 +80,13 @@ import { initialState } from "../state/product.state"
    return {...state,}
  }),
  on(updateProductsSuccessAction,(state,action)=>{
-   return {...state,}
+
+   let oldState = {...state}
+    const updatedProduct = state.products.map((prod) => {
+     return action.products.id === prod.id? action.products : prod
+   })
+
+   return {...state,updatedProduct}
  }),
  on(updateProductsFailAction,(state,action)=>{
    return {...state,}
@@ -91,8 +97,12 @@ import { initialState } from "../state/product.state"
  on(deleteProductsRequestAction,(state,action)=>{
    return {...state,}
  }),
- on(deleteProductsSuccessAction,(state,action)=>{
-   return {...state,}
+ on(deleteProductsSuccessAction,(state,{id})=>{
+   //
+   const deleteProduct = state.products.filter((prod)=>{
+     return prod.id !== id
+   })
+   return {...state,products:deleteProduct}
  }),
  on(deleteProductsFailAction,(state,action)=>{
    return {...state,}
@@ -100,6 +110,6 @@ import { initialState } from "../state/product.state"
 
  )
 
- export const productReducer = (state: Products | undefined,action: Action) => {
+ export const productReducer = (state: ProductState | undefined,action: Action) => {
    return _productReducer(state,action)
  }

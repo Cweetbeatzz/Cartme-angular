@@ -1,5 +1,4 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { Categories } from "src/app/models/Categories/categories";
 import { 
  createCategoryFailAction,
  createCategoryRequestAction,
@@ -16,7 +15,7 @@ import {
  updateCategoryFailAction,
  updateCategoryRequestAction,
  updateCategorySuccessAction} from "../actions/category.action";
-import { initialState } from "../state/category.state";
+import { CategoryState, initialState } from "../state/category.state";
 
 const _categoryReducer = createReducer(
  initialState,
@@ -50,7 +49,7 @@ const _categoryReducer = createReducer(
  }),
  on(createCategorySuccessAction,(state,action)=>{
    let cat = {...action.category}
-   return {...state,action:cat}
+   return {...state,category:[...state.categories]}
  }),
  on(createCategoryFailAction,(state,action)=>{
    return {...state,}
@@ -65,8 +64,8 @@ const _categoryReducer = createReducer(
 
    let oldState = {...state}
    
-   const updatedCategory = state.oldState.map((user)=>{
-     return action.users.id === user.id? action.users : user
+   const updatedCategory = state.categories.map((user) => {
+     return action.category.id === user.id? action.category : user
    })
    return {...state,updatedCategory}
  }),
@@ -79,13 +78,12 @@ const _categoryReducer = createReducer(
  on(deleteCategoryRequestAction,(state,action)=>{
    return {...state,}
  }),
- on(deleteCategorySuccessAction,(state,action)=>{
-
-   const checkedId = state.category.filter((cat)=>{
-     return cat.id !== id;
+ on(deleteCategorySuccessAction,(state,{id})=>{
+   //
+   const deleteCategory = state.categories.filter((cat)=>{
+     return id !== cat.id
    })
-   
-   return {...state,checkedId}
+   return {...state,categories:deleteCategory}
  }),
  on(deleteCategoryFailAction,(state,action)=>{
    return {...state,}
@@ -93,6 +91,6 @@ const _categoryReducer = createReducer(
 
  //##################################################################
 
- export const categoryReducer = (state: Categories | undefined,action: Action)=>{
+ export const categoryReducer = (state: CategoryState | undefined,action: Action)=>{
   return _categoryReducer(state,action)
  }

@@ -7,7 +7,7 @@ import {
  getOrderDetailsByIdFailAction, 
  getOrderDetailsByIdRequestAction, 
  getOrderDetailsByIdSuccessAction } from "../actions/order.actions";
-import { initialSate } from "../state/order.state";
+import { initialSate, OrderState } from "../state/order.state";
 
 const _orderReducer = createReducer(
  initialSate,
@@ -34,11 +34,10 @@ const _orderReducer = createReducer(
  on(getOrderDetailsByIdFailAction,(state,action)=>{
  return {...state}
 }),
-//##################################################################
 )
 
 //##################################################################
 
-export const orderReducer = (state: Order | undefined,action: Action)=>{
+export const orderReducer = (state: OrderState | undefined,action: Action)=>{
   return _orderReducer(state,action)
 }
