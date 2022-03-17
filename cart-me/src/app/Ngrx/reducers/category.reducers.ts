@@ -80,7 +80,12 @@ const _categoryReducer = createReducer(
    return {...state,}
  }),
  on(deleteCategorySuccessAction,(state,action)=>{
-   return {...state,}
+
+   const checkedId = state.category.filter((cat)=>{
+     return cat.id !== id;
+   })
+   
+   return {...state,checkedId}
  }),
  on(deleteCategoryFailAction,(state,action)=>{
    return {...state,}

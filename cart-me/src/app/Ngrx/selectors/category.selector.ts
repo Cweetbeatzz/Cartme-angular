@@ -12,3 +12,7 @@ export const getCategory = createSelector(getCategoryState,(state)=>{
 export const getCategoryById = createSelector(getCategoryState,(state: { categories: { [x: string]: any } },props:any)=>{
  return state.categories.find((category: any) => category.id === props.id)
 })
+
+export const delCategoryById = createSelector(getCategoryState,(state)=>{
+ 
+})

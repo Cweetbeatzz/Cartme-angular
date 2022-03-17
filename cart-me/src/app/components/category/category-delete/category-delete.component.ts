@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { deleteCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
 import { AppState } from 'src/app/Ngrx/store/app.state';
@@ -10,12 +11,13 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
 })
 export class CategoryDeleteComponent implements OnInit {
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>,private reroute:Router) { }
 
   ngOnInit(): void {
   }
 
-  DeleteCategories() {
-    this.store.dispatch(deleteCategorySuccessAction())
+  DeleteCategory(id:string) {
+    this.store.dispatch(deleteCategorySuccessAction({id:id}));
+    this.reroute.navigate(['category'])
   }
 }

@@ -42,6 +42,6 @@ export const updateCategoryFailAction = createAction(CATEGORY_UPDATE_FAIL,props<
 
 //#######################################################
 
-export const deleteCategoryRequestAction = createAction(CATEGORY_DELETE_REQUEST,props<{category:Categories}>())
-export const deleteCategorySuccessAction = createAction(CATEGORY_DELETE_SUCCESS,props<{category:Categories}>())
-export const deleteCategoryFailAction = createAction(CATEGORY_DELETE_FAIL,props<{category:Categories}>())
+export const deleteCategoryRequestAction = createAction(CATEGORY_DELETE_REQUEST,props<{id:string}>())
+export const deleteCategorySuccessAction = createAction(CATEGORY_DELETE_SUCCESS,props<{id:string}>())
+export const deleteCategoryFailAction = createAction(CATEGORY_DELETE_FAIL,props<{id:string}>())

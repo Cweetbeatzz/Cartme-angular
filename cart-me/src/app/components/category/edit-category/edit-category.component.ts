@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Categories } from 'src/app/models/Categories/categories';
@@ -21,7 +21,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
   CategoryForm: FormGroup = new FormGroup({});
   categorySub: Subscription = new Subscription;
 
-  constructor(private route:ActivatedRoute,private store: Store<AppState>) { }
+  constructor(private reroute:Router,private route:ActivatedRoute,private store: Store<AppState>) { }
 
  //##################################################################
 
@@ -71,6 +71,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
      name: this.CategoryForm.value.name
     }
     this.store.dispatch(updateCategorySuccessAction({category:catForm}))
+    this.reroute.navigate(['category'])
   }
 
   //##################################################################
