@@ -21,10 +21,6 @@ export class RegisterComponent implements OnInit {
 
   // ##########################################
 
-   // ##########################################
-  RegistrationForm: FormGroup = new FormGroup({});
-   UserModel: Customers | undefined ;
-
   ngOnInit() {
       //reset form after every successfull reg
   }
@@ -32,8 +28,7 @@ export class RegisterComponent implements OnInit {
   // ########################################## ||  ##########################################
   // ########################################## ||  ##########################################
   // ########################################## ||  ##########################################
- formCreate(){
-   this.RegistrationForm = new FormGroup({
+    RegistrationForm: FormGroup = new FormGroup({
       id: new FormControl(),
       Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
       lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
@@ -44,7 +39,6 @@ export class RegisterComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl(null,[ Validators.required])
    })
- }
 // ##########################################
 // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
