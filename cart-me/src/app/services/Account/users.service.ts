@@ -16,34 +16,34 @@ export class UsersService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
-  formModel = this.fb.group({
-    Firstname: ['', Validators.required],
-    Lastname: ['', Validators.required],
-    Username: ['', Validators.required],
-    Email: ['', Validators.email],
-    Address: ['', Validators.required],
-    State: ['', Validators.required],
-    Country: ['', Validators.required],
-    Phone: ['', Validators.required],
-    PostalCode: ['', Validators.required],
+  // formModel = this.fb.group({
+  //   Firstname: ['', Validators.required],
+  //   Lastname: ['', Validators.required],
+  //   Username: ['', Validators.required],
+  //   Email: ['', Validators.email],
+  //   Address: ['', Validators.required],
+  //   State: ['', Validators.required],
+  //   Country: ['', Validators.required],
+  //   Phone: ['', Validators.required],
+  //   PostalCode: ['', Validators.required],
 
 
-    Passwords: this.fb.group({
-      Password: ['', [Validators.required, Validators.minLength(6)]],
-      ConfirmPassword: ['', Validators.required]
-    }, { Validators: this.comparePasswords })
-  });
+  //   Passwords: this.fb.group({
+  //     Password: ['', [Validators.required, Validators.minLength(6)]],
+  //     ConfirmPassword: ['', Validators.required]
+  //   }, { Validators: this.comparePasswords })
+  // });
 
-  comparePasswords(fb: FormGroup) {
-    let comfrimpassctrl = fb.get('ConfirmPassword')
-    if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
-      if (fb.get('Password')?.value != comfrimpassctrl?.value) {
-        comfrimpassctrl?.setErrors({ passwordMisMatch: true })
-      } else {
-        comfrimpassctrl?.setErrors(null);
-      }
-    }
-  }
+  // comparePasswords(fb: FormGroup) {
+  //   let comfrimpassctrl = fb.get('ConfirmPassword')
+  //   if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
+  //     if (fb.get('Password')?.value != comfrimpassctrl?.value) {
+  //       comfrimpassctrl?.setErrors({ passwordMisMatch: true })
+  //     } else {
+  //       comfrimpassctrl?.setErrors(null);
+  //     }
+  //   }
+  // }
   //#######################################################################
   // Register() {
   //   var body = {

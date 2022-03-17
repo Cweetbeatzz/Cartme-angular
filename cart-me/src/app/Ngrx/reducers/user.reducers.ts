@@ -51,7 +51,8 @@ import { initialState } from '../state/user.state';
    return {...state,}
  }),
  on(CreateUsersSuccessAction,(state,action)=>{
-   return {...state,action:action.users}
+   let user = {...action.users}
+   return {...state,action:user}
  }),
  on(CreateUsersFailAction,(state,action)=>{
    return {...state,}
