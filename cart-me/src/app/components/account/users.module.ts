@@ -10,17 +10,30 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
+import { UsersComponent } from './users/users.component';
 
 const routes:Routes = [
    {
     path:'',
-    component:RegisterComponent,
+    component:UsersComponent,
     children:[
     {
       path: 'login', component: LoginComponent
     },
     {
       path: 'register', component: RegisterComponent
+    },
+    {
+      path: 'editUser', component: UserEditComponent
+    },
+    {
+      path: 'users', component: UsersComponent
+    },
+    {
+      path: 'deleteUser', component: UserDeleteComponent
+    },
+    {
+      path: 'rolesUser', component: UserRolesComponent
     },
     {
       path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
@@ -39,6 +52,7 @@ const routes:Routes = [
      UserDeleteComponent,
      UserUpdateComponent,
      UserRolesComponent,
+     UsersComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),]
 })

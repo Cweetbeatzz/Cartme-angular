@@ -14,6 +14,7 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
 export class CategoriesComponent implements OnInit {
 
   categories: Observable<Categories[]> | undefined ;
+  categoriesAll: Categories[] = [];
   
   constructor(private store: Store<AppState>) { }
 
@@ -21,9 +22,9 @@ export class CategoriesComponent implements OnInit {
     this.categories = this.store.select(getCategory)
   }
 
-  // GetAllCategories() {
-  //   this.store.dispatch(getAllCategoriesSuccessAction())
-  // }
+  GetAllCategories() {
+    this.store.dispatch(getAllCategoriesSuccessAction({category:this.categoriesAll}))
+  }
 
 
  

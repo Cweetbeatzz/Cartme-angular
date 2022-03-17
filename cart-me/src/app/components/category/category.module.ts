@@ -21,6 +21,9 @@ const routes:Routes = [
     {
       path: 'editcategory/:id', component: EditCategoryComponent
     },
+    {
+      path: 'deletecategory/:id', component: CategoryDeleteComponent
+    },
     ]
     
    }
