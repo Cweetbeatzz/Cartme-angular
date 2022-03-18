@@ -1,1 +1,88 @@
-<p>user-delete works!</p>
+
+<br />
+<div class="container">
+ <div class="text-center">
+  <div class="text-center">
+   <h1><strong>LOGIN</strong></h1>
+  </div>
+
+  <h3>Are you sure you want to delete your Account?</h3>
+  <div>
+   <hr />
+   <dl class="row text-center p-3">
+    <dt class="col-sm-2">
+     Firstname
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Firstname)
+    </dd>
+    <dt class="col-sm-2">
+     Lastname
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Lastname)
+    </dd>
+    <dt class="col-sm-2">
+     Username
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Username)
+    </dd>
+    <dt class="col-sm-2">
+     Email
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.email)
+    </dd>
+    <dt class="col-sm-2">
+     Address
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Address)
+    </dd>
+    <dt class="col-sm-2">
+     Phone
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Phone)
+    </dd>
+    <dt class="col-sm-2">
+     State
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.State)
+    </dd>
+    <dt class="col-sm-2">
+     Country
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Country)
+    </dd>
+    <dt class="col-sm-2">
+     PostalCode
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.PostalCode)
+    </dd>
+    <dt class="col-sm-2">
+     Password
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.Password)
+    </dd>
+    <dt class="col-sm-2">
+     Confirm Password
+    </dt>
+    <dd class="col-sm-10">
+     @Html.DisplayFor(model => model.ConfirmPassword)
+    </dd>
+   </dl>
+
+   <form asp-action="DeleteUser">
+    <input type="hidden" asp-for="Id" />
+    <a class="btn btn-danger text-white" id="login" value="Delete"><strong>DELETE</strong></a> |
+    <a asp-action="Index" ><strong>BACK TO HOME</strong></a>
+   </form>
+  </div>
+ </div>
+</div>

@@ -14,6 +14,8 @@ import { UsersComponent } from './users/users.component';
 import { EffectsModule } from "@ngrx/effects";
 import { AuthEffects } from "src/app/Ngrx/effects/auth.effects";
 import { UserEffects } from "src/app/Ngrx/effects/user.effects";
+import { UserChangePasswordComponent } from './user-change-password/user-change-password.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes:Routes = [
    {
@@ -56,6 +58,8 @@ const routes:Routes = [
      UserUpdateComponent,
      UserRolesComponent,
      UsersComponent,
+     UserChangePasswordComponent,
+     UserDashboardComponent,
  ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),

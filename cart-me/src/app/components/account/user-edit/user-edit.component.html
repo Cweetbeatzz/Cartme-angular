@@ -1,1 +1,84 @@
-<p>user-edit works!</p>
+
+<br />
+<div class="container">
+    <div class="text-center">
+        <div class="text-center">
+            <h1><strong>EDIT ACCOUNT</strong></h1>
+        </div>
+
+        <hr />
+        <div class="row text-center p-3">
+            <div class="col-md-6 mx-auto">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input type="text" name="Firstname" value="" placeholder="Firstname" asp-for="Firstname" class="form-control" />
+                        <span asp-validation-for="Firstname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Lastname" value="" placeholder="Lastname" asp-for="Lastname" class="form-control" />
+                        <span asp-validation-for="Lastname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Username" value="" placeholder="Username" asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="email" name="email" value="" placeholder="Email" asp-for="email" class="form-control" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="Address" value="" placeholder="Address" asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="Phone" value="" placeholder="Phone" asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="State" value="" placeholder="State" asp-for="State" class="form-control" />
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="Country" value="" placeholder="Country" asp-for="Country" class="form-control" />
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="PostalCode" value="" placeholder="PostalCode" asp-for="PostalCode" class="form-control" />
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="password" name="Password" value="" placeholder="Password" asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+         
+                    <div class="form-group">
+                        <button type="submit" value="Edit" class="btn btn-primary"><strong>SUBMIT</strong></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="text-center">
+            <a asp-action="Index" asp-controller="Home"><strong>BACK TO HOME</strong></a>
+        </div>
+    </div>
+</div>
+
+   

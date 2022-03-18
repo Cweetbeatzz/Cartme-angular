@@ -1,8 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { exhaustMap, map, mergeMap, switchMap} from 'rxjs/operators'
+import { of } from "rxjs";
+import { catchError, exhaustMap, map, mergeMap, switchMap} from 'rxjs/operators'
 import { UsersService } from "src/app/services/Account/users.service";
 import { 
+  CreateUsersFailAction,
  CreateUsersRequestAction, 
  CreateUsersSuccessAction, 
  DeleteUsersRequestAction, 
@@ -29,7 +31,7 @@ constructor (private action$: Actions, private userservice:UsersService){}
    return this.userservice.Register(action.users).pipe(map((newUser)=> {
      const user = {...action.users}
     return CreateUsersSuccessAction({users:user});
-   }) )
+   }),catchError((error) => of(CreateUsersFailAction)) )
   }))
  })
  //##########################################################
