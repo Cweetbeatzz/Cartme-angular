@@ -44,6 +44,11 @@ const routes: Routes = [];
         x.ProductModule
       })
     },
+    // {
+    //   path: 'users', loadChildren:() => import('./components/account/users.module').then((x)=>{
+    //     x.UserModule
+    //   })
+    // },
     {
       path: '', component: HomeComponent
     },

@@ -1,5 +1,13 @@
 <br>
 <div class="container">
+    <div class="row col-md-6 mx-auto">
+      <button class="btn btn-outline-dark btnupload " [routerLink]="['/uploadproduct']" routerLinkActive="router-link-active">
+        <strong>
+          CREATE PRODUCT
+        </strong>
+      </button>
+    </div>
+    <br>
 <div>
    <div class="text-center">
     <h1><strong>PRODUCTS</strong></h1>
@@ -20,4 +28,8 @@
         </div>
     </div>
     </div>
+    </div>
+    </div>
+</div>
 
+<router-outlet></router-outlet>

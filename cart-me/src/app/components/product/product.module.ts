@@ -29,7 +29,6 @@ const routes:Routes = [
       path: 'properties', component: DetailPropertiesComponent
     },
     ]
-    
    }
 ]
 
@@ -41,7 +40,8 @@ const routes:Routes = [
     DetailPropertiesComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, 
-  FormsModule,RouterModule.forChild(routes),StoreModule.forFeature(PRODUCT_STATE_NAME,productReducer)]
+  FormsModule,RouterModule.forChild(routes),
+  StoreModule.forFeature(PRODUCT_STATE_NAME,productReducer)]
 })
 
 export class ProductModule{}

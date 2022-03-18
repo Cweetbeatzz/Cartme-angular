@@ -8,7 +8,6 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
-import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { UsersComponent } from './users/users.component';
 import { EffectsModule } from "@ngrx/effects";
@@ -20,7 +19,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 const routes:Routes = [
    {
     path:'',
-    component:UsersComponent,
+    component: UsersComponent,
     children:[
     {
       path: 'login', component: LoginComponent
@@ -55,7 +54,6 @@ const routes:Routes = [
      AdminComponent,
      UserEditComponent,
      UserDeleteComponent,
-     UserUpdateComponent,
      UserRolesComponent,
      UsersComponent,
      UserChangePasswordComponent,

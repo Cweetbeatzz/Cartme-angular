@@ -29,6 +29,7 @@ import { ProductsService } from './services/Product/products.service';
 import { environment } from 'src/environments/environment';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AppReducer } from './Ngrx/store/app.state';
+import { UsersComponent } from './components/account/users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AppReducer } from './Ngrx/store/app.state';
     FooterComponent,
     ProductsComponent,
     CategoriesComponent,
+    UsersComponent,
     CartComponent,
     LoadingSpinnerComponent,
   ],

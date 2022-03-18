@@ -14,13 +14,13 @@ constructor (private action$: Actions, private authservice:UsersService){}
 
  //##########################################################
 
- login$ = createEffect(() => {
-  return this.action$.pipe(ofType(loginUsersRequestAction),exhaustMap((action)=>{
-   return this.authservice.Login(action.cust).pipe(map((data)=> {
-    return loginUsersSuccessAction(data);
-   }) )
-  }))
- })
+ // login$ = createEffect(() => {
+ //  return this.action$.pipe(ofType(loginUsersRequestAction),exhaustMap((action)=>{
+ //   return this.authservice.Login(action.cust).pipe(map((data)=> {
+ //    return loginUsersSuccessAction(data);
+ //   }) )
+ //  }))
+ // })
 
  //##########################################################
 
