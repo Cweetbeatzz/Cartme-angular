@@ -41,7 +41,6 @@ import { UsersComponent } from './components/account/users/users.component';
     SearchComponent,
     CheckoutComponent,
     FooterComponent,
-    ProductsComponent,
     CategoriesComponent,
     UsersComponent,
     CartComponent,

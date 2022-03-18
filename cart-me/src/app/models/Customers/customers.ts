@@ -10,5 +10,5 @@ export interface Customers {
  Phone: number,
  PostalCode: number,
  Password: string,
- ConfirmPassword: string
+ ConfirmPassword: string,
 }

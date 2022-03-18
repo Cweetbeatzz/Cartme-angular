@@ -13,8 +13,8 @@ import { ProductsuploadComponent } from "./productsupload/productsupload.compone
 
 const routes:Routes = [
    {
-    path:'',
-    component:ProductsComponent,
+    path:'',component:ProductsComponent,
+
     children:[
     {
       path: 'uploadproduct', component: ProductsuploadComponent

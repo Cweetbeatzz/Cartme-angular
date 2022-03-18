@@ -5,5 +5,5 @@ auth:Login[]
 }
 
 export const initialState :AuthState ={
- auth: []
+ auth: [],
 };
