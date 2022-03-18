@@ -26,9 +26,9 @@ constructor (private action$: Actions, private userservice:UsersService){}
 
  signup$ = createEffect(() => {
   return this.action$.pipe(ofType(CreateUsersRequestAction),mergeMap((action)=>{
-   return this.userservice.Register(action.users).pipe(map((users)=> {
-     const user = {...action.users,id:users}
-    return getAllUsersSuccessAction({user});
+   return this.userservice.Register(action.users).pipe(map((newUser)=> {
+     const user = {...action.users}
+    return CreateUsersSuccessAction({users:user});
    }) )
   }))
  })

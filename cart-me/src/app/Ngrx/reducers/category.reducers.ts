@@ -24,7 +24,7 @@ const _categoryReducer = createReducer(
    return {...state,}
  }),
  on(getAllCategoriesSuccessAction,(state,action)=>{
-   return {...state,}
+   return {...state,action:action.category}
  }),
  on(getAllCategoriesFailAction,(state,action)=>{
    return {...state,}

@@ -29,7 +29,7 @@ const _orderReducer = createReducer(
  return {...state}
 }),
  on(getOrderDetailsByIdSuccessAction,(state,action)=>{
- return {...state}
+ return {...state,action:action.order}
 }),
  on(getOrderDetailsByIdFailAction,(state,action)=>{
  return {...state}

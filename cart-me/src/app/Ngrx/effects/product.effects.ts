@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { exhaustMap, map, mergeMap } from "rxjs/operators";
 import { ProductsService } from "src/app/services/Product/products.service";
-import { createCategorySuccessAction } from "../actions/category.action";
 import { 
  createProductsRequestAction, 
+ createProductsSuccessAction, 
  deleteProductsRequestAction, 
  deleteProductsSuccessAction, 
  getAllProductsByCategoryRequestAction, 
@@ -28,8 +28,8 @@ constructor (private action$: Actions, private productservice:ProductsService){}
  create$ = createEffect(() => {
   return this.action$.pipe(ofType(createProductsRequestAction),exhaustMap((action)=>{
    return this.productservice.UploadProduct(action.products).pipe(map((data)=> {
-    const newProduct = this.productservice.UploadProduct(data)
-    return createCategorySuccessAction({newProduct});
+    const newProduct = {...action.products}
+    return createProductsSuccessAction({products:newProduct});
    }) )
   }))
  })

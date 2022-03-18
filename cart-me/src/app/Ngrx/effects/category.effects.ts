@@ -27,8 +27,8 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
  create$ = createEffect(() => {
   return this.action$.pipe(ofType(createCategoryRequestAction),exhaustMap((action)=>{
    return this.categoryservice.UploadCategory(action.category).pipe(map((data)=> {
-    const newCategory = this.categoryservice.UploadCategory(data)
-    return createCategorySuccessAction({newCategory});
+    const newCategory = {...action.category}
+    return createCategorySuccessAction({category:newCategory});
    }) )
   }))
  })

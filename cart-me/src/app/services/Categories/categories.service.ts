@@ -22,8 +22,8 @@ export class CategoriesService {
     }))
   }
   //#########################################################################################
-  UploadCategory(category: Categories) {
-    return this.http.post(this.APIURL + '/api/Categories/Create', category)
+  UploadCategory(category: Categories):Observable<Categories> {
+    return this.http.post<Categories>(this.APIURL + '/api/Categories/Create', category)
   }
   //#########################################################################################
 

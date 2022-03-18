@@ -31,7 +31,7 @@ import { initialState, ProductState } from "../state/product.state"
    return {...state,}
  }),
   on(getAllProductsSuccessAction,(state,action)=>{
-   return {...state,}
+   return {...state,action:action.products}
  }),
  on(getAllProductsFailAction,(state,action)=>{
    return {...state,}

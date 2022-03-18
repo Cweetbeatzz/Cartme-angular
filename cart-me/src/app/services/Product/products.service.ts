@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Products } from 'src/app/models/Products/products';
 import { environment } from 'src/environments/environment';
@@ -32,8 +33,8 @@ export class ProductsService {
     return this.http.get(this.APIURL + '/api/Food/{category}')
   }
   //#########################################################################################
-  UploadProduct(product: Products) {
-    return this.http.post(this.APIURL + '/api/Food/Create', product)
+  UploadProduct(product: Products):Observable<Products> {
+    return this.http.post<Products>(this.APIURL + '/api/Food/Create', product)
   }
   //#########################################################################################
 

@@ -62,19 +62,17 @@ export class UsersService {
   //   return this.http.post(this.ApiUrl + '/api/Account/Register', body);
   // }
 
-  Register(formData: Customers) {
-    return this.http.post(this.ApiUrl + '/api/Account/Register', formData);
+  Register(formData: Customers):Observable<Customers> {
+    return this.http.post<Customers>(this.ApiUrl + '/api/Account/Register', formData);
   }
 
   //#######################################################################
   Login(formData: Login) {
-
     return this.http.post(this.ApiUrl + '/api/Account/login', formData);
 
   }
   //#######################################################################
   LogOut(formData: Login) {
-
     return this.http.post(this.ApiUrl + '/api/Account/logout', formData);
 
   }
@@ -85,22 +83,18 @@ export class UsersService {
   }
   //#######################################################################
   DeleteUser(id:string) {
-
     return this.http.delete(`${this.ApiUrl}/api/Account/Delete/${id}`);
 
   }
   //#######################################################################
   getUser():Observable<Customers[]> {
-
     return this.http.get<Customers[]>(this.ApiUrl + '/api/Account/get' ).pipe(map((data )=>{
       const users:Customers[] = [];
       return users
     }));
-
   }
   //#######################################################################
   getUserById(id:string){
-
      return this.http.get(`${this.ApiUrl}/api/Account/getUserById/${id}`);
 
   }
