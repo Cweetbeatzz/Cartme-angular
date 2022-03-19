@@ -30,6 +30,7 @@ import { environment } from 'src/environments/environment';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AppReducer } from './Ngrx/store/app.state';
 import { UsersComponent } from './components/account/users/users.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { UsersComponent } from './components/account/users/users.component';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
+    StoreRouterConnectingModule.forRoot()
 
   ],
   providers: [CategoriesService, UsersService, ProductsService],

@@ -38,7 +38,7 @@ import { initialState, UserState } from '../state/user.state';
    return {...state,}
  }),
  on(getUsersByIdSuccessAction,(state,action)=>{
-   return {...state,}
+   return {...state,action:action.id}
  }),
  on(getUsersByIdFailAction,(state,action)=>{
    return {...state,}

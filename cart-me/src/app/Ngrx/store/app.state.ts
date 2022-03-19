@@ -1,3 +1,4 @@
+import { routerReducer, RouterReducerState } from "@ngrx/router-store";
 import { authReducer } from "../reducers/auth.reducers";
 import { categoryReducer } from "../reducers/category.reducers";
 import { productReducer } from "../reducers/product.reducers";
@@ -23,6 +24,8 @@ export interface AppState{
  cart:CartState
  //order
  order:OrderState
+ //router
+ router:RouterReducerState
 }
 
 export const AppReducer = {
@@ -33,5 +36,7 @@ export const AppReducer = {
  //product
  product: productReducer,
  //auth
- auth:authReducer
+ auth:authReducer,
+ //router
+ router:routerReducer
 }
