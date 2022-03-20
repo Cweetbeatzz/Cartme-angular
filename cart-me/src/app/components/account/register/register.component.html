@@ -11,68 +11,70 @@
         </div>
         <hr>
         <div class="card-body col-sm-8 w-100 mx-auto">
-            <form class="register-form w-100" method="POST" autocomplete="off" [formGroup]="RegistrationForm" (ngSubmit)="onCreateUser()">
+            <form class="register-form w-100 novalidate" method="POST" autocomplete="off" [formGroup]="RegistrationForm" (ngSubmit)="onCreateUser()">
                 <div class="form-group">
-                    <input placeholder="Firstname" required type="text" class="form-control" formControlName="Firstname" name="Firstname">
+                    <input placeholder="Firstname" required type="text" class="form-control" formControlName="firstname" name="firstname">
                     <div class="text-danger">
                         {{shoeFirstNameErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Lastname" required type="text" class="form-control" formControlName="Lastname" name="Lastname">
+                    <input placeholder="Lastname" required type="text" class="form-control" formControlName="lastname" name="lastname">
                     <div class="text-danger">
                         {{shoeLastNameErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Username" required type="text" class="form-control" formControlName="Username" name="Username">
+                    <input placeholder="Username" required type="text" class="form-control" formControlName="username" name="username">
                     <div class="text-danger">
                        {{shoeUserNameErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Email" type="text" required class="form-control" formControlName="Email" name="Email">
+                    <input placeholder="Email" type="text" required class="form-control" formControlName="email" name="email">
                     <div class="text-danger">
                         {{shoeEmailErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Address" type="text" required class="form-control" name="Address" formControlName="Address">
+                    <input placeholder="Address" type="text" required class="form-control" name="address" formControlName="address">
                     <div class="text-danger">
                         {{shoeAddressErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="State" type="text" required class="form-control" name="state" formControlName="State">
+                    <input placeholder="State" type="text" required class="form-control" name="state" formControlName="state">
                     <div class="text-danger">
                         {{shoePhoneErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Country" type="text" required class="form-control" name="country" formControlName="Country">
-                    <div class="text-danger">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input placeholder="Phone" type="text" required class="form-control" formControlName="Phone" name="Phone">
+                    <input placeholder="Country" type="text" required class="form-control" name="country" formControlName="country">
                     <div class="text-danger">
                         {{shoePhoneErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <input placeholder="PostalCode" type="text" required class="form-control" name="PostalCode" formControlName="PostalCode" />
+                    <input placeholder="Phone" type="tel" required class="form-control" formControlName="phone" name="phone">
                     <div class="text-danger">
+                        {{shoePhoneErrors()}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="PostalCode" type="number" required class="form-control" name="postalcode" formControlName="postalcode" />
+                    <div class="text-danger">
+                        {{shoePhoneErrors()}}
                     </div>
                 </div>
                 <div formGroupName="Passwords">
                     <div class="required form-group">
-                        <input placeholder="Password" type="password" required class="form-control" formControlName="Password" name="password">
+                        <input placeholder="Password" type="password" required class="form-control" formControlName="password" name="password">
                         <div class="text-danger">
                             {{shoePasswordErrors()}}
                         </div>
                     </div>
                     <div class="required form-group">
-                        <input placeholder="ConfirmPassword" type="password" required class="form-control" formControlName="ConfirmPassword" name="ConfirmPassword">
+                        <input placeholder="ConfirmPassword" type="password" required class="form-control" formControlName="confirmPassword" name="confirmPassword">
                         <div class="text-danger">
                             {{shoeConfirmPasswordErrors()}}
                         </div>
@@ -87,11 +89,11 @@
                 </div>
                 <br>
 
-                <button class="btn btn-default " [routerLink]="[ '/login'] " routerLinkActive="router-link-active ">
+                <!-- <button class="btn btn-default " [routerLink]="[ '/login'] " routerLinkActive="router-link-active ">
                         <strong>
                             Already have an Account?
                         </strong>
-                    </button>
+                    </button> -->
             </form>
             <hr>
         </div>
@@ -106,4 +108,3 @@
 
 
 <!-- ############################################ -->
-<router-outlet></router-outlet>

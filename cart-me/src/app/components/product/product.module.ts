@@ -34,10 +34,10 @@ const routes:Routes = [
 
 @NgModule({
  declarations:[
-   ProductsuploadComponent,
-    ProductsEditComponent,
-    ProductsDeleteComponent,
-    DetailPropertiesComponent,
+    // ProductsuploadComponent,
+    // ProductsEditComponent,
+    // ProductsDeleteComponent,
+    // DetailPropertiesComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, 
   FormsModule,RouterModule.forChild(routes),

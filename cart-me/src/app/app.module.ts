@@ -4,7 +4,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
 import { StoreDevtoolsModule} from '@ngrx/store-devtools'
@@ -31,6 +31,18 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import { AppReducer } from './Ngrx/store/app.state';
 import { UsersComponent } from './components/account/users/users.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { AdminComponent } from './components/account/admin/admin.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { UserChangePasswordComponent } from './components/account/user-change-password/user-change-password.component';
+import { UserDashboardComponent } from './components/account/user-dashboard/user-dashboard.component';
+import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
+import { UserEditComponent } from './components/account/user-edit/user-edit.component';
+import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
+import { DetailPropertiesComponent } from './components/product/detail-properties/detail-properties.component';
+import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
+import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
+import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
+import { RegisterComponent } from './components/account/register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +58,19 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     UsersComponent,
     CartComponent,
     LoadingSpinnerComponent,
+    ProductsuploadComponent,
+    ProductsEditComponent,
+    ProductsDeleteComponent,
+    DetailPropertiesComponent,
+    LoginComponent,
+     AdminComponent,
+     UserEditComponent,
+     UserDeleteComponent,
+     UserRolesComponent,
+     UsersComponent,
+     UserChangePasswordComponent,
+     UserDashboardComponent,
+     RegisterComponent
   ],
   imports: [
     BrowserModule,
