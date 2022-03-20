@@ -43,6 +43,7 @@ import { ProductsDeleteComponent } from './components/product/products-delete/pr
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { RegisterComponent } from './components/account/register/register.component';
+import { AlertsService } from './services/Alerts/alerts.service';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,7 @@ import { RegisterComponent } from './components/account/register/register.compon
     StoreRouterConnectingModule.forRoot()
 
   ],
-  providers: [CategoriesService, UsersService, ProductsService],
+  providers: [AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
