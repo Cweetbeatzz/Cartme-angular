@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
@@ -43,6 +43,7 @@ import { ProductsDeleteComponent } from './components/product/products-delete/pr
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { RegisterComponent } from './components/account/register/register.component';
+import { AuthTokenInterceptor } from './interceptors/AuthToken.Interceptor';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { RegisterComponent } from './components/account/register/register.compon
     StoreRouterConnectingModule.forRoot()
 
   ],
-  providers: [CategoriesService, UsersService, ProductsService],
+  providers: [CategoriesService, UsersService, ProductsService, 
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
