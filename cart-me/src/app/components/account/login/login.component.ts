@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
     );
   }
   // #####################################
-  Click() { }
+  tick() { 
+    this.alertify.success('Good!')
+  }
   // #####################################
 
   Logout() {

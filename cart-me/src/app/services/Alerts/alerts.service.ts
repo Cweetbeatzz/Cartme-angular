@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as alertify from 'alertifyjs'
+declare let alertify: any 
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import * as alertify from 'alertifyjs'
 export class AlertsService {
 
   constructor() { }
-  //#########################################################################################
+  //#############################################
 
   success(message:string){
     alertify.success(message)
@@ -23,5 +23,14 @@ export class AlertsService {
     alertify.warning(message)
   }
   
-    //###########################################
+   //###########################################
+
+    customAlert(){
+      alertify.alert().setting({
+
+      }).show()
+    }
+
+   //###########################################
+
 }
