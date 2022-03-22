@@ -45,6 +45,7 @@ import { ProductsuploadComponent } from './components/product/productsupload/pro
 import { RegisterComponent } from './components/account/register/register.component';
 import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
+import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,7 @@ import { SweetalertService } from './services/Alerts/sweetalert.service';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 
   ],
   providers: [SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
