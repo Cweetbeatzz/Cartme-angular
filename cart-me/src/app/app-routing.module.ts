@@ -12,7 +12,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { DetailPropertiesComponent } from './components/product/detail-properties/detail-properties.component';
+import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
 import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
 import { ProductsComponent } from './components/product/products/products.component';
@@ -89,13 +89,13 @@ const routes: Routes = [];
       path: 'uploadproduct', component: ProductsuploadComponent
     },
     {
-      path: 'editproduct/:id', component: ProductsEditComponent
+      path: 'editproduct/', component: ProductsEditComponent
     },
     {
       path: 'deleteproduct/:id', component: ProductsDeleteComponent
     },
     {
-      path: 'properties', component: DetailPropertiesComponent
+      path: 'product-details/:id', component: ProductDetailsComponent
     },
     {
       path: '', component: HomeComponent

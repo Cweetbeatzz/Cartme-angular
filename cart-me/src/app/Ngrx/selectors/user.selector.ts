@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store"
-import { userInfo } from "os"
 import { UserState } from "../state/user.state"
 import { RouteStateUrl } from "../store/router/custom.seralizer"
 import { getCurrentRoute } from "../store/router/router.selector"

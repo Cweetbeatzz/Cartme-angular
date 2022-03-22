@@ -38,7 +38,6 @@ import { UserDashboardComponent } from './components/account/user-dashboard/user
 import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
 import { UserEditComponent } from './components/account/user-edit/user-edit.component';
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
-import { DetailPropertiesComponent } from './components/product/detail-properties/detail-properties.component';
 import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
@@ -46,6 +45,7 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
 import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
+import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,7 @@ import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
     ProductsuploadComponent,
     ProductsEditComponent,
     ProductsDeleteComponent,
-    DetailPropertiesComponent,
+    ProductDetailsComponent,
     LoginComponent,
      AdminComponent,
      UserEditComponent,

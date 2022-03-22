@@ -5,11 +5,11 @@ import { RouterModule, Routes } from "@angular/router";
 import { StoreModule } from "@ngrx/store";
 import { productReducer } from "src/app/Ngrx/reducers/product.reducers";
 import { PRODUCT_STATE_NAME } from "src/app/Ngrx/selectors/product.selector";
-import { DetailPropertiesComponent } from "./detail-properties/detail-properties.component";
 import { ProductsDeleteComponent } from "./products-delete/products-delete.component";
 import { ProductsEditComponent } from "./products-edit/products-edit.component";
 import { ProductsComponent } from "./products/products.component";
 import { ProductsuploadComponent } from "./productsupload/productsupload.component";
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes:Routes = [
    {
@@ -26,7 +26,7 @@ const routes:Routes = [
       path: 'deleteproduct/:id', component: ProductsDeleteComponent
     },
     {
-      path: 'properties', component: DetailPropertiesComponent
+      path: 'product-details/:id', component: ProductDetailsComponent
     },
     ]
    }
@@ -38,7 +38,8 @@ const routes:Routes = [
     // ProductsEditComponent,
     // ProductsDeleteComponent,
     // DetailPropertiesComponent,
- ],
+    // ProductDetailsComponent
+  ],
  imports:[CommonModule,ReactiveFormsModule, 
   FormsModule,RouterModule.forChild(routes),
   StoreModule.forFeature(PRODUCT_STATE_NAME,productReducer)]

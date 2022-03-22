@@ -1,11 +1,12 @@
 <br>
 <div class="container">
     <div class="row col-md-6 mx-auto">
-      <button class="btn btn-outline-dark btnupload" >
+      <a class="btn btn-outline-dark btnupload" href="/uploadproduct" routerLinkActive="router-link-active">
+        <!-- [routerLink]="[ '/uploadproduct']" -->
         <strong>
           CREATE PRODUCT
         </strong>
-      </button>
+      </a>
     </div>
     <br>
 <div>
@@ -15,7 +16,8 @@
     <div class="row">
       <div class="bd-example bd-example-images m-1 ">
         <div class="text-center ">
-            <img src="assets/images/12531.webp " class="artwork mb-2" height="120 " width="120 ">
+            <img src="assets/images/12531.webp " class="artwork mb-2" height="120 " width="120" >
+            <!-- [routerLink]="[ '/product-details',product.id]" -->
             <h6>CHINESE MEALS BALLS</h6>
             <span class="navbar-expand-sm  d-flex mx-auto my-auto justify-content-center">
                 <div> <h5 class="btn btn-outline-danger small btn-sm mr-2">$20</h5></div>
@@ -31,3 +33,5 @@
     </div>
     </div>
 </div>
+
+<!-- ###################################################### -->

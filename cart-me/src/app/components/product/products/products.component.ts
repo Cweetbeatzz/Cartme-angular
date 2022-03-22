@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 
@@ -9,7 +10,7 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private store:Store<AppState>) { }
+  constructor(private route: Router,private store:Store<AppState>) { }
 
   ngOnInit(): void {
   }
