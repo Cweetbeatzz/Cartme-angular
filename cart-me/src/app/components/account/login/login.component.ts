@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/Account/users.service';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -12,7 +14,8 @@ import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: Router, private service: UsersService,private alertify: AlertsService) { }
+  constructor(private route: Router, private service: UsersService,private alertify: AlertsService,
+     private sweetalert:SweetalertService) { }
 
   formModel = {
     Email: '',
@@ -45,7 +48,8 @@ export class LoginComponent implements OnInit {
   }
   // #####################################
   tick() { 
-    this.alertify.success('Good!')
+    // this.alertify.success('Good!')
+     this.sweetalert.deleteNotification()
   }
   // #####################################
 

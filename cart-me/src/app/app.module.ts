@@ -44,6 +44,7 @@ import { ProductsEditComponent } from './components/product/products-edit/produc
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { AlertsService } from './services/Alerts/alerts.service';
+import { SweetalertService } from './services/Alerts/sweetalert.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,7 @@ import { AlertsService } from './services/Alerts/alerts.service';
     StoreRouterConnectingModule.forRoot()
 
   ],
-  providers: [AlertsService,CategoriesService, UsersService, ProductsService],
+  providers: [SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
