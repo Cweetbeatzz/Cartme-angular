@@ -24,24 +24,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     if (localStorage.getItem('token') != null) {
-
       this.route.navigateByUrl('/');
     }
   }
   // #####################################
   Onsubmit(form: NgForm) {
-
     this.service.Login(form.value).subscribe(
       (response: any) => {
+        this.alertify.success('Login Successful')
         localStorage.setItem('token', response.token);
         this.route.navigateByUrl('/');
       },
       error => {
         if (error.status == 400) {
           this.alertify.error('Invalid Credientials you are Unauthorized');
-        }
-        else {
-          console.log(error);
         }
       }
     );
