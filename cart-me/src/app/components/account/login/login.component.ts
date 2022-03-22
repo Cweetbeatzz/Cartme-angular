@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/Account/users.service';
+import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -11,7 +14,8 @@ import { UsersService } from 'src/app/services/Account/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: Router, private service: UsersService) { }
+  constructor(private route: Router, private service: UsersService,private alertify: AlertsService,
+     private sweetalert:SweetalertService) { }
 
   formModel = {
     Email: '',
@@ -34,7 +38,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         if (error.status == 400) {
-          console.error('Invalid Credientials', 'Unauthorized');
+          this.alertify.error('Invalid Credientials you are Unauthorized');
         }
         else {
           console.log(error);
@@ -43,12 +47,15 @@ export class LoginComponent implements OnInit {
     );
   }
   // #####################################
-  Click() { }
+  tick() { 
+    // this.alertify.success('Good!')
+     this.sweetalert.deleteNotification()
+  }
   // #####################################
 
   Logout() {
     localStorage.removeItem('token');
-    console.info('You are Logged Out')
+    this.alertify.error('You are Logged Out');
     this.route.navigateByUrl('/');
   }
 }

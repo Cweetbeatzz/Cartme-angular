@@ -7,6 +7,7 @@ import { Customers } from 'src/app/models/Customers/customers';
 import { CreateUsersSuccessAction } from 'src/app/Ngrx/actions/user.actions';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 import { UsersService } from 'src/app/services/Account/users.service';
+import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private route: Router, public RegService: UsersService, 
-    private http: HttpClient,private fb: FormBuilder, private store:Store<AppState>) { };
+    private alertify: AlertsService,private fb: FormBuilder, private store:Store<AppState>) { };
 
   // ##########################################
 
