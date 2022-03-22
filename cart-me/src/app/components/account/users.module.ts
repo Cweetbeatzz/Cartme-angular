@@ -15,6 +15,7 @@ import { AuthEffects } from "src/app/Ngrx/effects/auth.effects";
 import { UserEffects } from "src/app/Ngrx/effects/user.effects";
 import { UserChangePasswordComponent } from './user-change-password/user-change-password.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 
 const routes:Routes = [
    {
@@ -58,7 +59,9 @@ const routes:Routes = [
     //  UsersComponent,
     //  UserChangePasswordComponent,
     //  UserDashboardComponent,
- ],
+ 
+    EmailConfirmComponent
+  ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),
   EffectsModule.forFeature([AuthEffects,UserEffects])]

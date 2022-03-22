@@ -1,0 +1,27 @@
+<div class="page-wrapper">
+ <div class="page-container">
+  <div class="content-wrapper">
+   <div class="message">
+    <h6>
+     Your email has been verified successfully
+    </h6>
+
+    <button class='btn btn-gradient' routerLink="/home">Continue</button>
+   </div>
+
+   <ng-template #notVerified>
+    <h6>Error</h6>
+   </ng-template>
+
+   <div class="artwork-image"></div>
+  </div>
+ </div>
+</div>
+
+<ng-template #loading>
+ <button class="btn loading_button" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+   style="width: 1.5rem; height: 1.5rem;"></span>
+  <span class="ms-2">Loading...</span>
+ </button>
+</ng-template>
