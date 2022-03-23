@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
   Logout() {
     localStorage.removeItem('token');
-    this.alertify.error('You are Logged Out');
+    this.alertify.warning('You are Logged Out');
     this.route.navigateByUrl('/');
   }
 }

@@ -212,16 +212,16 @@ export class RegisterComponent implements OnInit {
           this.alertify.success('Registeration Successful')
           this.RegService.formModel.reset();
         } 
-        // else 
-        // {
-        //   result.errors.forEach((element: { code: any; }) => {
-        //     switch (element.code) {
-        //       case '':
-        //         this.alertify.error('Email is already taken')
-        //         break;
-        //     }
-        //   });
-        // }
+        else 
+        {
+          result.errors.forEach((element: { code: any; }) => {
+            switch (element.code) {
+              case '':
+                // this.alertify.error('Email is already taken')
+                break;
+            }
+          });
+        }
       },
       error => {
         console.error(error);

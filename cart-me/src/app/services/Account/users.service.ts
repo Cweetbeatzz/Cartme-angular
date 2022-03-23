@@ -16,11 +16,11 @@ export class UsersService {
 
   constructor(private fb: FormBuilder,private http: HttpClient) { }
 
-    formModel = this.fb.group({
+  formModel = this.fb.group({
     Firstname: ['', Validators.required, Validators.maxLength(50)],
     Lastname: ['', Validators.required, Validators.maxLength(50)],
     Username: ['', Validators.required, Validators.maxLength(50)],
-    Email: ['',Validators.required, Validators.email],
+    Email: ['', Validators.email],
     Address: ['', Validators.required,Validators.maxLength(350)],
     State: ['', Validators.required, Validators.maxLength(50)],
     Country: ['', Validators.required, Validators.maxLength(100)],
@@ -33,10 +33,10 @@ export class UsersService {
     }, { Validators: this.comparePasswords })
   });
 
-  comparePasswords(fb: FormGroup) {
-    let comfrimpassctrl = fb.get('ConfirmPassword')
+  comparePasswords(fg: FormGroup) {
+    let comfrimpassctrl = fg.get('ConfirmPassword')
     if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
-      if (fb.get('Password')?.value != comfrimpassctrl?.value) {
+      if (fg.get('Password')?.value != comfrimpassctrl?.value) {
         comfrimpassctrl?.setErrors({ passwordMisMatch: true })
       } else {
         comfrimpassctrl?.setErrors(null);

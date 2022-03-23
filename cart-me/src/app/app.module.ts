@@ -100,7 +100,7 @@ import { UploadCategoryComponent } from './components/category/upload-category/u
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthTokenInterceptor,multi:true},
-    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
+    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService,ReactiveFormsModule, FormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
