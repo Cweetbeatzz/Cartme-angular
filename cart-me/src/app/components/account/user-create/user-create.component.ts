@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-create',
@@ -12,4 +13,8 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  OnSubmit(Form:NgForm){
+    console.log('Registerration Successfull');
+    
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/Account/users.service';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
@@ -10,14 +10,48 @@ import { AlertsService } from 'src/app/services/Alerts/alerts.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  registerationForm: FormGroup = new FormGroup({});
 
   constructor(private route: Router, public RegService: UsersService,private alertify: AlertsService,private fb: FormBuilder ) { }
 
   ngOnInit(): void {
+    this.registerationForm = new FormGroup({
+      id: new FormControl(),
+      Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
+      lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
+      username: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      address: new FormControl(null,[ Validators.required,Validators.maxLength(350)]),
+      phone: new FormControl(null, [Validators.required, Validators.maxLength(11)]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      confirmPassword: new FormControl(null,[ Validators.required])
+    })
   }
 
+  passwordMatchCheck(fg:FormGroup):Validators{
+    return fg.get('Password')?.value === fg.get('confirmPassword')?.value ? '' : {notmatched:true}
+  }
+
+  createRegisterForm(){
+    this.registerationForm = this.fb.group({
+      
+    })
+  }
+
+  shoeFirstNameErrors(){
+    const getFirstName = this.registerationForm?.get('Firstname');
+   if (getFirstName?.touched && !getFirstName.valid) {
+     if (getFirstName.errors?.required) {
+       return 'First Name is Required'
+     }
+     if (getFirstName.errors?.maxLength) {
+       return 'First Name must not exceed 50 characters'
+     }
+   }
+   return
+ }
   shoeLastNameErrors(){
-    const getLastName = this.RegService.formModel.get('Lastname');
+    const getLastName = this.registerationForm?.get('Lastname');
    if (getLastName?.touched && !getLastName.valid) {
      if (getLastName.errors?.required) {
        return 'Last Name is Required'

@@ -1,3 +1,4 @@
+<!-- NgForm -->
 <br>
 <div class="container">
  <div class="card box-shadow col-sm-8 mx-auto">
@@ -12,29 +13,23 @@
   <hr>
 
   <div class="row text-center p-1">
-   <div class="col-md-6 mx-auto">
-    <form asp-action="Register">
+   <div class="col-md-6 mx-auto w-100" >
+    <form asp-action="Register" (ngSubmit)="OnSubmit(Form)" #Form="ngForm">
      <div class="form-group">
-      <input type="text" name="Firstname" formControlName="Firstname" placeholder="Firstname" name="Firstname"
+      <input type="text"  #Firstname="ngModel" ngModel="Firstname" required placeholder="Firstname" name="Firstname"
        class="form-control" />
-      <div class="text-danger">
-       <!-- <label
-        *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.required">First
-        Name is Required</label>
-       <label
-        *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.maxLength">First
-        Name must not exceed 50 characters</label> -->
+      <div class="text-danger" *ngIf="!Firstname.valid && Firstname.touched">
+          <label *ngIf="Firstname.errors?.required">Firstname is Required</label>
       </div>
      </div>
      <div class="form-group">
-      <input type="text" name="Lastname" formControlName="Lastname" placeholder="Lastname" name="Lastname"
-       class="form-control" />
+      <input type="text"  placeholder="Lastname" name="Lastname" #Lastname="ngModel" required ngModel="Lastname" class="form-control" />
       <div class="text-danger">
        <!-- {{shoeLastNameErrors()}} -->
       </div>
      </div>
      <div class="form-group">
-      <input type="text" name="Username" formControlName="Username" placeholder="Username" name="Username"
+      <input type="text"  #Username="ngModel" ngModel="Username" placeholder="Username" required name="Username"
        class="form-control" />
       <div class="text-danger">
        <!-- {{shoeUserNameErrors()}} -->
@@ -42,7 +37,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="email" name="email" formControlName="Email" placeholder="Email" name="email" class="form-control" />
+       <input type="email"  #Email="ngModel" ngModel="Email" placeholder="Email" required name="Email" class="form-control" />
        <div class="text-danger">
         <!-- {{shoeEmailErrors()}} -->
        </div>
@@ -50,7 +45,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Address" formControlName="Address" placeholder="Address" name="Address"
+       <input type="text" #Address="ngModel" ngModel="Address" placeholder="Address" required name="Address"
         class="form-control" />
        <div class="text-danger">
         <!-- {{shoeAddressErrors()}} -->
@@ -59,7 +54,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Phone" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
+       <input type="text" #Phone="ngModel" ngModel="Phone" placeholder="Phone" required name="Phone" class="form-control" />
        <div class="text-danger">
         <!-- {{shoePhoneErrors()}} -->
        </div>
@@ -67,7 +62,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="State" formControlName="State" placeholder="State" name="State" class="form-control" />
+       <input type="text" #State="ngModel" ngModel="State" placeholder="State" required name="State" class="form-control" />
        <div class="text-danger">
         <!-- {{shoeStateErrors()}} -->
        </div>
@@ -75,7 +70,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Country" formControlName="Country" placeholder="Country" name="Country"
+       <input type="text" #Country="ngModel" ngModel="Country" required placeholder="Country" name="Country"
         class="form-control" />
        <div class="text-danger">
         <!-- {{shoeCountryErrors()}} -->
@@ -84,7 +79,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="PostalCode" formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
+       <input type="text" #PostalCode="ngModel" ngModel="PostalCode" required placeholder="PostalCode" name="PostalCode"
         class="form-control" />
        <div class="text-danger">
         <!-- {{shoePostalCodeErrors()}} -->
@@ -92,10 +87,10 @@
       </div>
      </div>
 
-     <div formGroupName="Passwords">
+     <div >
       <div class="form-group row">
        <div class="col-md-12">
-        <input type="password" name="Password" formControlName="Password" placeholder="Password" name="Password"
+        <input type="password" #Password="ngModel" ngModel="Password" required placeholder="Password" name="Password"
          class="form-control" />
         <div class="text-danger">
         </div>
@@ -103,7 +98,7 @@
       </div>
       <div class="form-group row">
        <div class="col-md-12">
-        <input type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password"
+        <input type="password" #ConfirmPassword="ngModel" ngModel="ConfirmPassword" required placeholder="Confirm Password"
          name="ConfirmPassword" class="form-control" />
         <div class="text-danger">
         </div>

@@ -4,6 +4,7 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
+import { UserCreateComponent } from './components/account/user-create/user-create.component';
 import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
 import { UserEditComponent } from './components/account/user-edit/user-edit.component';
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';

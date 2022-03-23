@@ -106,7 +106,7 @@ import { UserCreateComponent } from './components/account/user-create/user-creat
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthTokenInterceptor,multi:true},
-    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService,ReactiveFormsModule, FormsModule],
+    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
