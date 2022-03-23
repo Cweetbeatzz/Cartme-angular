@@ -21,6 +21,7 @@ import { AccountComponent } from './account.component';
 const routes:Routes = [
    //default path
    {path:'',redirectTo:'account/register',pathMatch:'full'},
+   
    {
     path:'account',
     component: AccountComponent,

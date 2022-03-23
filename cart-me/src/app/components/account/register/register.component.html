@@ -11,70 +11,71 @@
         </div>
         <hr>
         <div class="card-body col-sm-8 w-100 mx-auto">
-            <form class="register-form w-100 novalidate" method="POST" autocomplete="off" [formGroup]="RegistrationForm" (ngSubmit)="onCreateUser()">
-                <div class="form-group">
-                    <input placeholder="Firstname" required type="text" class="form-control" formControlName="firstname" name="firstname">
+            <form class="register-form w-100 novalidate" method="POST" autocomplete="off" [formGroup]="formModel" (ngSubmit)="Register()">
+                <div class="form-group required">
+                    <input placeholder="Firstname" required type="text" class="form-control" formControlName="Firstname" name="firstname">
                     <div class="text-danger">
                         {{shoeFirstNameErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Lastname" required type="text" class="form-control" formControlName="lastname" name="lastname">
+                <div class="form-group required">
+                    <input placeholder="Lastname" required type="text" class="form-control" formControlName="Lastname" name="lastname">
                     <div class="text-danger">
                         {{shoeLastNameErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Username" required type="text" class="form-control" formControlName="username" name="username">
+                <div class="form-group required">
+                    <input placeholder="Username" required type="text" class="form-control" formControlName="Username" name="username">
                     <div class="text-danger">
                        {{shoeUserNameErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Email" type="text" required class="form-control" formControlName="email" name="email">
+                <div class="form-group required">
+                    <input placeholder="Email" type="text" required class="form-control" formControlName="Email" name="email">
                     <div class="text-danger">
                         {{shoeEmailErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Address" type="text" required class="form-control" name="address" formControlName="address">
+                <div class="form-group required">
+                    <input placeholder="Address" type="text" required class="form-control" name="address" formControlName="Address">
                     <div class="text-danger">
                         {{shoeAddressErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="State" type="text" required class="form-control" name="state" formControlName="state">
+                <div class="form-group required">
+                    <input placeholder="State" type="text" required class="form-control" name="state" formControlName="State">
+                    <div class="text-danger">
+                        {{shoeStateErrors()}}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <input placeholder="Country" type="text" required class="form-control" name="country" formControlName="Country">
+                    <div class="text-danger">
+                        {{shoeCountryErrors()}}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <input placeholder="Phone" type="tel" required class="form-control" formControlName="Phone" name="Phone">
                     <div class="text-danger">
                         {{shoePhoneErrors()}}
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Country" type="text" required class="form-control" name="country" formControlName="country">
+                <div class="form-group required">
+                    <input placeholder="PostalCode" type="number" required class="form-control" name="postalcode" formControlName="PostalCode" />
                     <div class="text-danger">
-                        {{shoePhoneErrors()}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input placeholder="Phone" type="tel" required class="form-control" formControlName="phone" name="phone">
-                    <div class="text-danger">
-                        {{shoePhoneErrors()}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input placeholder="PostalCode" type="number" required class="form-control" name="postalcode" formControlName="postalcode" />
-                    <div class="text-danger">
-                        {{shoePhoneErrors()}}
+                        {{shoePostalCodeErrors()}}
                     </div>
                 </div>
                 <div formGroupName="Passwords">
                     <div class="required form-group">
-                        <input placeholder="Password" type="password" required class="form-control" formControlName="password" name="password">
+                        <input placeholder="Password" type="password" required class="form-control" formControlName="Password" name="password">
                         <div class="text-danger">
                             {{shoePasswordErrors()}}
                         </div>
+                                                           
                     </div>
                     <div class="required form-group">
-                        <input placeholder="ConfirmPassword" type="password" required class="form-control" formControlName="confirmPassword" name="confirmPassword">
+                        <input placeholder="ConfirmPassword" type="password" required class="form-control" formControlName="ConfirmPassword" name="confirmPassword">
                         <div class="text-danger">
                             {{shoeConfirmPasswordErrors()}}
                         </div>
@@ -83,7 +84,7 @@
                 <hr>
 
                 <div>
-                    <button type="submit" id="submit" [disabled]="!RegistrationForm.valid" value="RegisterSubmit" class="button ">
+                    <button type="submit" id="submit" [disabled]="!formModel.valid" value="RegisterSubmit" class="button ">
                             SUBMIT
                         </button>
                 </div>

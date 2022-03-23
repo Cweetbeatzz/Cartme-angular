@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
 // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
  shoeFirstNameErrors(){
-   const getFirstName = this.RegistrationForm?.get('Firstname');
+   const getFirstName = this.formModel.get('Firstname');
    if (getFirstName?.touched && !getFirstName.valid) {
      if (getFirstName.errors?.required) {
        return 'First Name is Required'
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeLastNameErrors(){
-    const getLastName = this.RegistrationForm?.get('Lastname');
+    const getLastName = this.formModel.get('Lastname');
    if (getLastName?.touched && !getLastName.valid) {
      if (getLastName.errors?.required) {
        return 'Last Name is Required'
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeUserNameErrors(){
-       const getUserName = this.RegistrationForm?.get('Username');
+       const getUserName = this.formModel.get('Username');
    if (getUserName?.touched && !getUserName.valid) {
      if (getUserName.errors?.required) {
        return 'User Name is Required'
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeEmailErrors(){
-   const getEmail = this.RegistrationForm?.get('Email');
+   const getEmail = this.formModel.get('Email');
    if (getEmail?.touched && !getEmail.valid) {
      if (getEmail.errors?.required) {
        return 'Email is Required'
@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeAddressErrors(){
-     const getAddress = this.RegistrationForm?.get('Address');
+     const getAddress = this.formModel.get('Address');
    if (getAddress?.touched && !getAddress.valid) {
      if (getAddress.errors?.required) {
        return 'Address is Required'
@@ -102,20 +102,56 @@ export class RegisterComponent implements OnInit {
    }
    return
  }
+  shoeStateErrors(){
+        const getState = this.formModel.get('State');
+   if (getState?.touched && !getState.valid) {
+     if (getState.errors?.required) {
+       return 'State is Required'
+     }
+     if (getState.errors?.maxLength) {
+       return 'State must not exceed 50 characters'
+     }
+   }
+   return
+ }
+  shoeCountryErrors(){
+        const getCountry = this.formModel.get('Country');
+   if (getCountry?.touched && !getCountry.valid) {
+     if (getCountry.errors?.required) {
+       return 'Country is Required'
+     }
+     if (getCountry.errors?.maxLength) {
+       return 'Country must not exceed 100 characters'
+     }
+   }
+   return
+ }
  shoePhoneErrors(){
-        const getPhone = this.RegistrationForm?.get('Phone');
+        const getPhone = this.formModel.get('Phone');
    if (getPhone?.touched && !getPhone.valid) {
      if (getPhone.errors?.required) {
        return 'Phone is Required'
      }
      if (getPhone.errors?.maxLength) {
-       return 'Phone must not exceed 50 characters'
+       return 'Phone must not exceed 11 Numbers'
+     }
+   }
+   return
+ }
+  shoePostalCodeErrors(){
+        const getPostalCode = this.formModel.get('PostalCode');
+   if (getPostalCode?.touched && !getPostalCode.valid) {
+     if (getPostalCode.errors?.required) {
+       return 'Postal Code is Required'
+     }
+     if (getPostalCode.errors?.maxLength) {
+       return 'Postal Code must not exceed 10 Numbers'
      }
    }
    return
  }
  shoePasswordErrors(){
-          const getPassword = this.RegistrationForm?.get('Password');
+          const getPassword = this.formModel.get('Passwords.Password');
    if (getPassword?.touched && !getPassword.valid) {
      if (getPassword.errors?.required) {
        return 'Password is Required'
@@ -127,12 +163,12 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeConfirmPasswordErrors(){
-             const getConfirmPassword = this.RegistrationForm?.get('ConfirmPassword');
+      const getConfirmPassword = this.formModel.get('Passwords.ConfirmPassword');
    if (getConfirmPassword?.touched && !getConfirmPassword.valid) {
      if (getConfirmPassword.errors?.required) {
        return 'Password is Invalid or do not Match'
      }
-     if (getConfirmPassword.errors?.maxLength) {
+     if (getConfirmPassword.errors?.minLength) {
        return 'Minimum length of Password is 6'
      }
    }
@@ -166,17 +202,16 @@ export class RegisterComponent implements OnInit {
   // ########################################## ||  ##########################################
   // ########################################## ||  ##########################################
 
-    formModel = this.fb.group({
-    Firstname: ['', Validators.required],
-    Lastname: ['', Validators.required],
-    Username: ['', Validators.required],
-    Email: ['', Validators.email],
-    Address: ['', Validators.required],
-    State: ['', Validators.required],
-    Country: ['', Validators.required],
-    Phone: ['', Validators.required],
-    PostalCode: ['', Validators.required],
-
+  formModel = this.fb.group({
+    Firstname: ['', Validators.required, Validators.maxLength(50)],
+    Lastname: ['', Validators.required, Validators.maxLength(50)],
+    Username: ['', Validators.required, Validators.maxLength(50)],
+    Email: ['',Validators.required, Validators.email],
+    Address: ['', Validators.required,Validators.maxLength(350)],
+    State: ['', Validators.required, Validators.maxLength(50)],
+    Country: ['', Validators.required, Validators.maxLength(100)],
+    Phone: ['', Validators.required, Validators.maxLength(11)],
+    PostalCode: ['', Validators.required, Validators.maxLength(10)],
 
     Passwords: this.fb.group({
       Password: ['', [Validators.required, Validators.minLength(6)]],
