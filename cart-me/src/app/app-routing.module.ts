@@ -8,6 +8,10 @@ import { UserEditComponent } from './components/account/user-edit/user-edit.comp
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
 import { UsersComponent } from './components/account/users/users.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CategoriesComponent } from './components/category/categories/categories.component';
+import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
+import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
+import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -44,6 +48,18 @@ const routes: Routes = [];
     },
     {
       path: 'cart', component: CartComponent
+    },
+    {
+      path: 'uploadcategory', component: UploadCategoryComponent
+    },
+    {
+      path: 'editcategory/:id', component: EditCategoryComponent
+    },
+    {
+      path: 'deletecategory/:id', component: CategoryDeleteComponent
+    },
+    {
+      path: 'categories', component: CategoriesComponent
     },
 
     // {

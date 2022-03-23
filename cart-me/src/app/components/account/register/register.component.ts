@@ -24,23 +24,24 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
       //reset form after every successfull reg
+      this.RegService.formModel.reset();
   }
-   RegistrationForm: FormGroup = new FormGroup({
-      id: new FormControl(),
-      Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
-      lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-      username: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      address: new FormControl(null,[ Validators.required,Validators.maxLength(350)]),
-      phone: new FormControl(null, [Validators.required, Validators.maxLength(11)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      confirmPassword: new FormControl(null,[ Validators.required])
-   })
+  //  RegistrationForm: FormGroup = new FormGroup({
+  //     id: new FormControl(),
+  //     Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
+  //     lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
+  //     username: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
+  //     email: new FormControl(null, [Validators.required, Validators.email]),
+  //     address: new FormControl(null,[ Validators.required,Validators.maxLength(350)]),
+  //     phone: new FormControl(null, [Validators.required, Validators.maxLength(11)]),
+  //     password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+  //     confirmPassword: new FormControl(null,[ Validators.required])
+  //  })
 // ##########################################
 // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
  shoeFirstNameErrors(){
-   const getFirstName = this.formModel.get('Firstname');
+   const getFirstName = this.RegService.formModel.get('Firstname');
    if (getFirstName?.touched && !getFirstName.valid) {
      if (getFirstName.errors?.required) {
        return 'First Name is Required'
@@ -52,7 +53,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeLastNameErrors(){
-    const getLastName = this.formModel.get('Lastname');
+    const getLastName = this.RegService.formModel.get('Lastname');
    if (getLastName?.touched && !getLastName.valid) {
      if (getLastName.errors?.required) {
        return 'Last Name is Required'
@@ -64,7 +65,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeUserNameErrors(){
-       const getUserName = this.formModel.get('Username');
+       const getUserName = this.RegService.formModel.get('Username');
    if (getUserName?.touched && !getUserName.valid) {
      if (getUserName.errors?.required) {
        return 'User Name is Required'
@@ -76,7 +77,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeEmailErrors(){
-   const getEmail = this.formModel.get('Email');
+   const getEmail = this.RegService.formModel.get('Email');
    if (getEmail?.touched && !getEmail.valid) {
      if (getEmail.errors?.required) {
        return 'Email is Required'
@@ -91,7 +92,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeAddressErrors(){
-     const getAddress = this.formModel.get('Address');
+     const getAddress = this.RegService.formModel.get('Address');
    if (getAddress?.touched && !getAddress.valid) {
      if (getAddress.errors?.required) {
        return 'Address is Required'
@@ -103,7 +104,7 @@ export class RegisterComponent implements OnInit {
    return
  }
   shoeStateErrors(){
-        const getState = this.formModel.get('State');
+        const getState = this.RegService.formModel.get('State');
    if (getState?.touched && !getState.valid) {
      if (getState.errors?.required) {
        return 'State is Required'
@@ -115,7 +116,7 @@ export class RegisterComponent implements OnInit {
    return
  }
   shoeCountryErrors(){
-        const getCountry = this.formModel.get('Country');
+        const getCountry = this.RegService.formModel.get('Country');
    if (getCountry?.touched && !getCountry.valid) {
      if (getCountry.errors?.required) {
        return 'Country is Required'
@@ -127,7 +128,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoePhoneErrors(){
-        const getPhone = this.formModel.get('Phone');
+        const getPhone = this.RegService.formModel.get('Phone');
    if (getPhone?.touched && !getPhone.valid) {
      if (getPhone.errors?.required) {
        return 'Phone is Required'
@@ -139,7 +140,7 @@ export class RegisterComponent implements OnInit {
    return
  }
   shoePostalCodeErrors(){
-        const getPostalCode = this.formModel.get('PostalCode');
+        const getPostalCode = this.RegService.formModel.get('PostalCode');
    if (getPostalCode?.touched && !getPostalCode.valid) {
      if (getPostalCode.errors?.required) {
        return 'Postal Code is Required'
@@ -151,7 +152,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoePasswordErrors(){
-          const getPassword = this.formModel.get('Passwords.Password');
+          const getPassword = this.RegService.formModel.get('Passwords.Password');
    if (getPassword?.touched && !getPassword.valid) {
      if (getPassword.errors?.required) {
        return 'Password is Required'
@@ -163,7 +164,7 @@ export class RegisterComponent implements OnInit {
    return
  }
  shoeConfirmPasswordErrors(){
-      const getConfirmPassword = this.formModel.get('Passwords.ConfirmPassword');
+      const getConfirmPassword = this.RegService.formModel.get('Passwords.ConfirmPassword');
    if (getConfirmPassword?.touched && !getConfirmPassword.valid) {
      if (getConfirmPassword.errors?.required) {
        return 'Password is Invalid or do not Match'
@@ -176,73 +177,55 @@ export class RegisterComponent implements OnInit {
  }
 
  // ##########################################
- onCreateUser(){
-   if (!this.RegistrationForm?.valid) {
-     return
-   }
+//  onCreateUser(){
+//    if (!this.RegistrationForm?.valid) {
+//      return
+//    }
 
-   const regForm:Customers = {
-     Firstname: this.RegistrationForm.value.Firstname,
-     Lastname: this.RegistrationForm.value.Lastname,
-     Username: this.RegistrationForm.value.Username,
-     Email: this.RegistrationForm.value.Email,
-     Address: this.RegistrationForm.value.Address,
-     State: this.RegistrationForm.value.State,
-     Country: this.RegistrationForm.value.Country,
-     Phone: this.RegistrationForm.value.Phone,
-     PostalCode: this.RegistrationForm.value.PostalCode,
-     Password: this.RegistrationForm.value.Password,
-     ConfirmPassword: this.RegistrationForm.value.ConfirmPassword
-   }
+//    const regForm:Customers = {
+//      Firstname: this.RegistrationForm.value.Firstname,
+//      Lastname: this.RegistrationForm.value.Lastname,
+//      Username: this.RegistrationForm.value.Username,
+//      Email: this.RegistrationForm.value.Email,
+//      Address: this.RegistrationForm.value.Address,
+//      State: this.RegistrationForm.value.State,
+//      Country: this.RegistrationForm.value.Country,
+//      Phone: this.RegistrationForm.value.Phone,
+//      PostalCode: this.RegistrationForm.value.PostalCode,
+//      Password: this.RegistrationForm.value.Password,
+//      ConfirmPassword: this.RegistrationForm.value.ConfirmPassword
+//    }
 
-   this.store.dispatch(CreateUsersSuccessAction({users:regForm}))
- }
+//    this.store.dispatch(CreateUsersSuccessAction({users:regForm}))
+//  }
 
   // ########################################## ||  ##########################################
   // ########################################## ||  ##########################################
   // ########################################## ||  ##########################################
 
-  formModel = this.fb.group({
-    Firstname: ['', Validators.required, Validators.maxLength(50)],
-    Lastname: ['', Validators.required, Validators.maxLength(50)],
-    Username: ['', Validators.required, Validators.maxLength(50)],
-    Email: ['',Validators.required, Validators.email],
-    Address: ['', Validators.required,Validators.maxLength(350)],
-    State: ['', Validators.required, Validators.maxLength(50)],
-    Country: ['', Validators.required, Validators.maxLength(100)],
-    Phone: ['', Validators.required, Validators.maxLength(11)],
-    PostalCode: ['', Validators.required, Validators.maxLength(10)],
 
-    Passwords: this.fb.group({
-      Password: ['', [Validators.required, Validators.minLength(6)]],
-      ConfirmPassword: ['', Validators.required]
-    }, { Validators: this.comparePasswords })
-  });
 
-  comparePasswords(fb: FormGroup) {
-    let comfrimpassctrl = fb.get('ConfirmPassword')
-    if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
-      if (fb.get('Password')?.value != comfrimpassctrl?.value) {
-        comfrimpassctrl?.setErrors({ passwordMisMatch: true })
-      } else {
-        comfrimpassctrl?.setErrors(null);
+    RegisterSubmit() {
+    this.RegService.Register().subscribe(
+      (result: any) => {
+        if (result.succeeded) {
+          this.alertify.success('Registeration Successful')
+          this.RegService.formModel.reset();
+        } 
+        // else 
+        // {
+        //   result.errors.forEach((element: { code: any; }) => {
+        //     switch (element.code) {
+        //       case '':
+        //         this.alertify.error('Email is already taken')
+        //         break;
+        //     }
+        //   });
+        // }
+      },
+      error => {
+        console.error(error);
       }
-    }
-  }
-  // #######################################################################
-  Register() {
-    var body = {
-      Firstname: this.formModel.value.Firstname,
-      Lastname: this.formModel.value.Lastname,
-      Username: this.formModel.value.Username,
-      Email: this.formModel.value.Email,
-      Address: this.formModel.value.Address,
-      State: this.formModel.value.State,
-      Country: this.formModel.value.Country,
-      Phone: this.formModel.value.Phone,
-      PostalCode: this.formModel.value.PostalCode,
-      Password: this.formModel.value.Passwords.Password
-    }
-    return body;
+    );
   }
 }

@@ -31,9 +31,9 @@ const routes:Routes = [
 
 @NgModule({
  declarations:[
-  CategoryDeleteComponent,
-   UploadCategoryComponent,
-    EditCategoryComponent,
+  // CategoryDeleteComponent,
+  //  UploadCategoryComponent,
+  //   EditCategoryComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, 
   FormsModule,RouterModule.forChild(routes),StoreModule.forFeature(CATEGORY_STATE_NAME,categoryReducer)]

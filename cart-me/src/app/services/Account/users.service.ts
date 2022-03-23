@@ -14,11 +14,53 @@ export class UsersService {
 
   ApiUrl = environment.APIURL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private fb: FormBuilder,private http: HttpClient) { }
 
+    formModel = this.fb.group({
+    Firstname: ['', Validators.required, Validators.maxLength(50)],
+    Lastname: ['', Validators.required, Validators.maxLength(50)],
+    Username: ['', Validators.required, Validators.maxLength(50)],
+    Email: ['',Validators.required, Validators.email],
+    Address: ['', Validators.required,Validators.maxLength(350)],
+    State: ['', Validators.required, Validators.maxLength(50)],
+    Country: ['', Validators.required, Validators.maxLength(100)],
+    Phone: ['', Validators.required, Validators.maxLength(11)],
+    PostalCode: ['', Validators.required, Validators.maxLength(10)],
 
-  Register(formData: Customers):Observable<Customers> {
-    return this.http.post<Customers>(this.ApiUrl + '/api/Account/Register', formData);
+    Passwords: this.fb.group({
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      ConfirmPassword: ['', Validators.required]
+    }, { Validators: this.comparePasswords })
+  });
+
+  comparePasswords(fb: FormGroup) {
+    let comfrimpassctrl = fb.get('ConfirmPassword')
+    if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
+      if (fb.get('Password')?.value != comfrimpassctrl?.value) {
+        comfrimpassctrl?.setErrors({ passwordMisMatch: true })
+      } else {
+        comfrimpassctrl?.setErrors(null);
+      }
+    }
+  }
+  // #######################################################################
+ 
+  
+
+  Register() {
+    var body = {
+      Firstname: this.formModel.value.Firstname,
+      Lastname: this.formModel.value.Lastname,
+      Username: this.formModel.value.Username,
+      Email: this.formModel.value.Email,
+      Address: this.formModel.value.Address,
+      State: this.formModel.value.State,
+      Country: this.formModel.value.Country,
+      Phone: this.formModel.value.Phone,
+      PostalCode: this.formModel.value.PostalCode,
+      Password: this.formModel.value.Passwords.Password
+    }
+    return this.http.post(this.ApiUrl + '/api/Account/Register', body);
   }
 
   //#######################################################################

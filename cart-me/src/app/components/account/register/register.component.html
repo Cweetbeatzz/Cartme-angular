@@ -11,9 +11,9 @@
         </div>
         <hr>
         <div class="card-body col-sm-8 w-100 mx-auto">
-            <form class="register-form w-100 novalidate" method="POST" autocomplete="off" [formGroup]="formModel" (ngSubmit)="Register()">
+            <form class="register-form w-100 novalidate" method="POST" autocomplete="off" [formGroup]="RegService.formModel" (ngSubmit)="RegisterSubmit()">
                 <div class="form-group required">
-                    <input placeholder="Firstname" required type="text" class="form-control" formControlName="Firstname" name="firstname">
+                    <input placeholder="Firstname"  class="form-control" formControlName="Firstname" >
                     <div class="text-danger">
                         {{shoeFirstNameErrors()}}
                     </div>
@@ -55,13 +55,13 @@
                     </div>
                 </div>
                 <div class="form-group required">
-                    <input placeholder="Phone" type="tel" required class="form-control" formControlName="Phone" name="Phone">
+                    <input placeholder="Phone" type="text" required class="form-control" formControlName="Phone" name="Phone">
                     <div class="text-danger">
                         {{shoePhoneErrors()}}
                     </div>
                 </div>
                 <div class="form-group required">
-                    <input placeholder="PostalCode" type="number" required class="form-control" name="postalcode" formControlName="PostalCode" />
+                    <input placeholder="PostalCode" type="text" required class="form-control" name="postalcode" formControlName="PostalCode" />
                     <div class="text-danger">
                         {{shoePostalCodeErrors()}}
                     </div>
@@ -84,7 +84,7 @@
                 <hr>
 
                 <div>
-                    <button type="submit" id="submit" [disabled]="!formModel.valid" value="RegisterSubmit" class="button ">
+                    <button type="submit" id="submit" [disabled]="!RegService.formModel.valid" value="RegisterSubmit" class="button ">
                             SUBMIT
                         </button>
                 </div>

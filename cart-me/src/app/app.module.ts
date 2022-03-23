@@ -47,6 +47,9 @@ import { SweetalertService } from './services/Alerts/sweetalert.service';
 import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
 import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
 import { AuthTokenInterceptor } from './interceptors/AuthToken.Interceptor';
+import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
+import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
+import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,11 @@ import { AuthTokenInterceptor } from './interceptors/AuthToken.Interceptor';
      UsersComponent,
      UserChangePasswordComponent,
      UserDashboardComponent,
-     RegisterComponent
+     RegisterComponent,
+    CategoryDeleteComponent,
+    UploadCategoryComponent,
+    EditCategoryComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
