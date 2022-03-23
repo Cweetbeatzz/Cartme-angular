@@ -1,0 +1,142 @@
+<br>
+<div class="container">
+ <div class="card box-shadow col-sm-8 mx-auto">
+
+  <div class="card-head">
+   <div class="RegisterLabel">
+    <h1>
+     <strong>REGISTER</strong>
+    </h1>
+   </div>
+  </div>
+  <hr>
+
+  <div class="row text-center p-1">
+   <div class="col-md-6 mx-auto">
+    <form asp-action="Register" [formGroup]="RegService.formModel" (submit)="OnSubmit()">
+     <div class="form-group">
+      <input type="text" name="Firstname" formControlName="Firstname" placeholder="Firstname" name="Firstname"
+       class="form-control" />
+      <div class="text-danger">
+       <label
+        *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.required">First
+        Name is Required</label>
+       <label
+        *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.maxLength">First
+        Name must not exceed 50 characters</label>
+      </div>
+     </div>
+     <div class="form-group">
+      <input type="text" name="Lastname" formControlName="Lastname" placeholder="Lastname" name="Lastname"
+       class="form-control" />
+      <div class="text-danger">
+       {{shoeLastNameErrors()}}
+      </div>
+     </div>
+     <div class="form-group">
+      <input type="text" name="Username" formControlName="Username" placeholder="Username" name="Username"
+       class="form-control" />
+      <div class="text-danger">
+       {{shoeUserNameErrors()}}
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="email" name="email" formControlName="Email" placeholder="Email" name="email" class="form-control" />
+       <div class="text-danger">
+        {{shoeEmailErrors()}}
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" name="Address" formControlName="Address" placeholder="Address" name="Address"
+        class="form-control" />
+       <div class="text-danger">
+        {{shoeAddressErrors()}}
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" name="Phone" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
+       <div class="text-danger">
+        {{shoePhoneErrors()}}
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" name="State" formControlName="State" placeholder="State" name="State" class="form-control" />
+       <div class="text-danger">
+        {{shoeStateErrors()}}
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" name="Country" formControlName="Country" placeholder="Country" name="Country"
+        class="form-control" />
+       <div class="text-danger">
+        {{shoeCountryErrors()}}
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" name="PostalCode" formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
+        class="form-control" />
+       <div class="text-danger">
+        {{shoePostalCodeErrors()}}
+       </div>
+      </div>
+     </div>
+
+     <div formGroupName="Passwords">
+      <div class="form-group row">
+       <div class="col-md-12">
+        <input type="password" name="Password" formControlName="Password" placeholder="Password" name="Password"
+         class="form-control" />
+        <div class="text-danger">
+         {{shoePasswordErrors()}}
+        </div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <div class="col-md-12">
+        <input type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password"
+         name="ConfirmPassword" class="form-control" />
+        <div class="text-danger">
+         {{shoeConfirmPasswordErrors()}}
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="form-group">
+      <button type="submit" value="Create" class="btn btn-primary text-white"
+       [disabled]="!RegService.formModel.valid"><strong>SUBMIT</strong>
+      </button>
+     </div>
+     <br>
+
+     <button class="btn btn-default " [routerLink]="[ '/login']" routerLinkActive="router-link-active ">
+      <strong>
+       Already have an Account?
+      </strong>
+     </button>
+     <hr class="btn-primary" />
+    </form>
+   </div>
+
+  </div>
+
+ </div>
+</div>
+<br>
+<br>
+<br>
+<hr class="btn-info " />
+
+
+<!-- ############################################ -->

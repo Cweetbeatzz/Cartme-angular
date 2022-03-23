@@ -17,6 +17,7 @@ import { UserChangePasswordComponent } from './user-change-password/user-change-
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { AccountComponent } from './account.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes:Routes = [
    //default path
@@ -68,6 +69,7 @@ const routes:Routes = [
     //  UserDashboardComponent,
     // EmailConfirmComponent,
     // AccountComponent
+    // SignUpComponent
   ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),

@@ -13,11 +13,12 @@
 
 <div class="row text-center p-1">
     <div class="col-md-6 mx-auto">
-        <form asp-action="Register" [formGroup]="RegService.formModel" (submit)="RegisterSubmit()">
+        <form asp-action="Register" [formGroup]="RegService.formModel" (submit)="OnSubmit()">
             <div class="form-group">
                 <input type="text" name="Firstname" formControlName="Firstname" placeholder="Firstname" name="Firstname" class="form-control" />
                 <div class="text-danger">
-                    {{shoeFirstNameErrors()}}
+                    <label *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.required">First Name is Required</label>
+                    <label *ngIf="RegService.formModel.get('Firstname')?.touched && RegService.formModel.get('Firstname')?.errors?.maxLength">First Name must not exceed 50 characters</label>
                 </div>
             </div>
             <div class="form-group">

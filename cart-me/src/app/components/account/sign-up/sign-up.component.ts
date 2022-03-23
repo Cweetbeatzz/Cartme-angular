@@ -1,58 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Customers } from 'src/app/models/Customers/customers';
-import { CreateUsersSuccessAction } from 'src/app/Ngrx/actions/user.actions';
-import { AppState } from 'src/app/Ngrx/store/app.state';
 import { UsersService } from 'src/app/services/Account/users.service';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class SignUpComponent implements OnInit {
 
+  constructor(private route: Router, public RegService: UsersService,private alertify: AlertsService,private fb: FormBuilder ) { }
 
-  constructor(private route: Router, public RegService: UsersService, 
-    private alertify: AlertsService,private fb: FormBuilder, private store:Store<AppState>) { };
-
-  // ##########################################
-
-  ngOnInit() {
-      //reset form after every successfull reg
-      this.RegService.formModel.reset();
+  ngOnInit(): void {
   }
-  //  RegistrationForm: FormGroup = new FormGroup({
-  //     id: new FormControl(),
-  //     Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
-  //     lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-  //     username: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-  //     email: new FormControl(null, [Validators.required, Validators.email]),
-  //     address: new FormControl(null,[ Validators.required,Validators.maxLength(350)]),
-  //     phone: new FormControl(null, [Validators.required, Validators.maxLength(11)]),
-  //     password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-  //     confirmPassword: new FormControl(null,[ Validators.required])
-  //  })
-// ##########################################
-// VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
-//  shoeFirstNameErrors(){
-//    const getFirstName = this.RegService.formModel?.get('Firstname');
-//    if (getFirstName?.touched && !getFirstName.valid) {
-//      if (getFirstName.errors?.required) {
-//        return 'First Name is Required'
-//      }
-//      if (getFirstName.errors?.maxLength) {
-//        return 'First Name must not exceed 50 characters'
-//      }
-//    }
-//    return
-//  }
- shoeLastNameErrors(){
+  shoeLastNameErrors(){
     const getLastName = this.RegService.formModel.get('Lastname');
    if (getLastName?.touched && !getLastName.valid) {
      if (getLastName.errors?.required) {
@@ -176,36 +140,7 @@ export class RegisterComponent implements OnInit {
    return
  }
 
- // ##########################################
-//  onCreateUser(){
-//    if (!this.RegistrationForm?.valid) {
-//      return
-//    }
-
-//    const regForm:Customers = {
-//      Firstname: this.RegistrationForm.value.Firstname,
-//      Lastname: this.RegistrationForm.value.Lastname,
-//      Username: this.RegistrationForm.value.Username,
-//      Email: this.RegistrationForm.value.Email,
-//      Address: this.RegistrationForm.value.Address,
-//      State: this.RegistrationForm.value.State,
-//      Country: this.RegistrationForm.value.Country,
-//      Phone: this.RegistrationForm.value.Phone,
-//      PostalCode: this.RegistrationForm.value.PostalCode,
-//      Password: this.RegistrationForm.value.Password,
-//      ConfirmPassword: this.RegistrationForm.value.ConfirmPassword
-//    }
-
-//    this.store.dispatch(CreateUsersSuccessAction({users:regForm}))
-//  }
-
-  // ########################################## ||  ##########################################
-  // ########################################## ||  ##########################################
-  // ########################################## ||  ##########################################
-
-
-
-    OnSubmit() {
+  OnSubmit() {
     this.RegService.Register().subscribe(
       (result: any) => {
         if (result.succeeded) {

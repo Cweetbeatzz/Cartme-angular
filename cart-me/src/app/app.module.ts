@@ -50,6 +50,7 @@ import { AuthTokenInterceptor } from './interceptors/AuthToken.Interceptor';
 import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
 import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
 import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
+import { SignUpComponent } from './components/account/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { UploadCategoryComponent } from './components/category/upload-category/u
     CategoryDeleteComponent,
     UploadCategoryComponent,
     EditCategoryComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
