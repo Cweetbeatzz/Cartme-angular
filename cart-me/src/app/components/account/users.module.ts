@@ -16,14 +16,20 @@ import { UserEffects } from "src/app/Ngrx/effects/user.effects";
 import { UserChangePasswordComponent } from './user-change-password/user-change-password.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
+import { AccountComponent } from './account.component';
 
 const routes:Routes = [
+   //default path
+   {path:'',redirectTo:'account/register',pathMatch:'full'},
    {
-    path:'',
-    component: UsersComponent,
+    path:'account',
+    component: AccountComponent,
     children:[
     {
       path: 'login', component: LoginComponent
+    },
+    {
+      path: 'users', component: UsersComponent
     },
     {
       path: 'register', component: RegisterComponent
@@ -59,8 +65,8 @@ const routes:Routes = [
     //  UsersComponent,
     //  UserChangePasswordComponent,
     //  UserDashboardComponent,
- 
-    EmailConfirmComponent
+    // EmailConfirmComponent,
+    // AccountComponent
   ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),

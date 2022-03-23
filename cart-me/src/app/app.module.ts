@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
@@ -46,6 +46,7 @@ import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
 import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
 import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
+import { AuthTokenInterceptor } from './interceptors/AuthToken.Interceptor';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,9 @@ import { ProductDetailsComponent } from './components/product/product-details/pr
     StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 
   ],
-  providers: [SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthTokenInterceptor,multi:true},
+    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

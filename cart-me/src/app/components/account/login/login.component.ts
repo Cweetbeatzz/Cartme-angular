@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
   Onsubmit(form: NgForm) {
     this.service.Login(form.value).subscribe(
       (response: any) => {
-        this.alertify.success('Login Successful')
         localStorage.setItem('token', response.token);
+        this.alertify.success('Login Successful')
         this.route.navigateByUrl('/');
       },
       error => {
