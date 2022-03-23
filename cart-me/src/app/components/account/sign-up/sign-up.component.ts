@@ -141,26 +141,6 @@ export class SignUpComponent implements OnInit {
  }
 
   OnSubmit() {
-    this.RegService.Register().subscribe(
-      (result: any) => {
-        if (result.succeeded) {
-          this.alertify.success('Registeration Successful')
-          this.RegService.formModel.reset();
-        } 
-        else 
-        {
-          result.errors.forEach((element: { code: any; }) => {
-            switch (element.code) {
-              case '':
-                // this.alertify.error('Email is already taken')
-                break;
-            }
-          });
-        }
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.RegService.Register().subscribe();
   }
 }

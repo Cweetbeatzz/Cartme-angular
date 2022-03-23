@@ -51,6 +51,7 @@ import { CategoryDeleteComponent } from './components/category/category-delete/c
 import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
 import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
+import { UserCreateComponent } from './components/account/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,9 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
     EditCategoryComponent,
     CategoriesComponent,
     SignUpComponent,
+    UserCreateComponent
+  
+
   ],
   imports: [
     BrowserModule,

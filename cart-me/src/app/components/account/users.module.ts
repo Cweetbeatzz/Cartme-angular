@@ -18,6 +18,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { AccountComponent } from './account.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 const routes:Routes = [
    //default path
@@ -70,6 +71,7 @@ const routes:Routes = [
     // EmailConfirmComponent,
     // AccountComponent
     // SignUpComponent
+    // UserCreateComponent
   ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),
