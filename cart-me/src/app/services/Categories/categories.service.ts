@@ -15,11 +15,9 @@ export class CategoriesService {
 
   //#########################################################################################
 
-  GetAllCategory():Observable<Categories[]> {
-    return this.http.get(this.APIURL + '/api/Categories/').pipe(map((data)=>{
-      const categories:Categories[] = [];
-      return categories
-    }))
+  GetAllCategory() {
+    return this.http.get(this.APIURL + '/api/Categories/')
+
   }
   //#########################################################################################
   UploadCategory(category: Categories):Observable<Categories> {

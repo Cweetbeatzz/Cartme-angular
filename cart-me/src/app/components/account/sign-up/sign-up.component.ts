@@ -185,6 +185,7 @@ export class SignUpComponent implements OnInit {
     this.ApiRegService.Register(this.registerationForm.value).subscribe({
       next:(res)=>{
         this.alertify.success('Registeration Successfull.')
+        this.registerationForm.reset()
         this.route.navigate(['/login'])
       },
       error:()=>{

@@ -45,11 +45,8 @@ export class UsersService {
 
   }
   //#######################################################################
-  getUser():Observable<Customers[]> {
-    return this.http.get<Customers[]>(this.ApiUrl + '/api/Account/get' ).pipe(map((data )=>{
-      const users:Customers[] = [];
-      return users
-    }));
+  getUser() {
+    return this.http.get(this.ApiUrl + '/api/Account/get' );
   }
   //#######################################################################
   getUserById(id:string){
