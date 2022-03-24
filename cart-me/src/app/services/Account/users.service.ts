@@ -16,49 +16,7 @@ export class UsersService {
 
   constructor(private fb: FormBuilder,private http: HttpClient) { }
 
-  formModel = this.fb.group({
-    Firstname: ['', Validators.required, Validators.maxLength(50)],
-    Lastname: ['', Validators.required, Validators.maxLength(50)],
-    Username: ['', Validators.required, Validators.maxLength(50)],
-    Email: ['', Validators.email],
-    Address: ['', Validators.required,Validators.maxLength(350)],
-    State: ['', Validators.required, Validators.maxLength(50)],
-    Country: ['', Validators.required, Validators.maxLength(100)],
-    Phone: ['', Validators.required, Validators.maxLength(11)],
-    PostalCode: ['', Validators.required, Validators.maxLength(10)],
-
-    Passwords: this.fb.group({
-      Password: ['', [Validators.required, Validators.minLength(6)]],
-      ConfirmPassword: ['', Validators.required]
-    }, { Validators: this.comparePasswords })
-  });
-
-  comparePasswords(fg: FormGroup) {
-    let comfrimpassctrl = fg.get('ConfirmPassword')
-    if (comfrimpassctrl?.errors == null || 'passwordMisMatch' in comfrimpassctrl.errors) {
-      if (fg.get('Password')?.value != comfrimpassctrl?.value) {
-        comfrimpassctrl?.setErrors({ passwordMisMatch: true })
-      } else {
-        comfrimpassctrl?.setErrors(null);
-      }
-    }
-  }
-  // #######################################################################
-  getFormValue(){
-          var body = {
-      Firstname: this.formModel.value.Firstname,
-      Lastname: this.formModel.value.Lastname,
-      Username: this.formModel.value.Username,
-      Email: this.formModel.value.Email,
-      Address: this.formModel.value.Address,
-      State: this.formModel.value.State,
-      Country: this.formModel.value.Country,
-      Phone: this.formModel.value.Phone,
-      PostalCode: this.formModel.value.PostalCode,
-      Password: this.formModel.value.Passwords.Password
-    }
-    return body
-  }
+ 
   // #######################################################################
 
 

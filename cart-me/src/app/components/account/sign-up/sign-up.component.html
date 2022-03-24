@@ -14,8 +14,7 @@
 
   <div class="row text-center p-1">
    <div class="col-md-6 mx-auto">
-    <form asp-action="Register" [formGroup]="registerationForm" >
-      <!-- (ngSubmit)="OnSubmit()" -->
+    <form asp-action="Register" [formGroup] = "registerationForm" >
 
      <div class="form-group">
       <input type="text"  formControlName="Firstname" placeholder="Firstname" name="Firstname" class="form-control"/>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/Account/users.service';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
@@ -13,7 +13,8 @@ export class SignUpComponent implements OnInit {
 
   registerationForm!: FormGroup ;
 
-  constructor(private route: Router, public ApiRegService: UsersService,private alertify: AlertsService,private fb: FormBuilder ) { }
+  constructor(private route: Router, public ApiRegService: UsersService,
+    private alertify: AlertsService,private fb: FormBuilder ) { }
 
   ngOnInit(): void {
     this.createRegisterForm()
