@@ -10,31 +10,33 @@ import { AlertsService } from 'src/app/services/Alerts/alerts.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  registerationForm: FormGroup = new FormGroup({});
 
-  constructor(private route: Router, public RegService: UsersService,private alertify: AlertsService,private fb: FormBuilder ) { }
+  registerationForm!: FormGroup ;
+
+  constructor(private route: Router, public ApiRegService: UsersService,private alertify: AlertsService,private fb: FormBuilder ) { }
 
   ngOnInit(): void {
-    this.registerationForm = new FormGroup({
-      id: new FormControl(),
-      Firstname: new FormControl(null,[ Validators.required, Validators.maxLength(50)]),
-      lastname: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-      username: new FormControl(null,[ Validators.required,Validators.maxLength(50)]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      address: new FormControl(null,[ Validators.required,Validators.maxLength(350)]),
-      phone: new FormControl(null, [Validators.required, Validators.maxLength(11)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      confirmPassword: new FormControl(null,[ Validators.required])
-    })
+    this.createRegisterForm()
   }
 
-  passwordMatchCheck(fg:FormGroup):Validators{
-    return fg.get('Password')?.value === fg.get('confirmPassword')?.value ? '' : {notmatched:true}
-  }
+  // passwordMatchCheck(fg:FormGroup):Validators{
+  //   return fg.get('Password')?.value === fg.get('confirmPassword')?.value ? '' : {notmatched:true}
+  // }
 
   createRegisterForm(){
     this.registerationForm = this.fb.group({
-      
+      //  id: new FormControl(),
+      Firstname: ['', Validators.required],
+      Lastname: ['', Validators.required],
+      Username: ['', Validators.required],
+      Email: ['', Validators.required],
+      Address: ['', Validators.required],
+      Phone:  ['',Validators.required],
+      State:  ['',Validators.required],
+      Country:  ['',Validators.required],
+      PostalCode:  ['',Validators.required],
+      Password: ['',Validators.required],
+      ConfirmPassword: ['', Validators.required]
     })
   }
 
@@ -63,7 +65,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoeUserNameErrors(){
-       const getUserName = this.RegService.formModel.get('Username');
+       const getUserName = this.registerationForm?.get('Username');
    if (getUserName?.touched && !getUserName.valid) {
      if (getUserName.errors?.required) {
        return 'User Name is Required'
@@ -75,7 +77,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoeEmailErrors(){
-   const getEmail = this.RegService.formModel.get('Email');
+   const getEmail = this.registerationForm?.get('Email');
    if (getEmail?.touched && !getEmail.valid) {
      if (getEmail.errors?.required) {
        return 'Email is Required'
@@ -90,7 +92,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoeAddressErrors(){
-     const getAddress = this.RegService.formModel.get('Address');
+     const getAddress = this.registerationForm?.get('Address');
    if (getAddress?.touched && !getAddress.valid) {
      if (getAddress.errors?.required) {
        return 'Address is Required'
@@ -102,7 +104,7 @@ export class SignUpComponent implements OnInit {
    return
  }
   shoeStateErrors(){
-        const getState = this.RegService.formModel.get('State');
+        const getState = this.registerationForm?.get('State');
    if (getState?.touched && !getState.valid) {
      if (getState.errors?.required) {
        return 'State is Required'
@@ -114,7 +116,7 @@ export class SignUpComponent implements OnInit {
    return
  }
   shoeCountryErrors(){
-        const getCountry = this.RegService.formModel.get('Country');
+        const getCountry = this.registerationForm?.get('Country');
    if (getCountry?.touched && !getCountry.valid) {
      if (getCountry.errors?.required) {
        return 'Country is Required'
@@ -126,7 +128,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoePhoneErrors(){
-        const getPhone = this.RegService.formModel.get('Phone');
+        const getPhone = this.registerationForm?.get('Phone');
    if (getPhone?.touched && !getPhone.valid) {
      if (getPhone.errors?.required) {
        return 'Phone is Required'
@@ -138,7 +140,7 @@ export class SignUpComponent implements OnInit {
    return
  }
   shoePostalCodeErrors(){
-        const getPostalCode = this.RegService.formModel.get('PostalCode');
+        const getPostalCode = this.registerationForm?.get('PostalCode');
    if (getPostalCode?.touched && !getPostalCode.valid) {
      if (getPostalCode.errors?.required) {
        return 'Postal Code is Required'
@@ -150,7 +152,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoePasswordErrors(){
-          const getPassword = this.RegService.formModel.get('Passwords.Password');
+          const getPassword = this.registerationForm?.get('Password');
    if (getPassword?.touched && !getPassword.valid) {
      if (getPassword.errors?.required) {
        return 'Password is Required'
@@ -162,7 +164,7 @@ export class SignUpComponent implements OnInit {
    return
  }
  shoeConfirmPasswordErrors(){
-      const getConfirmPassword = this.RegService.formModel.get('Passwords.ConfirmPassword');
+      const getConfirmPassword = this.registerationForm?.get('ConfirmPassword');
    if (getConfirmPassword?.touched && !getConfirmPassword.valid) {
      if (getConfirmPassword.errors?.required) {
        return 'Password is Invalid or do not Match'
@@ -173,8 +175,21 @@ export class SignUpComponent implements OnInit {
    }
    return
  }
+// #######################################################################
 
   OnSubmit() {
-    this.RegService.Register().subscribe();
+    if (!this.registerationForm.valid) {
+      return
+    }
+    this.ApiRegService.Register(this.registerationForm.value).subscribe({
+      next:(res)=>{
+        this.alertify.success('Registeration Successfull.')
+        this.route.navigate(['/login'])
+      },
+      error:()=>{
+        this.alertify.error('An Error occured please try again filling form correctly')
+      }
+      
+    })
   }
 }

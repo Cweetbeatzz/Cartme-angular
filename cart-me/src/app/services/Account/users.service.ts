@@ -44,9 +44,8 @@ export class UsersService {
     }
   }
   // #######################################################################
-
-  Register() {
-    var body = {
+  getFormValue(){
+          var body = {
       Firstname: this.formModel.value.Firstname,
       Lastname: this.formModel.value.Lastname,
       Username: this.formModel.value.Username,
@@ -58,7 +57,13 @@ export class UsersService {
       PostalCode: this.formModel.value.PostalCode,
       Password: this.formModel.value.Passwords.Password
     }
-    return this.http.post(this.ApiUrl + '/api/Account/Register', body);
+    return body
+  }
+  // #######################################################################
+
+
+  Register(data:Customers) {
+    return this.http.post<Customers>(this.ApiUrl + '/api/Account/Register', data);
   }
 
   //#######################################################################

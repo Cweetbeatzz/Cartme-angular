@@ -14,101 +14,99 @@
 
   <div class="row text-center p-1">
    <div class="col-md-6 mx-auto">
-    <form asp-action="Register" [formGroup]="registerationForm" (ngSubmit)="OnSubmit()">
+    <form asp-action="Register" [formGroup]="registerationForm" >
+      <!-- (ngSubmit)="OnSubmit()" -->
+
      <div class="form-group">
-      <input type="text" name="Firstname" formControlName="Firstname" placeholder="Firstname" name="Firstname"
-       class="form-control" />
-      <div class="text-danger" *ngIf="registerationForm.get('Firstname')?.touched && !registerationForm.get('Firstname')?.valid">
-       <label
-        *ngIf="registerationForm.get('Firstname')?.errors?.required">First
-        Name is Required</label>
-       <label
-        *ngIf="registerationForm.get('Firstname')?.errors?.maxLength">First
-        Name must not exceed 50 characters</label>
+      <input type="text"  formControlName="Firstname" placeholder="Firstname" name="Firstname" class="form-control"/>
+      <div class="text-danger">
+      {{shoeFirstNameErrors()}}
       </div>
      </div>
+
      <div class="form-group">
-      <input type="text" name="Lastname" formControlName="Lastname" placeholder="Lastname" name="Lastname"
+      <input type="text"  formControlName="Lastname" placeholder="Lastname" name="Lastname"
        class="form-control" />
       <div class="text-danger">
        {{shoeLastNameErrors()}}
       </div>
      </div>
+
      <div class="form-group">
-      <input type="text" name="Username" formControlName="Username" placeholder="Username" name="Username"
+      <input type="text"  formControlName="Username" placeholder="Username" name="Username"
        class="form-control" />
       <div class="text-danger">
-       <!-- {{shoeUserNameErrors()}} -->
+       {{shoeUserNameErrors()}}
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="email" name="email" formControlName="Email" placeholder="Email" name="email" class="form-control" />
+       <input type="email"  formControlName="Email" placeholder="Email" name="Email" class="form-control" />
        <div class="text-danger">
-        <!-- {{shoeEmailErrors()}} -->
+        {{shoeEmailErrors()}}
        </div>
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Address" formControlName="Address" placeholder="Address" name="Address"
+       <input type="text" formControlName="Address" placeholder="Address" name="Address"
         class="form-control" />
        <div class="text-danger">
-        <!-- {{shoeAddressErrors()}} -->
+        {{shoeAddressErrors()}}
        </div>
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Phone" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
+       <input type="text" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
        <div class="text-danger">
-        <!-- {{shoePhoneErrors()}} -->
+        {{shoePhoneErrors()}}
        </div>
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="State" formControlName="State" placeholder="State" name="State" class="form-control" />
+       <input type="text"  formControlName="State" placeholder="State" name="State" class="form-control" />
        <div class="text-danger">
-        <!-- {{shoeStateErrors()}} -->
+        {{shoeStateErrors()}}
        </div>
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="Country" formControlName="Country" placeholder="Country" name="Country"
+       <input type="text"  formControlName="Country" placeholder="Country" name="Country"
         class="form-control" />
        <div class="text-danger">
-        <!-- {{shoeCountryErrors()}} -->
+        {{shoeCountryErrors()}}
        </div>
       </div>
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" name="PostalCode" formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
+       <input type="text"  formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
         class="form-control" />
        <div class="text-danger">
-        <!-- {{shoePostalCodeErrors()}} -->
+        {{shoePostalCodeErrors()}}
        </div>
       </div>
      </div>
 
-     <div formGroupName="Passwords">
+     <div >
       <div class="form-group row">
        <div class="col-md-12">
-        <input type="password" name="Password" formControlName="Password" placeholder="Password" name="Password"
+        <input type="password"  formControlName="Password" placeholder="Password" name="Password"
          class="form-control" />
         <div class="text-danger">
-         <!-- {{shoePasswordErrors()}} -->
+         {{shoePasswordErrors()}}
         </div>
        </div>
       </div>
       <div class="form-group row">
        <div class="col-md-12">
         <input type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password"
-         name="ConfirmPassword" class="form-control" />
+          class="form-control" />
         <div class="text-danger">
-         <!-- {{shoeConfirmPasswordErrors()}} -->
+         {{shoeConfirmPasswordErrors()}}
         </div>
        </div>
       </div>
@@ -116,7 +114,7 @@
 
      <div class="form-group">
       <button type="submit" value="Create" class="btn btn-primary text-white"
-       [disabled]="!registerationForm.valid"><strong>SUBMIT</strong>
+        (click)="OnSubmit()"><strong>SUBMIT</strong>
       </button>
      </div>
      <br>
