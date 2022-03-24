@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
+import {MatTreeModule} from '@angular/material/tree';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -89,7 +90,7 @@ import { ProductListComponent } from './components/product/product-list/product-
     EditCategoryComponent,
     CategoriesComponent,
     SignUpComponent,
-    RegisterComponent
+    RegisterComponent,
   
 
   ],
@@ -102,7 +103,7 @@ import { ProductListComponent } from './components/product/product-list/product-
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    MatCardModule,
+    MatCardModule,MatTreeModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { AdminComponent } from './components/account/admin/admin.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
@@ -23,6 +24,7 @@ import { ProductsDeleteComponent } from './components/product/products-delete/pr
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { SearchComponent } from './components/search/search.component';
+import { AdminAccessGuard } from './Guard/admin-access.guard';
 
 const routes: Routes = [];
 
@@ -100,9 +102,9 @@ const routes: Routes = [];
     {
       path: 'products', component: ProductListComponent
     },
-    // {
-    //   path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
-    // },
+    {
+      path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
+    },
     {
       path: 'uploadproduct', component: ProductsuploadComponent
     },
