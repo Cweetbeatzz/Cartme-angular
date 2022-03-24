@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -101,6 +102,7 @@ import { ProductListComponent } from './components/product/product-list/product-
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
+    MatCardModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,

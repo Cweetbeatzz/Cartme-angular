@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Products } from 'src/app/models/Products/products';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 import { ProductsService } from 'src/app/services/Product/products.service';
+import {MatCard,MatCardActions,MatCardContent,MatCardImage,} from '@angular/material/card';
 
 @Component({
   selector: 'app-product-list',
