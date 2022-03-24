@@ -16,11 +16,8 @@ export class ProductsService {
 
   //#########################################################################################
 
-  GetAllProduct() {
-    return this.http.get(this.APIURL + '/api/Food/').pipe(map((data)=>{
-      const products:Products[] = []
-      return products
-    }))
+  GetAllProduct():Observable<Products[]> {
+    return this.http.get<Products[]>(this.APIURL + '/api/Food/')
   }
    //#########################################################################################
 
@@ -29,7 +26,7 @@ export class ProductsService {
   }
      //#########################################################################################
 
-  GetProductByCategory(product: Products) {
+  GetProductByCategory(category: Products) {
     return this.http.get(this.APIURL + '/api/Food/{category}')
   }
   //#########################################################################################
@@ -38,8 +35,8 @@ export class ProductsService {
   }
   //#########################################################################################
 
-  UpdateProduct(product: Products) {
-    return this.http.put(this.APIURL + '/api/Food/Edit', product)
+  UpdateProduct(product: Products,id:string) {
+    return this.http.put(this.APIURL + '/api/Food/Edit'+id, product)
   }
   //#########################################################################################
 

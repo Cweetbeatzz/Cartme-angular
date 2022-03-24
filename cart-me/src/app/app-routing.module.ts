@@ -18,9 +18,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
 import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
-import { ProductsComponent } from './components/product/products/products.component';
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { SearchComponent } from './components/search/search.component';
 
@@ -98,7 +98,7 @@ const routes: Routes = [];
       path: 'rolesUser', component: UserRolesComponent
     },
     {
-      path: 'products', component: ProductsComponent
+      path: 'products', component: ProductListComponent
     },
     // {
     //   path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]

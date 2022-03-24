@@ -24,7 +24,6 @@ import { SearchComponent } from './components/search/search.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from './material/material.module';
-import { ProductsComponent } from './components/product/products/products.component';
 import { CategoriesComponent } from './components/category/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CategoriesService } from './services/Categories/categories.service';
@@ -55,6 +54,7 @@ import { CategoryDeleteComponent } from './components/category/category-delete/c
 import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
 import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +74,7 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
     ProductsEditComponent,
     ProductsDeleteComponent,
     ProductDetailsComponent,
+    ProductListComponent,
     LoginComponent,
      AdminComponent,
      UserEditComponent,
