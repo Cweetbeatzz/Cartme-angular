@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cat in categories | async">
+            <tr *ngFor="let cat in GetAllCategories2() | async">
                 <td>
                    {{cat.name}}
                 </td>
@@ -74,7 +74,7 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
             <td mat-cell *matCellDef="let row"> 
-                <a class="btn btn-primary btn-sm" [routerLink]="['/editcategory']"><strong>EDIT</strong></a> 
+                <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/editcategory']"><strong>EDIT</strong></a> 
                 <a class="btn btn-danger btn-sm" [routerLink]="['/deletecategory']"><strong>DELETE</strong></a>
             </td>
         </ng-container>

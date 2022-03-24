@@ -20,7 +20,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class CategoriesComponent implements OnInit {
 
   displayedColumns: string[] = ['id','name','slug','sorting', 'actions' ];
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<Categories>;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -50,7 +50,7 @@ export class CategoriesComponent implements OnInit {
     this.CategoryApi.GetAllCategory().subscribe({
       next:(res)=>{
         console.log(res)
-        this.dataSource = new MatTableDataSource()
+        this.dataSource = new MatTableDataSource(res)
         this.dataSource.paginator = this.paginator
         this.dataSource.sort = this.sort
       },
@@ -61,5 +61,13 @@ export class CategoriesComponent implements OnInit {
   }
 //#########################################################################################
 
- 
+   GetAllCategories2() {
+    this.CategoryApi.GetAllCategory().subscribe({
+      next:(res)=>{
+      },
+      error:(err)=>{
+        this.alertify.error(err)
+      }
+    })
+  }
 }
