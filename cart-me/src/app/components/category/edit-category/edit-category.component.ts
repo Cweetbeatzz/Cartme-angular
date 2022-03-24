@@ -17,9 +17,9 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
 
   //##################################################################
 
-  category:Categories | undefined
-  CategoryForm: FormGroup = new FormGroup({});
-  categorySub: Subscription = new Subscription;
+  category!:Categories
+  CategoryForm!: FormGroup;
+  categorySub!: Subscription;
 
   constructor(private reroute:Router,private route:ActivatedRoute,private store: Store<AppState>) { }
 
@@ -40,7 +40,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
   validateee(){
     this.CategoryForm = new FormGroup({
     id: new FormControl(),
-    name: new FormControl(null,[ Validators.required, Validators.maxLength(50)])
+    name: new FormControl(null,[ Validators.required,])
   });
   } 
 
@@ -63,7 +63,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
   //##################################################################
 
   editCategory() {
-   if (!this.CategoryForm?.valid) {
+   if (!this.CategoryForm.valid) {
      return
    }
 

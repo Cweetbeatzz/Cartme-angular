@@ -8,6 +8,10 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
 import { StoreDevtoolsModule} from '@ngrx/store-devtools'
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -98,6 +102,7 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
     RouterModule, HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
     StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 

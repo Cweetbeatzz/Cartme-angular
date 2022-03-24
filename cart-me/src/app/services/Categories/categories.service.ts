@@ -17,20 +17,19 @@ export class CategoriesService {
 
   GetAllCategory() {
     return this.http.get(this.APIURL + '/api/Categories/')
-
   }
   //#########################################################################################
-  UploadCategory(category: Categories):Observable<Categories> {
+  UploadCategory(category: Categories){
     return this.http.post<Categories>(this.APIURL + '/api/Categories/Create', category)
   }
   //#########################################################################################
 
-  UpdateCategory(category: Categories) {
-    return this.http.put(this.APIURL + '/api/Categories/Edit/{id}', category)
+  UpdateCategory(category: Categories, id:number) {
+    return this.http.put<Categories>(this.APIURL + '/api/Categories/Edit/'+ id, category)
   }
   //#########################################################################################
 
-  DeleteCategory(id: string) {
+  DeleteCategory(id: number) {
     return this.http.delete(`${this.APIURL}/api/Categories/Delete/${id}`)
   }
   //#########################################################################################
