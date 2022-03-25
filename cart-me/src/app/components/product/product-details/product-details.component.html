@@ -1,1 +1,50 @@
-<p>product-details works!</p>
+<div>
+    <div>
+    <br />
+    <br />
+    <br />
+    <div className="container">
+     <div className="mx-auto" id="thewholeblock" *ngIf="prodDetails">
+   
+      <div>
+       <img class="card-img-top img-fluid border-0" id='cardimg1' src="assets/images/Goatmeat.webp" alt="" />
+      </div>
+      <div className="card-body ">
+       <h6 className="card-title text-center" id="nftcollection">Cweetfaces</h6>
+       <h5 className="card-title text-center" id="nftname"><strong>Blu Mafia #5456</strong></h5>
+       <hr />
+       <div className=" d-flex justify-content-evenly p-0 m-0">
+        <h6 className="card-text text-start" id='askingprice'>Price</h6>
+        <span className='d-flex justify-content-evenly'>
+         <h4 className="text-muted" id='dollarvalue'>{{prodDetails.price}}</h4>
+         <img className="card-img-top " id='ethlogo' src="images/Ethereum_logo_2014.svg.png" alt="" />
+         <h2 id='ethvalue' className=''><strong>0.086</strong></h2>
+        </span>
+       </div>
+       <br />
+       <div className="text-center">
+        <button className="btn btn-warning w-50"><strong>BUY</strong>
+        </button>
+   
+        <p className="text-white p-5">CweetFaces Collection, the premium membership NFT of the BAS ecosystem</p>
+       </div>
+      </div>
+      <br />
+      <hr className='text-white' />
+   
+     </div>
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+    </div>
+   </div>
+</div>

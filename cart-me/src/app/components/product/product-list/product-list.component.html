@@ -2,7 +2,7 @@
 <div class="container">
 <div class="text-center">
  <p>
-  <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/uploadproduct']">Create New Product</a>
+  <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/products/uploadproduct']">Create New Product</a>
  </p>
 </div>
 
@@ -14,7 +14,7 @@
    <div class="row">
     <div class="bd-example bd-example-images m-1" *ngFor="let prod of prodList">
      <div class="text-center">
-      <img src="assets/images/Goatmeat.webp" class="artwork mb-2" height="120 " width="120">
+      <img src={{prod.Image}} class="artwork mb-2" height="120 " width="120" [routerLink]="['/products/product-details',prod.id]">
       <h6 class="text-dark">{{prod.MealName}}</h6>
       <span class="navbar-expand-sm  d-flex mx-auto my-auto justify-content-center">
        <div>
@@ -153,8 +153,8 @@
    <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
     <td mat-cell *matCellDef="let row">
-     <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/editproduct']"><strong>EDIT</strong></a>
-     <a class="btn btn-danger btn-sm" [routerLink]="['/deleteproduct']"><strong>DELETE</strong></a>
+     <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/products/editproduct']"><strong>EDIT</strong></a>
+     <a class="btn btn-danger btn-sm" [routerLink]="['/products/deleteproduct']"><strong>DELETE</strong></a>
     </td>
    </ng-container>
 

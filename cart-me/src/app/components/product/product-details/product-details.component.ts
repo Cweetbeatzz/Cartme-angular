@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Products } from 'src/app/models/Products/products';
+import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { ProductsService } from 'src/app/services/Product/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor() { }
+  prodId:string = ''
+  prodDetails!: any;
+
+   //#########################################################################################
+
+  constructor(private productApi:ProductsService,private alertify: AlertsService,private router:ActivatedRoute) { }
+
+   //#########################################################################################
 
   ngOnInit(): void {
+    this.router.params.subscribe(data =>{
+      this.prodId = data.id
+    })
   }
+ //#########################################################################################
+
+  getProductDetail(){
+    this.productApi.GetProductById(this.prodId).subscribe({
+      next:(data)=>{
+        this.prodDetails = data
+        console.log(this.prodDetails)
+      },
+      error:(err)=>{
+        this.alertify.error(err)
+      }
+    })
+  }
+   //#########################################################################################
 
 }

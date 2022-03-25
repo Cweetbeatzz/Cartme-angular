@@ -68,7 +68,6 @@ import { ProductListComponent } from './components/product/product-list/product-
     SearchComponent,
     CheckoutComponent,
     FooterComponent,
-    CategoriesComponent,
     UsersComponent,
     CartComponent,
     LoadingSpinnerComponent,

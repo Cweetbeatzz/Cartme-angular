@@ -105,11 +105,12 @@ const routes: Routes = [];
     {
       path: 'rolesUser', component: UserRolesComponent
     },
+    
     {
-      path: 'products', component: ProductListComponent
-    },
+      path: 'products',
+      children:[
     {
-      path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
+      path: '', component: ProductListComponent
     },
     {
       path: 'uploadproduct', component: ProductsuploadComponent
@@ -123,6 +124,13 @@ const routes: Routes = [];
     {
       path: 'product-details/:id', component: ProductDetailsComponent
     },
+      ]
+    },
+
+    {
+      path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
+    },
+ 
     {
       path: '', component: HomeComponent
     },
