@@ -25,7 +25,6 @@ export class ProductsDeleteComponent implements OnInit {
       this.prodId = data.id
     })
 
-    this.deleteProduct()
   }
 
   //#########################################################################################
