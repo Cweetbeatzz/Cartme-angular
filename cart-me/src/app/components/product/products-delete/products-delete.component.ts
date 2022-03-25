@@ -24,6 +24,8 @@ export class ProductsDeleteComponent implements OnInit {
      this.router.params.subscribe(data =>{
       this.prodId = data.id
     })
+
+    this.deleteProduct()
   }
 
   //#########################################################################################

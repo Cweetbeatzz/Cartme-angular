@@ -12,7 +12,7 @@
    <h1><strong>PRODUCTS</strong></h1>
    <hr class="btn-primary" style="width: 300px;" />
    <div class="row">
-    <div class="bd-example bd-example-images m-1" *ngFor="let prod of prodList">
+    <div class="bd-example bd-example-images m-1 mx-auto" *ngFor="let prod of prodList">
      <div class="text-center">
       <img src={{prod.Image}} class="artwork mb-2" height="120 " width="120" [routerLink]="['/products/product-details',prod.id]">
       <h6 class="text-dark">{{prod.MealName}}</h6>

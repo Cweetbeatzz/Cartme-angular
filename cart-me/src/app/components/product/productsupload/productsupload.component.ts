@@ -37,6 +37,7 @@ export class ProductsuploadComponent implements OnInit {
       Description:['',Validators.required],
       Price:['',Validators.required],
       FoodCategory:['',Validators.required],
+      ImageUpload:['',Validators.required],
     })
   }
 
@@ -99,6 +100,15 @@ export class ProductsuploadComponent implements OnInit {
      }
      if (getFoodCategory.errors?.maxLength) {
        return 'Food Category must not exceed 50 characters'
+     }
+   }
+   return
+ }
+     showImageErrors(){
+   const getImage = this.productForm?.get('Image');
+   if (getImage?.touched && !getImage.valid) {
+     if (getImage.errors?.required) {
+       return 'Image is Required'
      }
    }
    return
