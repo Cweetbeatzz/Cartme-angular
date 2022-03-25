@@ -8,7 +8,7 @@
         <div class="text-center card-body">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form asp-action="Create" enctype="multipart/form-data" method="post">
+                    <form  enctype="multipart/form-data" method="post" [formGroup]="productForm" (submit)="onSubmit()">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
