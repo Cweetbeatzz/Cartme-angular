@@ -43,15 +43,7 @@ export class LoginComponent implements OnInit {
     );
   }
   // #####################################
-  tick() { 
-    // this.alertify.success('Good!')
-     this.sweetalert.deleteNotification()
-  }
-  // #####################################
+ 
 
-  Logout() {
-    localStorage.removeItem('token');
-    this.alertify.warning('You are Logged Out');
-    this.route.navigateByUrl('/');
-  }
+ 
 }

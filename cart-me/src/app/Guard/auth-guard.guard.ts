@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AlertsService } from '../services/Alerts/alerts.service';
+import { SweetalertService } from '../services/Alerts/sweetalert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
-   constructor(private route: Router,private alertify: AlertsService) { }
+   constructor(private route: Router,private alertify: AlertsService,private sweetalert:SweetalertService) { }
    
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -16,7 +17,7 @@ export class AuthGuardGuard implements CanActivate {
     if (localStorage.getItem('token') != null) {
       return true;
     } else {
-      this.alertify.error('Unauthorized Access!!!')
+      this.sweetalert.timedNofication('Unauthorized Access!!!')
       this.route.navigateByUrl('/');
       return false;
     }
