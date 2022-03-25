@@ -26,7 +26,7 @@ export class CategoriesComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   //#########################################################################################
-  catList:Categories[] = [];
+  catList!:Categories[];
 
   constructor(private store: Store<AppState>,private CategoryApi:CategoriesService,private alertify: AlertsService,) { }
 
@@ -44,6 +44,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetAllCategories()
+    this.GetAllCategories2()
   }
 //#########################################################################################
 

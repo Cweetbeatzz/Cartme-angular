@@ -13,7 +13,7 @@
 <br/>
 <!-- <hr> -->
 
-<!-- <div class="text-center container">
+<div class="text-center container">
     <table class="table table-borderless table-striped">
         <thead>
             <tr>
@@ -23,18 +23,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cat in catList">
+            <tr *ngFor="let cat of catList">
                 <td>
                    {{cat.name}}
                 </td>
                 <td>
-                    | <a class="btn btn-primary btn-sm"  [routerLink]="['/editcategory', cat.id]"><strong>EDIT</strong></a> |
-                    <a class="btn btn-danger btn-sm"  asp-controller="Categories"><strong>DELETE</strong></a> |
+                 <a class="btn btn-primary btn-sm"  [routerLink]="['/editcategory', cat.id]"><strong>EDIT</strong></a> |
+                    <a class="btn btn-danger btn-sm"  asp-controller="Categories"><strong>DELETE</strong></a> 
                 </td>
             </tr>
         </tbody>
     </table>
-</div> -->
+</div>
 
 
 
