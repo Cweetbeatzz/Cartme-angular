@@ -44,5 +44,8 @@ a.navbar-brand {
   text-align: center;
   justify-content: center;
 }
+#logout {
+  cursor: pointer;
+}
 
 /* ############################################################### */

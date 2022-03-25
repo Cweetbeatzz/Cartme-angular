@@ -13,7 +13,7 @@ export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeact
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.alertify.success('Access Granted...')
+      // this.alertify.success('Access Granted...')
     return true;
   }
   canActivateChild(

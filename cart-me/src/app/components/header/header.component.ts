@@ -4,6 +4,7 @@ import { UsersService } from 'src/app/services/Account/users.service';
 
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 
 @Component({
   selector: 'app-header',
@@ -12,16 +13,25 @@ import {MatTreeNestedDataSource} from '@angular/material/tree';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private route: Router, private service: UsersService) {
+  constructor(private route: Router, private service: UsersService,private alertify: AlertsService,) {
    }
+   // ##################################### 
 
   ngOnInit(): void {
+   this.checkLoggedIn()
+  }
+  // #####################################
+  checkLoggedIn(){
+    if (localStorage.getItem('token') != null) {
+      return true;
+    } 
+      return false;
   }
   // #####################################
 
   Logout() {
     localStorage.removeItem('token');
-    console.info('You are Logged Out')
+    this.alertify.error('You are Logged Out')
     this.route.navigateByUrl('/');
   }
 }
