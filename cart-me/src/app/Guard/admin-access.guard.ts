@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AlertsService } from '../services/Alerts/alerts.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
 
-  constructor(){}
+  constructor(private alertify: AlertsService){}
   //##############################################################
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      this.alertify.success('Access Granted...')
     return true;
   }
   canActivateChild(

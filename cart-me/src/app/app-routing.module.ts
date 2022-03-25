@@ -25,49 +25,28 @@ import { ProductsEditComponent } from './components/product/products-edit/produc
 import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
+import { AuthGuardGuard } from './Guard/auth-guard.guard';
 
 const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([
  
-    {
-      path: 'header', component: HeaderComponent
-    },
-    {
-      path: 'home', component: HomeComponent
-    },
-    {
-      path: 'contact', component: ContactComponent
-    },
-    {
-      path: 'about', component: AboutComponent
-    },
-    {
-      path: 'search', component: SearchComponent
-    },
-    {
-      path: 'checkout', component: CheckoutComponent
-    },
-    {
-      path: 'cart', component: CartComponent
-    },
-  
+    { path: 'header', component: HeaderComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'checkout', component: CheckoutComponent},
+    { path: 'cart', component: CartComponent },
+
     {
       path: 'categories',
       children:[
-    {
-      path: '', component: CategoriesComponent
-    },
-    {
-      path: 'uploadcategory', component: UploadCategoryComponent
-    },
-    {
-      path: 'editcategory/:id', component: EditCategoryComponent
-    },
-    {
-      path: 'deletecategory/:id', component: CategoryDeleteComponent
-    },
+    { path: '', component: CategoriesComponent },
+    { path: 'uploadcategory', component: UploadCategoryComponent },
+    { path: 'editcategory/:id', component: EditCategoryComponent },
+    { path: 'deletecategory/:id', component: CategoryDeleteComponent },
       ]
     },
 
@@ -86,54 +65,26 @@ const routes: Routes = [];
     //     x.UserModule
     //   })
     // },
-    {
-      path: 'login', component: LoginComponent
-    },
-    {
-      path: 'register', component: RegisterComponent,
-
-    },
-    {
-      path: 'editUser', component: UserEditComponent
-    },
-    {
-      path: 'users', component: UsersComponent
-    },
-    {
-      path: 'deleteUser', component: UserDeleteComponent
-    },
-    {
-      path: 'rolesUser', component: UserRolesComponent
-    },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent,},
+    { path: 'editUser', component: UserEditComponent },
+    { path: 'users', component: UsersComponent },
+    { path: 'deleteUser', component: UserDeleteComponent },
+    { path: 'rolesUser', component: UserRolesComponent },
     
     {
       path: 'products',
       children:[
-    {
-      path: '', component: ProductListComponent
-    },
-    {
-      path: 'uploadproduct', component: ProductsuploadComponent
-    },
-    {
-      path: 'editproduct/', component: ProductsEditComponent
-    },
-    {
-      path: 'deleteproduct/:id', component: ProductsDeleteComponent
-    },
-    {
-      path: 'product-details/:id', component: ProductDetailsComponent
-    },
+    { path: '', component: ProductListComponent },
+    { path: 'uploadproduct', component: ProductsuploadComponent },
+    { path: 'editproduct/', component: ProductsEditComponent},
+    { path: 'deleteproduct/:id', component: ProductsDeleteComponent },
+    { path: 'product-details/:id', component: ProductDetailsComponent },
       ]
     },
 
-    {
-      path: 'admin', component: AdminComponent, canActivate:[AdminAccessGuard]
-    },
- 
-    {
-      path: '', component: HomeComponent
-    },
+    { path: 'admin', component: AdminComponent, canActivate:[AuthGuardGuard,AdminAccessGuard]},
+    { path: '', component: HomeComponent },
 
   ])],
   exports: [RouterModule]
