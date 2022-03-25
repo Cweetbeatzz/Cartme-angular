@@ -26,3 +26,12 @@ th {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
 }
+
+.artwork {
+  border-radius: 100px;
+}
+
+#addtocarttext {
+  font-size: 12px !important;
+  text-shadow: 0.85px 0.9px 5px #000;
+}

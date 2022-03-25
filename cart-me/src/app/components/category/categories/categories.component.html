@@ -6,7 +6,7 @@
 </div>
 <div class="text-center">
     <p>
-        <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/uploadcategory']">Create New</a>
+        <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/categories/uploadcategory']">Create New</a>
     </p>
 </div>
 <hr/>
@@ -28,8 +28,8 @@
                    {{cat.name}}
                 </td>
                 <td>
-                 <a class="btn btn-primary btn-sm"  [routerLink]="['/editcategory', cat.id]"><strong>EDIT</strong></a> |
-                    <a class="btn btn-danger btn-sm"  asp-controller="Categories"><strong>DELETE</strong></a> 
+                 <a class="btn btn-primary btn-sm"  [routerLink]="['/categories/editcategory', cat.id]"><strong>EDIT</strong></a> |
+                    <a class="btn btn-danger btn-sm"  [routerLink]="['/categories/deletecategory', cat.id]"><strong>DELETE</strong></a> 
                 </td>
             </tr>
         </tbody>

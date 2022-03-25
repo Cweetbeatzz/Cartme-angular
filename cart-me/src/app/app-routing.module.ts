@@ -52,6 +52,13 @@ const routes: Routes = [];
     {
       path: 'cart', component: CartComponent
     },
+  
+    {
+      path: 'categories',
+      children:[
+    {
+      path: '', component: CategoriesComponent
+    },
     {
       path: 'uploadcategory', component: UploadCategoryComponent
     },
@@ -61,8 +68,7 @@ const routes: Routes = [];
     {
       path: 'deletecategory/:id', component: CategoryDeleteComponent
     },
-    {
-      path: 'categories', component: CategoriesComponent
+      ]
     },
 
     // {

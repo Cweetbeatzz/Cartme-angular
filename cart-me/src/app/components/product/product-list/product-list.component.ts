@@ -21,6 +21,7 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   //##############################################################
+  prodList!: Products[];
 
   constructor(private productApi:ProductsService,private alertify: AlertsService,) { }
 
@@ -38,6 +39,7 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit(): void {
     this.getAllProducts()
+    this.getAllProducts2()
   }
   //##############################################################
 
@@ -55,5 +57,15 @@ export class ProductListComponent implements OnInit {
    })
   }
   //##############################################################
-
+  getAllProducts2(){
+    this.productApi.GetAllProduct().subscribe({
+      next:(data)=>{
+        this.prodList = data
+        console.log(this.prodList)
+      },
+      error:(err)=>{
+        this.alertify.error(err)
+      }
+    })
+  }
 }
