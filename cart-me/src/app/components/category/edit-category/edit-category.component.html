@@ -7,8 +7,8 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-12 col-md-6 mx-auto">
-            <div class="text-center">
-                <form asp-action="Create" [formGroup]="CategoryForm" (ngSubmit)="editCategory()">
+            <div class="text-center" *ngIf="dataLoaded">
+                <form method="post" [formGroup]="categoryEditForm" (submit)="editCategory()">
                 
                     <div class="form-group">
                         <input type="text" class="form-control text-center justify-content-center" placeholder="Enter Category"
@@ -19,8 +19,8 @@
                     </div>
                 
                     <div class="form-group">
-                        <button type="submit" value="Create" class="btn btn-primary" style="width: 300px;"
-                            [disabled]="!CategoryForm.valid">SUBMIT</button>
+                        <button type="submit" [disabled]="!categoryEditForm.valid" class="btn btn-primary" style="width: 300px;"
+                            >SUBMIT</button>
                     </div>
                 </form>
             </div>

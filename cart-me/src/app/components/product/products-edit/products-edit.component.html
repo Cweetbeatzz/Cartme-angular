@@ -9,14 +9,14 @@
             <form  enctype="multipart/form-data" method="post" [formGroup]="productEditForm" (submit)="onSubmit()">
 
                 <div class="form-group">
-                    <label class="control-label"></label>
+                    <label class="control-label">Chef Name</label>
                     <input formControlName="ChefName" class="form-control" />
                     <div class="text-danger">
                         {{showChefNameErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label  class="control-label"></label>
+                    <label  class="control-label">Meal Name</label>
                     <input formControlName="MealName" class="form-control" />
                     <div class="text-danger">
                         {{showMealNameErrors()}}
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
+                    <label asp-for="Description" class="control-label">Description</label>
                     <textarea formControlName="Description" class="form-control" rows="3"></textarea>
                     <div class="text-danger">
                         {{showDescriptionErrors()}}
@@ -48,14 +48,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label  class="control-label"></label>
+                    <label  class="control-label">Price</label>
                     <input formControlName="Price" class="form-control" />
                     <div class="text-danger">
                         {{showPriceErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label  class="control-label"></label>
+                    <label  class="control-label">FoodCategory</label>
                     <select formControlName="FoodCategory" class="form-control">
                         <option value="0">Choose a Category...</option>
                     </select>
