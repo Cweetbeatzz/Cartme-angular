@@ -41,7 +41,7 @@ export class EditCategoryComponent implements OnInit {
     //get product details to edit
     if (this.categoryId !== null) {
       this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
-        data = this.categoryDetail
+        this.categoryDetail = data 
         Object.assign(this.categoryDetail,data)
 
     // pre-filling form

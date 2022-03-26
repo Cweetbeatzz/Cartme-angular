@@ -34,7 +34,7 @@ export class CategoriesService {
   }
   //#########################################################################################
   GetCategoryById(id: any) {
-    return this.http.get(`${this.APIURL}/api/Categories/get/${id}`)
+    return this.http.get(`${this.APIURL}/api/Categories/${id}`)
   }
   //#########################################################################################
 }

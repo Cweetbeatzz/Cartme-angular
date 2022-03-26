@@ -27,6 +27,8 @@ export class CategoryDeleteComponent implements OnInit {
   //##################################################################
 
   ngOnInit(): void {
+      //
+    this.dataLoaded = false
     //get the id of an object
     this.route.params.subscribe((dataId)=>{
     this.categoryId = dataId.id 
@@ -34,7 +36,7 @@ export class CategoryDeleteComponent implements OnInit {
 
     if (this.categoryId) {
       this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
-       data = this.categoryDetails 
+       this.categoryDetails = data 
         Object.assign(this.categoryDetails, data)
 
       }).catch(err =>{
@@ -48,8 +50,7 @@ export class CategoryDeleteComponent implements OnInit {
   //##################################################################
 
   DeleteCategory() {
-   
-  if (this.categoryId) {
+     if (this.categoryId) {
       this.api.DeleteCategory(this.categoryId).subscribe({
       next:(res)=>{
         this.reroute.navigate(['/categories'])
