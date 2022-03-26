@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   //##############################################################
-  prodList!: Products[];
+  prodList: Products[] = [];
 
   constructor(private productApi:ProductsService,private alertify: AlertsService,) { }
 

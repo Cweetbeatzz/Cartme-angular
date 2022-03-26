@@ -14,11 +14,11 @@
    <div class="row">
     <div class="bd-example bd-example-images m-1 mx-auto" *ngFor="let prod of prodList">
      <div class="text-center">
-      <img src={{prod.Image}} class="artwork mb-2" height="120 " width="120" [routerLink]="['/products/product-details',prod.id]">
-      <h6 class="text-dark">{{prod.MealName}}</h6>
+      <img src={{prod.image}} class="artwork mb-2" height="120 " width="120" [routerLink]="['/products/product-details',prod.id]"/>
+      <h6 class="text-dark">{{prod.mealName}}</h6>
       <span class="navbar-expand-sm  d-flex mx-auto my-auto justify-content-center">
        <div>
-        <h5 class="btn btn-outline-danger small btn-sm mr-2">{{prod.Price | currency}}</h5>
+        <h5 class="btn btn-outline-danger small btn-sm mr-2">{{prod.price | currency}}</h5>
        </div>
        <div>
         <button class="btn btn-danger small btn-sm border-0 pt-2" id="addtocarttext">

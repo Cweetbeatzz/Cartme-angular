@@ -3,48 +3,70 @@
     <br />
     <br />
     <br />
-    <div className="container">
-     <div className="mx-auto" id="thewholeblock" *ngIf="prodDetails">
+    <div className="container bg-danger m-3">
+     <div className="col-12 mx-auto" id="thewholeblock" *ngIf="prodDetails">
    
-      <div>
-       <img class="card-img-top img-fluid border-0" id='cardimg1' src="assets/images/Goatmeat.webp" alt="" />
+      <div class="col-12 col-md-6 mx-auto mb-4">
+       <img class="card-img-top img-fluid mx-auto mx-md-auto" id='cardimg1' src="assets/images/Goatmeat.webp" alt="" />
       </div>
-      <div className="card-body ">
-       <h6 className="card-title text-center" id="nftcollection">Cweetfaces</h6>
-       <h5 className="card-title text-center" id="nftname"><strong>Blu Mafia #5456</strong></h5>
+
+      <div className="card-body col-6 col-md-6">
+          <div class="text-center">
+              <label>Chef Name</label>
+              <hr/>
+            <h4 className="card-title text-center" id="nftcollection">{{prodDetails.chefName}}</h4>
+          </div>
+          <br/>
+
+        <div class="text-center">
+            <label>Product Name</label>
+            <hr />
+            <h5 className="card-title text-center" id="nftcollection">{{prodDetails.mealName}}</h5>
+        </div>
+        <br />
+
+        <div class="text-center">
+            <label>Description</label>
+            <hr />
+            <h6 className="card-title text-center" id="nftcollection">{{prodDetails.description}}</h6>
+        </div>
+        <br />
+
+        <div class="text-center">
+            <label>Price</label>
+            <hr />
+            <h6 className="card-title text-center" id="nftcollection">{{prodDetails.price | currency}}</h6>
+        </div>
+        <br />
+       
        <hr />
-       <div className=" d-flex justify-content-evenly p-0 m-0">
-        <h6 className="card-text text-start" id='askingprice'>Price</h6>
-        <span className='d-flex justify-content-evenly'>
-         <h4 className="text-muted" id='dollarvalue'>{{prodDetails.price}}</h4>
-         <img className="card-img-top " id='ethlogo' src="images/Ethereum_logo_2014.svg.png" alt="" />
-         <h2 id='ethvalue' className=''><strong>0.086</strong></h2>
-        </span>
-       </div>
-       <br />
+    
        <div className="text-center">
-        <button className="btn btn-warning w-50"><strong>BUY</strong>
-        </button>
-   
-        <p className="text-white p-5">CweetFaces Collection, the premium membership NFT of the BAS ecosystem</p>
+           <div className="ml-3 " id="">
+            <button class="btn btn-success pt-2 mr-2 " >
+                <strong> LIKE</strong>
+            </button>
+            <button class="btn btn-danger pt-2 mr-2">
+                <strong> CART</strong>
+            </button>
+            <button class="btn btn-primary pt-2" >
+                <strong> BUY</strong>
+            </button>
+           </div>
        </div>
+
       </div>
       <br />
-      <hr className='text-white' />
-   
+      <hr/>
      </div>
+     
      <br />
      <br />
      <br />
      <br />
      <br />
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
+
     </div>
    </div>
 </div>
+<app-footer></app-footer>

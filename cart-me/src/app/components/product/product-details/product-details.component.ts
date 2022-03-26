@@ -24,11 +24,9 @@ export class ProductDetailsComponent implements OnInit {
     this.router.params.subscribe(data =>{
       this.prodId = data.id
     })
-  }
- //#########################################################################################
 
-  getProductDetail(){
-    this.productApi.GetProductById(this.prodId).subscribe({
+    if (this.prodId) {
+       this.productApi.GetProductById(this.prodId).subscribe({
       next:(data)=>{
         this.prodDetails = data
         console.log(this.prodDetails)
@@ -37,6 +35,12 @@ export class ProductDetailsComponent implements OnInit {
         this.alertify.error(err)
       }
     })
+    }
+  }
+ //#########################################################################################
+
+  getProductDetail(){
+   
   }
    //#########################################################################################
 

@@ -4,40 +4,15 @@
   border-radius: 10px;
 }
 
-#askingprice {
-  color: white;
-  font-size: 15px;
-}
-
-#nftname {
-  color: blueviolet;
-  font-size: 48px;
-}
-
 #nftcollection {
-  color: wheat;
+  color: rgb(224, 122, 53);
   font-size: 20px;
-}
-
-#dollarvalue {
-  color: wheat;
-  font-size: 15px;
-  padding-right: 4px;
-}
-
-#ethvalue {
-  color: wheat;
-}
-
-#ethlogo {
-  width: 20px;
-  height: 30px;
-  padding-right: 5px;
 }
 
 #thewholeblock {
   display: flex;
 }
+
 
 @media (max-width: 768px) {
   #thewholeblock {
