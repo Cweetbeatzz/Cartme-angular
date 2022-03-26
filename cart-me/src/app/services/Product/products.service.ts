@@ -26,8 +26,8 @@ export class ProductsService {
   }
      //#########################################################################################
 
-  GetProductByCategory(category: Products) {
-    return this.http.get(this.APIURL + '/api/Food/{category}')
+  GetProductByCategory(id:string) {
+    return this.http.get(`${this.APIURL}/api/Food/${id}`)
   }
   //#########################################################################################
   UploadProduct(product: Products):Observable<Products> {
@@ -36,7 +36,7 @@ export class ProductsService {
   //#########################################################################################
 
   UpdateProduct(product: Products,id:string) {
-    return this.http.put(this.APIURL + '/api/Food/Edit'+id, product)
+    return this.http.put(this.APIURL + '/api/Food/Edit/'+id, product)
   }
   //#########################################################################################
 

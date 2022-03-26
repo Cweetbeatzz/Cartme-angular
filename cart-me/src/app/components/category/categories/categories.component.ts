@@ -26,7 +26,7 @@ export class CategoriesComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   //#########################################################################################
-  catList!:Categories[];
+  catList:Categories[] = [];
 
   constructor(private store: Store<AppState>,private CategoryApi:CategoriesService,private alertify: AlertsService,) { }
 

@@ -10,6 +10,7 @@ import { ProductsEditComponent } from "./products-edit/products-edit.component";
 import { ProductsuploadComponent } from "./productsupload/productsupload.component";
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductByCategoryComponent } from './product-by-category/product-by-category.component';
 
 const routes:Routes = [
    {
@@ -40,6 +41,8 @@ const routes:Routes = [
     // DetailPropertiesComponent,
     // ProductDetailsComponent
     // ProductListComponent
+  
+    ProductByCategoryComponent
   ],
  imports:[CommonModule,ReactiveFormsModule, 
   FormsModule,RouterModule.forChild(routes),
