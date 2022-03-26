@@ -7,13 +7,13 @@
  </div>
 </div>
 <hr />
-<div class="container text-center">
+<div class="container text-center" *ngIf="dataLoaded">
  <hr />
  <dl class="row" >
   <dt class="col-sm-6">
    CATEGORY
   </dt>
-  <dd class="col-sm-6" *ngIf="dataLoaded">
+  <dd class="col-sm-6">
    {{categoryDetails.name}}
   </dd>
  </dl>
@@ -21,5 +21,9 @@
  <div>
   <button type="submit" value="Delete" class="btn btn-danger" (click)="DeleteCategory()">DELETE</button> 
  </div>
+</div>
+
+<div class="container text-center" *ngIf="!dataLoaded">
+ <h2>NO CONTENT</h2>
 </div>
 

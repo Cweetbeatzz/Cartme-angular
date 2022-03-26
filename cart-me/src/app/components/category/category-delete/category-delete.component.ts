@@ -53,8 +53,9 @@ export class CategoryDeleteComponent implements OnInit {
      if (this.categoryId) {
       this.api.DeleteCategory(this.categoryId).subscribe({
       next:(res)=>{
+        this.sweetalert.timedNofication('Delete Successfull...😊')
         this.reroute.navigate(['/categories'])
-        this.sweetalert.timedNofication('Delete Successfull...')
+
         
       },
       error:(err)=>{
@@ -62,7 +63,7 @@ export class CategoryDeleteComponent implements OnInit {
         if (err) {
           this.alertify.error(err)
         }
-        this.alertify.error('Unable to Delete!!!')
+        this.alertify.error('Unable to Delete!!! 😢')
       }
     })
   }
