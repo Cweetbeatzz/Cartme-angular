@@ -25,7 +25,7 @@ export class CategoriesService {
   //#########################################################################################
 
   UpdateCategory(category: Categories, id:string) {
-    return this.http.put(this.APIURL + '/api/Categories/Edit/'+ id, category)
+    return this.http.put(`${this.APIURL}/api/Categories/Edit/${id}`, category)
   }
   //#########################################################################################
 
@@ -33,7 +33,7 @@ export class CategoriesService {
     return this.http.delete(`${this.APIURL}/api/Categories/Delete/${id}`)
   }
   //#########################################################################################
-  GetCategoryById(id: string) {
+  GetCategoryById(id: any) {
     return this.http.get(`${this.APIURL}/api/Categories/get/${id}`)
   }
   //#########################################################################################

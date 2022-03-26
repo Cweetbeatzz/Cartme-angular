@@ -69,20 +69,25 @@ export class UploadCategoryComponent implements OnInit {
    //
    this.api.UploadCategory(this.categoryForm.value).subscribe({
      next:(res:any)=>{
-       console.log(res)
-       if (res.succeeded) {
+       if (res.errors === 'Name') {
+          this.alertify.error('Title must be at least 5 Characters')
+        }
+        else{
          this.sweetalert.timedNofication('Created Successfully')
          this.categoryForm.reset()
          this.route.navigate(['categories'])
-       }else{
-         res.errors.forEach((element: { code: any; }) => {
-          if (element.code === 'Name') {
-            this.alertify.error('Title must be at least 5 Characters')
-          }else{
-            this.alertify.error('Creation Failed...')
-          }
-         });
-       }
+        }
+        
+      
+      //  else{
+      //    res.errors.forEach((element: { code: any; }) => {
+      //     if (element.code === 'Name') {
+      //       this.alertify.error('Title must be at least 5 Characters')
+      //     }else{
+      //       this.alertify.error('Creation Failed...')
+      //     }
+      //    });
+      //  }
      },
      error:(err)=>{
       if (err) {

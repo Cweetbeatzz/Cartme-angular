@@ -9,11 +9,11 @@
 <hr />
 <div class="container text-center">
  <hr />
- <dl class="row" *ngIf="dataLoaded">
+ <dl class="row" >
   <dt class="col-sm-6">
    CATEGORY
   </dt>
-  <dd class="col-sm-6">
+  <dd class="col-sm-6" *ngIf="dataLoaded">
    {{categoryDetails.name}}
   </dd>
  </dl>

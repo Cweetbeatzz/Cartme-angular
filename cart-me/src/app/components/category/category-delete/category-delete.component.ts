@@ -29,7 +29,7 @@ export class CategoryDeleteComponent implements OnInit {
   ngOnInit(): void {
     //get the id of an object
     this.route.params.subscribe((dataId)=>{
-    dataId.id = this.categoryId
+    this.categoryId = dataId.id 
     })
 
     if (this.categoryId) {
@@ -52,12 +52,10 @@ export class CategoryDeleteComponent implements OnInit {
   if (this.categoryId) {
       this.api.DeleteCategory(this.categoryId).subscribe({
       next:(res)=>{
-        res = this.categoryDetails
         this.reroute.navigate(['/categories'])
         this.sweetalert.timedNofication('Delete Successfull...')
         
       },
-      
       error:(err)=>{
         
         if (err) {

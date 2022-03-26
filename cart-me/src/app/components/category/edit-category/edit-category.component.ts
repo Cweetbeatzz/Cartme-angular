@@ -20,9 +20,9 @@ export class EditCategoryComponent implements OnInit {
 
   //##################################################################
 
-  categoryId!: string;
+  categoryId: any;
   categoryDetail:any
-  categoryEditForm!: FormGroup;
+  categoryEditForm: FormGroup = new FormGroup({});
   dataLoaded:boolean = false
 
   constructor(private route: ActivatedRoute, private api:CategoriesService,private reroute:Router,
@@ -31,9 +31,11 @@ export class EditCategoryComponent implements OnInit {
  //##################################################################
 
   ngOnInit(): void {
+     //
+    this.dataLoaded = false
     //get the id of an object
     this.route.params.subscribe((data)=>{
-      data.id = this.categoryId 
+      this.categoryId = data.id  
     })
 
     //get product details to edit
