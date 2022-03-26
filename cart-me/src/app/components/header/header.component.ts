@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   Logout() {
     localStorage.removeItem('token');
-    this.sweetalert.timedNofication('You are Logged Out')
+    this.sweetalert.timedNofication('You are Logged Out🙄🙂🙄')
     this.route.navigateByUrl('/');
   }
 }

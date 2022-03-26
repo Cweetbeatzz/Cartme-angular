@@ -14,17 +14,17 @@
 
   <div class="row text-center p-1">
    <div class="col-md-6 mx-auto">
-    <form asp-action="Register" [formGroup] = "registerationForm" >
+    <form asp-action="Register" [formGroup]="registerationForm" (submit)="OnSubmit()">
 
      <div class="form-group">
-      <input type="text"  formControlName="Firstname" placeholder="Firstname" name="Firstname" class="form-control"/>
+      <input type="text"  formControlName="firstname" placeholder="Firstname" name="firstname" class="form-control"/>
       <div class="text-danger">
       {{shoeFirstNameErrors()}}
       </div>
      </div>
 
      <div class="form-group">
-      <input type="text"  formControlName="Lastname" placeholder="Lastname" name="Lastname"
+      <input type="text"  formControlName="lastname" placeholder="Lastname" name="lastname"
        class="form-control" />
       <div class="text-danger">
        {{shoeLastNameErrors()}}
@@ -32,7 +32,7 @@
      </div>
 
      <div class="form-group">
-      <input type="text"  formControlName="Username" placeholder="Username" name="Username"
+      <input type="text"  formControlName="userName" placeholder="Username" name="userName"
        class="form-control" />
       <div class="text-danger">
        {{shoeUserNameErrors()}}
@@ -40,7 +40,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="email"  formControlName="Email" placeholder="Email" name="Email" class="form-control" />
+       <input type="email"  formControlName="email" placeholder="Email" name="email" class="form-control" />
        <div class="text-danger">
         {{shoeEmailErrors()}}
        </div>
@@ -48,7 +48,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" formControlName="Address" placeholder="Address" name="Address"
+       <input type="text" formControlName="address" placeholder="Address" name="address"
         class="form-control" />
        <div class="text-danger">
         {{shoeAddressErrors()}}
@@ -57,7 +57,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
+       <input type="tel" formControlName="Phone" placeholder="Phone" name="phoneNumber" class="form-control" />
        <div class="text-danger">
         {{shoePhoneErrors()}}
        </div>
@@ -65,7 +65,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text"  formControlName="State" placeholder="State" name="State" class="form-control" />
+       <input type="text"  formControlName="state" placeholder="State" name="state" class="form-control" />
        <div class="text-danger">
         {{shoeStateErrors()}}
        </div>
@@ -73,7 +73,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text"  formControlName="Country" placeholder="Country" name="Country"
+       <input type="text"  formControlName="country" placeholder="Country" name="country"
         class="form-control" />
        <div class="text-danger">
         {{shoeCountryErrors()}}
@@ -82,7 +82,7 @@
      </div>
      <div class="form-group row">
       <div class="col-md-12">
-       <input type="text"  formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
+       <input type="text"  formControlName="postalCode" placeholder="PostalCode" name="postalCode"
         class="form-control" />
        <div class="text-danger">
         {{shoePostalCodeErrors()}}
@@ -100,7 +100,7 @@
         </div>
        </div>
       </div>
-      <div class="form-group row">
+      <!-- <div class="form-group row">
        <div class="col-md-12">
         <input type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password"
           class="form-control" />
@@ -108,12 +108,12 @@
          {{shoeConfirmPasswordErrors()}}
         </div>
        </div>
-      </div>
+      </div> -->
      </div>
 
      <div class="form-group">
       <button type="submit" [disabled]="!registerationForm.valid" class="btn btn-primary text-white"
-        (click)="OnSubmit()"><strong>SUBMIT</strong>
+        ><strong>SUBMIT</strong>
       </button>
      </div>
      <br>

@@ -17,7 +17,7 @@ export class AuthGuardGuard implements CanActivate {
     if (localStorage.getItem('token') != null) {
       return true;
     } else {
-      this.sweetalert.timedNofication('Unauthorized Access!!!')
+      this.sweetalert.timedNofication('Unauthorized Access!!!😑😑🙄')
       this.route.navigateByUrl('/');
       return false;
     }

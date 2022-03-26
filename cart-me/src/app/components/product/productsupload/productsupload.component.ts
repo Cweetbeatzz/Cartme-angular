@@ -15,7 +15,7 @@ export class ProductsuploadComponent implements OnInit {
 
   //#########################################################################
 
-  productForm!: FormGroup;
+  productForm: FormGroup = new FormGroup({});
 
   //#########################################################################
 
@@ -34,12 +34,12 @@ export class ProductsuploadComponent implements OnInit {
 
   productValidations(){
     this.productForm = this.fb.group({
-      ChefName:['',Validators.required],
-      MealName:['',Validators.required],
-      Description:['',Validators.required],
-      Price:['',Validators.required],
-      FoodCategory:['',Validators.required],
-      ImageUpload:['',Validators.required],
+      chefName:['',Validators.required],
+      mealName:['',Validators.required],
+      description:['',Validators.required],
+      price:['',Validators.required],
+      foodCategory:['',Validators.required],
+      imageUpload:['',Validators.required],
     })
   }
 
@@ -47,7 +47,7 @@ export class ProductsuploadComponent implements OnInit {
   // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
  showChefNameErrors(){
-   const getChefName = this.productForm?.get('ChefName');
+   const getChefName = this.productForm?.get('chefName');
    if (getChefName?.touched && !getChefName.valid) {
      if (getChefName.errors?.required) {
        return 'Chef Name is Required 😑'
@@ -59,7 +59,7 @@ export class ProductsuploadComponent implements OnInit {
    return
  }
    showMealNameErrors(){
-   const getMealName = this.productForm?.get('MealName');
+   const getMealName = this.productForm?.get('mealName');
    if (getMealName?.touched && !getMealName.valid) {
      if (getMealName.errors?.required) {
        return 'Meal Name is Required 😑'
@@ -71,19 +71,19 @@ export class ProductsuploadComponent implements OnInit {
    return
  }
    showDescriptionErrors(){
-   const getDescription = this.productForm?.get('Description');
+   const getDescription = this.productForm?.get('description');
    if (getDescription?.touched && !getDescription.valid) {
      if (getDescription.errors?.required) {
-       return 'getDescription is Required 😑'
+       return 'Description is Required 😑'
      }
      if (getDescription.errors?.maxLength) {
-       return 'getDescription must not exceed 50 characters 😑'
+       return 'Description must not exceed 50 characters 😑'
      }
    }
    return
  }
    showPriceErrors(){
-   const getPrice = this.productForm?.get('Price');
+   const getPrice = this.productForm?.get('price');
    if (getPrice?.touched && !getPrice.valid) {
      if (getPrice.errors?.required) {
        return 'Price is Required 😑'
@@ -95,7 +95,7 @@ export class ProductsuploadComponent implements OnInit {
    return
  }
    showFoodCategoryErrors(){
-   const getFoodCategory = this.productForm?.get('FoodCategory');
+   const getFoodCategory = this.productForm?.get('foodCategory');
    if (getFoodCategory?.touched && !getFoodCategory.valid) {
      if (getFoodCategory.errors?.required) {
        return 'Food Category is Required 😑'
@@ -107,7 +107,7 @@ export class ProductsuploadComponent implements OnInit {
    return
  }
     showImageErrors(){
-   const getImage = this.productForm?.get('Image');
+   const getImage = this.productForm?.get('imageUpload');
    if (getImage?.touched && !getImage.valid) {
      if (getImage.errors?.required) {
        return 'Image is Required 😑'

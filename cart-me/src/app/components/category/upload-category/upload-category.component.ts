@@ -51,10 +51,10 @@ export class UploadCategoryComponent implements OnInit {
    const getCategoryName = this.categoryForm?.get('name');
    if (getCategoryName?.touched && !getCategoryName.valid) {
      if (getCategoryName.errors?.required) {
-       return 'Category Name is Required'
+       return 'Category Name is Required😑'
      }
      if (getCategoryName.errors?.maxLength) {
-       return 'Category Name must not exceed 50 characters'
+       return 'Category Name must not exceed 50 characters😑'
      }
    }
    return

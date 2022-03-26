@@ -66,7 +66,7 @@ const routes: Routes = [];
     //   })
     // },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent,},
+    { path: 'register', component: SignUpComponent,},
     { path: 'editUser', component: UserEditComponent },
     { path: 'users', component: UsersComponent },
     { path: 'deleteUser', component: UserDeleteComponent },
