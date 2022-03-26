@@ -16,6 +16,8 @@ export class CategoryDeleteComponent implements OnInit {
   //##################################################################
 
   categoryId: string = '';
+  categoryDetails:any
+  dataLoaded:boolean = false
 
   //##################################################################
 
@@ -26,21 +28,38 @@ export class CategoryDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     //get the id of an object
-    this.route.params.subscribe((data)=>{
-      this.categoryId = data.id
+    this.route.params.subscribe((dataId)=>{
+    dataId.id = this.categoryId
     })
-  }
 
+    if (this.categoryId) {
+      this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
+       data = this.categoryDetails 
+        Object.assign(this.categoryDetails, data)
+
+      }).catch(err =>{
+        console.log(err);
+        
+      })
+      this.dataLoaded = true
+    }
+  }
+  
   //##################################################################
 
   DeleteCategory() {
+   
   if (this.categoryId) {
       this.api.DeleteCategory(this.categoryId).subscribe({
       next:(res)=>{
+        res = this.categoryDetails
+        this.reroute.navigate(['/categories'])
         this.sweetalert.timedNofication('Delete Successfull...')
-        this.reroute.navigate(['/category'])
+        
       },
+      
       error:(err)=>{
+        
         if (err) {
           this.alertify.error(err)
         }

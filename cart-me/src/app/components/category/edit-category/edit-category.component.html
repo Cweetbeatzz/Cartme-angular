@@ -7,10 +7,10 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-12 col-md-6 mx-auto">
-            <div class="text-center" *ngIf="dataLoaded">
+            <div class="text-center" >
                 <form method="post" [formGroup]="categoryEditForm" (submit)="editCategory()">
                 
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="dataLoaded">
                         <input type="text" class="form-control text-center justify-content-center" placeholder="Enter Category"
                             formControlName="name" name="name">
                     </div>

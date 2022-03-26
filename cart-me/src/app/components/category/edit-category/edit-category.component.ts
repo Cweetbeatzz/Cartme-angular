@@ -33,13 +33,13 @@ export class EditCategoryComponent implements OnInit {
   ngOnInit(): void {
     //get the id of an object
     this.route.params.subscribe((data)=>{
-      this.categoryId = data.id
+      data.id = this.categoryId 
     })
 
     //get product details to edit
     if (this.categoryId !== null) {
       this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
-        this.categoryDetail = data
+        data = this.categoryDetail
         Object.assign(this.categoryDetail,data)
 
     // pre-filling form
@@ -50,7 +50,7 @@ export class EditCategoryComponent implements OnInit {
     this.dataLoaded = true
 
     }).catch(err=>{
-      this.alertify.error(err)
+      console.log(err)
     })
     }
   }
@@ -81,7 +81,7 @@ export class EditCategoryComponent implements OnInit {
      return
    }
       this.api.UpdateCategory(this.categoryEditForm.value,this.categoryId).subscribe({
-      next:()=>{
+      next:(res)=>{
         this.sweetalert.timedNofication('Category Updated Successfully.')
         this.categoryEditForm.reset()
         this.reroute.navigate(['/categories'])
