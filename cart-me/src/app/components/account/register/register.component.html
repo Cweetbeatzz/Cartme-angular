@@ -13,22 +13,22 @@
 
 <div class="row text-center p-1">
     <div class="col-md-6 mx-auto">
-        <form asp-action="Register" [formGroup]="formModel" >
+        <form asp-action="Register" [formGroup]="formModel" (submit)="OnSubmit()">
             <div class="form-group">
-                <input type="text" name="Firstname" formControlName="Firstname" placeholder="Firstname" name="Firstname" class="form-control" />
+                <input type="text"  formControlName="firstname" placeholder="Firstname" name="Firstname" class="form-control" />
                 <div class="text-danger">
                     {{shoeFirstNameErrors()}}
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" name="Lastname" formControlName="Lastname" placeholder="Lastname" name="Lastname"
+                <input type="text"  formControlName="lastname" placeholder="Lastname" name="Lastname"
                     class="form-control" />
                     <div class="text-danger">
                         {{shoeLastNameErrors()}}
                     </div>
             </div>
             <div class="form-group">
-                <input type="text" name="Username" formControlName="Username" placeholder="Username" name="Username"
+                <input type="text"  formControlName="userName" placeholder="Username" name="Username"
                     class="form-control" />
                     <div class="text-danger">
                         {{shoeUserNameErrors()}}
@@ -36,7 +36,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="email" name="email" formControlName="Email" placeholder="Email" name="email"
+                    <input type="email"  formControlName="email" placeholder="Email" name="email"
                         class="form-control" />
                         <div class="text-danger">
                             {{shoeEmailErrors()}}
@@ -45,7 +45,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" name="Address" formControlName="Address" placeholder="Address" name="Address"
+                    <input type="text"  formControlName="address" placeholder="Address" name="Address"
                         class="form-control" />
                         <div class="text-danger">
                             {{shoeAddressErrors()}}
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" name="Phone" formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
+                    <input type="text"  formControlName="Phone" placeholder="Phone" name="Phone" class="form-control" />
                         <div class="text-danger">
                             {{shoePhoneErrors()}}
                         </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" name="State" formControlName="State" placeholder="State" name="State" class="form-control" />
+                    <input type="text"  formControlName="state" placeholder="State" name="State" class="form-control" />
                         <div class="text-danger">
                             {{shoeStateErrors()}}
                         </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" name="Country" formControlName="Country" placeholder="Country" name="Country"
+                    <input type="text"  formControlName="country" placeholder="Country" name="Country"
                         class="form-control" />
                     <div class="text-danger">
                         {{shoeCountryErrors()}}
@@ -79,7 +79,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" name="PostalCode" formControlName="PostalCode" placeholder="PostalCode" name="PostalCode"
+                    <input type="text"  formControlName="postalCode" placeholder="PostalCode" name="PostalCode"
                         class="form-control" />
                     <div class="text-danger">
                         {{shoePostalCodeErrors()}}
@@ -90,7 +90,7 @@
             <div formGroupName="Passwords">
         <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="password" name="Password" formControlName="Password" placeholder="Password" name="Password"
+                    <input type="password"  formControlName="Password" placeholder="Password" name="Password"
                         class="form-control" />
                     <div class="text-danger">
                         {{shoePasswordErrors()}}
@@ -99,7 +99,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password"
+                    <input type="password" formControlName="ConfirmPassword" placeholder="Confirm Password"
                         name="ConfirmPassword" class="form-control" />
                         <div class="text-danger">
                             {{shoeConfirmPasswordErrors()}}
@@ -110,7 +110,7 @@
     
             <div class="form-group">
                 <button type="submit" value="Create"
-                    class="btn btn-primary text-white" [disabled]="!formModel.valid" (click)="OnSubmit()"><strong>SUBMIT</strong>
+                    class="btn btn-primary text-white" [disabled]="!formModel.valid" ><strong>SUBMIT</strong>
                 </button>
             </div>
             <br>

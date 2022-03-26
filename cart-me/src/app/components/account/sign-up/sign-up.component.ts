@@ -18,6 +18,9 @@ export class SignUpComponent implements OnInit {
     private alertify: AlertsService,private fb: FormBuilder ) { }
 
   ngOnInit(): void {
+    //reset form after every successfull reg
+      this.registerationForm.reset();
+      //
     this.registerationForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
