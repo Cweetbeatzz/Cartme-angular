@@ -1,31 +1,31 @@
-<div class="text-center">
-    <h4><strong>EDIT PRODUCT</strong></h4>
+<div class="text-center mt-5">
+    <h2><strong>EDIT PRODUCT</strong></h2>
     <hr class="btn-dark" style="width: 300px;" />
 </div>
 <hr />
 <div class="text-center card box-shadow container ">
-    <div class="row col-12 m-2">
+    <div class="row justify-content-center">
         <div class="col-md-6" *ngIf="dataLoaded">
-            <form  enctype="multipart/form-data" method="post" [formGroup]="productEditForm" (submit)="onSubmit()">
+            <form   enctype="multipart/form-data" method="post" [formGroup]="productEditForm" (submit)="onSubmit()">
 
                 <div class="form-group">
                     <label class="control-label">Chef Name</label>
-                    <input formControlName="ChefName" class="form-control" />
+                    <input formControlName="chefName" class="form-control" />
                     <div class="text-danger">
                         {{showChefNameErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="control-label">Meal Name</label>
-                    <input formControlName="MealName" class="form-control" />
+                    <input formControlName="mealName" class="form-control" />
                     <div class="text-danger">
                         {{showMealNameErrors()}}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Description" class="control-label">Description</label>
-                    <textarea formControlName="Description" class="form-control" rows="3"></textarea>
+                    <label class="control-label">Description</label>
+                    <textarea formControlName="description" class="form-control" rows="4"></textarea>
                     <div class="text-danger">
                         {{showDescriptionErrors()}}
                     </div>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label  class="control-label">NEW PRODUCT IMAGE</label>
                     <div class="custom-file">
-                        <input asp-for="ImageUpload" formControlName="Image" class="form-control custom-file-input" id="customfile" />
+                        <input type="file" formControlName="image" class="form-control custom-file-input" id="customfile" />
                         <label class="custom-file-label" for="customfile">Choose File</label>
                     </div>
                     <div class="text-danger">
@@ -49,14 +49,14 @@
                 </div>
                 <div class="form-group">
                     <label  class="control-label">Price</label>
-                    <input formControlName="Price" class="form-control" />
+                    <input formControlName="price" class="form-control" />
                     <div class="text-danger">
                         {{showPriceErrors()}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="control-label">FoodCategory</label>
-                    <select formControlName="FoodCategory" class="form-control">
+                    <select formControlName="foodCategory" class="form-control">
                         <option value="0">Choose a Category...</option>
                     </select>
                     <div class="text-danger">
@@ -74,9 +74,12 @@
         </div>
     </div>
 </div>
-<br />
-<div class="text-center">
-    <a asp-action="Index" asp-controller="Products"><strong>BACK</strong></a>
+
+<div class="container text-center" *ngIf="!dataLoaded">
+    <h2>NO CONTENT</h2>
 </div>
+
+<br />
+
 
 <router-outlet></router-outlet>

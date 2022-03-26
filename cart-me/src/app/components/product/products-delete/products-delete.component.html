@@ -10,56 +10,56 @@
     <hr />
     <dl class="row">
  
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Chef Name
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.chefName}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Meal Name
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.mealName}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Slug
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.slug}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Description
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.description}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Image
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.image}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Price
         </dt>
-        <dd class="col-sm-10">
-            {{productDetails.price}}
+        <dd class="col-sm-6">
+            {{productDetails.price | currency}}
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-5">
             Category
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             {{productDetails.categoryId}}
         </dd>
     </dl>
 
     <div asp-action="Delete">
-        <button type="submit" (click)="deleteProduct()" class="btn btn-danger"><strong>DELETE</strong></button> |
+        <button type="submit" (click)="deleteProduct()" class="btn btn-danger"><strong>DELETE</strong></button> 
     </div>
 </div>
 
 <div class="container text-center" *ngIf="!dataLoaded">
-     <h2>NO CONTENT</h2>
+     <h6>NO CONTENT</h6>
 </div>
 <router-outlet></router-outlet>

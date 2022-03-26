@@ -153,8 +153,8 @@
    <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
     <td mat-cell *matCellDef="let row">
-     <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/products/editproduct']"><strong>EDIT</strong></a>
-     <a class="btn btn-danger btn-sm" [routerLink]="['/products/deleteproduct']"><strong>DELETE</strong></a>
+     <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/products/editproduct',row.id]"><strong>EDIT</strong></a>
+     <a class="btn btn-danger btn-sm" [routerLink]="['/products/deleteproduct',row.id]"><strong>DELETE</strong></a>
     </td>
    </ng-container>
 
@@ -172,6 +172,31 @@
 </div>
 <br/>
 <br/>
+
+<div class="text-center container">
+    <table class="table table-borderless table-striped">
+        <thead>
+            <tr>
+                <th>
+                    NAME
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cat of prodList">
+                <td>
+                    {{cat.mealName}}
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                        [routerLink]="['/products/editproduct', cat.id]"><strong>EDIT</strong></a> |
+                    <a class="btn btn-danger btn-sm"
+                        [routerLink]="['/products/deleteproduct', cat.id]"><strong>DELETE</strong></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <br/>
 <br/>
 <br />

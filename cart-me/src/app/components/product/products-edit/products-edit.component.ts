@@ -47,12 +47,12 @@ export class ProductsEditComponent implements OnInit {
 
         // pe-fill product form
         this.productEditForm = this.fb.group({
-          ChefName: new FormControl(this.prodDetails.ChefName),
-          MealName: new FormControl(this.prodDetails.MealName),
-          Description: new FormControl(this.prodDetails.Description),
-          Price: new FormControl(this.prodDetails.Price),
-          FoodCategory: new FormControl(this.prodDetails.FoodCategory),
-          ImageUpload: new FormControl(this.prodDetails.ImageUpload),
+          chefName: new FormControl(this.prodDetails.chefName),
+          mealName: new FormControl(this.prodDetails.mealName),
+          description: new FormControl(this.prodDetails.description),
+          price: new FormControl(this.prodDetails.price),
+          foodCategory: new FormControl(this.prodDetails.foodCategory),
+          imageUpload: new FormControl(this.prodDetails.imageUpload),
         })
         //
         this.dataLoaded = true
@@ -70,10 +70,10 @@ export class ProductsEditComponent implements OnInit {
    const getChefName = this.productEditForm?.get('ChefName');
    if (getChefName?.touched && !getChefName.valid) {
      if (getChefName.errors?.required) {
-       return 'Chef Name is Required'
+       return 'Chef Name is Required 😑'
      }
      if (getChefName.errors?.maxLength) {
-       return 'Chef Name must not exceed 50 characters'
+       return 'Chef Name must not exceed 50 characters 😑'
      }
    }
    return
@@ -82,10 +82,10 @@ export class ProductsEditComponent implements OnInit {
    const getMealName = this.productEditForm?.get('MealName');
    if (getMealName?.touched && !getMealName.valid) {
      if (getMealName.errors?.required) {
-       return 'Meal Name is Required'
+       return 'Meal Name is Required 😑'
      }
      if (getMealName.errors?.maxLength) {
-       return 'Meal Name must not exceed 50 characters'
+       return 'Meal Name must not exceed 50 characters 😑'
      }
    }
    return
@@ -94,10 +94,10 @@ export class ProductsEditComponent implements OnInit {
    const getDescription = this.productEditForm?.get('Description');
    if (getDescription?.touched && !getDescription.valid) {
      if (getDescription.errors?.required) {
-       return 'getDescription is Required'
+       return 'getDescription is Required 😑'
      }
      if (getDescription.errors?.maxLength) {
-       return 'getDescription must not exceed 50 characters'
+       return 'getDescription must not exceed 50 characters 😑'
      }
    }
    return
@@ -106,10 +106,10 @@ export class ProductsEditComponent implements OnInit {
    const getPrice = this.productEditForm?.get('Price');
    if (getPrice?.touched && !getPrice.valid) {
      if (getPrice.errors?.required) {
-       return 'Price is Required'
+       return 'Price is Required 😑'
      }
      if (getPrice.errors?.maxLength) {
-       return 'Price must not exceed 50 numbers'
+       return 'Price must not exceed 50 numbers 😑'
      }
    }
    return
@@ -118,10 +118,10 @@ export class ProductsEditComponent implements OnInit {
    const getFoodCategory = this.productEditForm?.get('FoodCategory');
    if (getFoodCategory?.touched && !getFoodCategory.valid) {
      if (getFoodCategory.errors?.required) {
-       return 'Food Category is Required'
+       return 'Food Category is Required 😑'
      }
      if (getFoodCategory.errors?.maxLength) {
-       return 'Food Category must not exceed 50 characters'
+       return 'Food Category must not exceed 50 characters 😑'
      }
    }
    return
@@ -130,7 +130,7 @@ export class ProductsEditComponent implements OnInit {
    const getImage = this.productEditForm?.get('Image');
    if (getImage?.touched && !getImage.valid) {
      if (getImage.errors?.required) {
-       return 'Image is Required'
+       return 'Image is Required 😑'
      }
    }
    return
@@ -140,12 +140,12 @@ export class ProductsEditComponent implements OnInit {
   onSubmit(){
         this.productApi.UpdateProduct(this.productEditForm.value,this.prodId).subscribe({
       next:()=>{
-        this.alertify.success('Product Updated Successfully.')
+        this.alertify.success('Product Updated Successfully. 😊😎')
         this.productEditForm.reset()
         this.route.navigate(['/products'])
       },
       error:(err)=>{
-        this.alertify.error('Unable to Edit!!!')
+        this.alertify.error('Unable to Edit!!!😢')
       }
     })
   }

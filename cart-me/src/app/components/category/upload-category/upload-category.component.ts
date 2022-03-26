@@ -73,7 +73,7 @@ export class UploadCategoryComponent implements OnInit {
           this.alertify.error('Title must be at least 5 Characters')
         }
         else{
-         this.sweetalert.timedNofication('Created Successfully')
+         this.sweetalert.timedNofication('Created Successfully 😊')
          this.categoryForm.reset()
          this.route.navigate(['categories'])
         }

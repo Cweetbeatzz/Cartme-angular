@@ -77,7 +77,7 @@ const routes: Routes = [];
       children:[
     { path: '', component: ProductListComponent },
     { path: 'uploadproduct', component: ProductsuploadComponent },
-    { path: 'editproduct/', component: ProductsEditComponent},
+    { path: 'editproduct/:id', component: ProductsEditComponent},
     { path: 'deleteproduct/:id', component: ProductsDeleteComponent },
     { path: 'product-details/:id', component: ProductDetailsComponent },
       ]

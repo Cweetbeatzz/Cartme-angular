@@ -25,7 +25,9 @@ export class ProductsuploadComponent implements OnInit {
   //#########################################################################
 
   ngOnInit(): void {
+    //
     this.productForm.reset()
+    //
     this.productValidations()
   }
   //#########################################################################
@@ -44,14 +46,14 @@ export class ProductsuploadComponent implements OnInit {
   // ##########################################
   // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
-  showChefNameErrors(){
+ showChefNameErrors(){
    const getChefName = this.productForm?.get('ChefName');
    if (getChefName?.touched && !getChefName.valid) {
      if (getChefName.errors?.required) {
-       return 'Chef Name is Required'
+       return 'Chef Name is Required 😑'
      }
      if (getChefName.errors?.maxLength) {
-       return 'Chef Name must not exceed 50 characters'
+       return 'Chef Name must not exceed 50 characters 😑'
      }
    }
    return
@@ -60,10 +62,10 @@ export class ProductsuploadComponent implements OnInit {
    const getMealName = this.productForm?.get('MealName');
    if (getMealName?.touched && !getMealName.valid) {
      if (getMealName.errors?.required) {
-       return 'Meal Name is Required'
+       return 'Meal Name is Required 😑'
      }
      if (getMealName.errors?.maxLength) {
-       return 'Meal Name must not exceed 50 characters'
+       return 'Meal Name must not exceed 50 characters 😑'
      }
    }
    return
@@ -72,10 +74,10 @@ export class ProductsuploadComponent implements OnInit {
    const getDescription = this.productForm?.get('Description');
    if (getDescription?.touched && !getDescription.valid) {
      if (getDescription.errors?.required) {
-       return 'getDescription is Required'
+       return 'getDescription is Required 😑'
      }
      if (getDescription.errors?.maxLength) {
-       return 'getDescription must not exceed 50 characters'
+       return 'getDescription must not exceed 50 characters 😑'
      }
    }
    return
@@ -84,10 +86,10 @@ export class ProductsuploadComponent implements OnInit {
    const getPrice = this.productForm?.get('Price');
    if (getPrice?.touched && !getPrice.valid) {
      if (getPrice.errors?.required) {
-       return 'Price is Required'
+       return 'Price is Required 😑'
      }
      if (getPrice.errors?.maxLength) {
-       return 'Price must not exceed 50 numbers'
+       return 'Price must not exceed 50 numbers 😑'
      }
    }
    return
@@ -96,19 +98,19 @@ export class ProductsuploadComponent implements OnInit {
    const getFoodCategory = this.productForm?.get('FoodCategory');
    if (getFoodCategory?.touched && !getFoodCategory.valid) {
      if (getFoodCategory.errors?.required) {
-       return 'Food Category is Required'
+       return 'Food Category is Required 😑'
      }
      if (getFoodCategory.errors?.maxLength) {
-       return 'Food Category must not exceed 50 characters'
+       return 'Food Category must not exceed 50 characters 😑'
      }
    }
    return
  }
-     showImageErrors(){
+    showImageErrors(){
    const getImage = this.productForm?.get('Image');
    if (getImage?.touched && !getImage.valid) {
      if (getImage.errors?.required) {
-       return 'Image is Required'
+       return 'Image is Required 😑'
      }
    }
    return
