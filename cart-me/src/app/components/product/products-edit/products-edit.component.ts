@@ -3,9 +3,11 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { Categories } from 'src/app/models/Categories/categories';
 import { Products } from 'src/app/models/Products/products';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { CategoriesService } from 'src/app/services/Categories/categories.service';
 import { ProductsService } from 'src/app/services/Product/products.service';
 
 @Component({
@@ -22,21 +24,40 @@ export class ProductsEditComponent implements OnInit {
   prodDetails: any;
   productEditForm!: FormGroup;
   dataLoaded:boolean = false
+  categoryList: Categories[] = [];
+  categoryLoaded:boolean = false
 
   //#########################################################################################
 
   constructor(private route:Router,private store:Store<AppState>, private router:ActivatedRoute,
-    private productApi:ProductsService,private alertify: AlertsService,private fb:FormBuilder,) { }
+    private productApi:ProductsService,private alertify: AlertsService,private fb:FormBuilder
+    ,private categoryApi:CategoriesService) { }
 
   //#########################################################################################
 
   ngOnInit(): void {
-    //
+    //set data loaded initially to false
     this.dataLoaded = false
-    //
+    //get id from route
       this.router.params.subscribe(data =>{
       this.prodId = data.id
     })
+     //seting loaded check
+    this.categoryLoaded = false
+
+    //get all categories
+    this.categoryApi.GetAllCategory().subscribe({
+      next:(data)=>{
+        console.log(data)
+        this.categoryList = data
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+
+    //re setting loaded check to positive
+    this.categoryLoaded = true
 
       //get product details to edit
     if (this.prodId !== null){

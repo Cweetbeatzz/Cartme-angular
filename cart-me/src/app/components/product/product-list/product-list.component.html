@@ -108,8 +108,8 @@
 
 <!-- ########################################################### -->
 
-
-<div class="container shadow p-3" *ngIf="dataSource">
+<div >
+<div class="container shadow p-3" >
  <!-- <mat-form-field appearance="standard">
     <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
@@ -170,10 +170,12 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of Products"></mat-paginator>
  </div>
 </div>
+</div>
+
 <br/>
 <br/>
 
-<div class="text-center container" *ngIf="!prodList">
+<div class="text-center container" *ngIf="prodList">
     <table class="table table-borderless table-striped">
         <thead>
             <tr>
@@ -198,7 +200,7 @@
     </table>
 </div>
 <br/>
-<div class="text-center container" *ngIf="prodList">
+<div class="text-center container" *ngIf="!prodList">
     <h2>NO CONTENT</h2>
 </div>
 <br/>
