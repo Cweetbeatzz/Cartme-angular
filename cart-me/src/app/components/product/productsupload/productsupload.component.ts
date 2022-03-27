@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Categories } from 'src/app/models/Categories/categories';
 import { AppState } from 'src/app/Ngrx/store/app.state';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { CategoriesService } from 'src/app/services/Categories/categories.service';
 import { ProductsService } from 'src/app/services/Product/products.service';
 
 @Component({
@@ -16,19 +18,39 @@ export class ProductsuploadComponent implements OnInit {
   //#########################################################################
 
   productForm: FormGroup = new FormGroup({});
+  categoryList: Categories[] = [];
+  categoryLoaded:boolean = false
 
   //#########################################################################
 
   constructor(private productApi:ProductsService,private alertify: AlertsService,private fb:FormBuilder,
-    private router:Router) { }
+    private router:Router,private categoryApi:CategoriesService) { }
 
   //#########################################################################
 
   ngOnInit(): void {
-    //
+    //reset form on every load of component
     this.productForm.reset()
-    //
+
+    //check validation
     this.productValidations()
+
+    //seting loaded check
+    this.categoryLoaded = false
+
+    //get all categories
+    this.categoryApi.GetAllCategory().subscribe({
+      next:(data)=>{
+        console.log(data)
+        this.categoryList = data
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+
+    //re setting loaded check to positive
+    this.categoryLoaded = true
   }
   //#########################################################################
 
