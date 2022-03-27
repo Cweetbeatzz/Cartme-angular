@@ -59,6 +59,7 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
 import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { SearchPipe } from './Pipes/search.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,7 @@ import { SortPipe } from './Pipes/sort.pipe';
 
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:AuthTokenInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
     SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
