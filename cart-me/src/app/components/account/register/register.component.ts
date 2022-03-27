@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -31,18 +31,18 @@ export class RegisterComponent implements OnInit {
   // ##########################################
 
   formModel = this.fb.group({
-    firstname: ['', Validators.required, ],
-    lastname: ['', Validators.required, ],
-    userName: ['', Validators.required, ],
+    firstname: ['', (Validators.required,Validators.maxLength(20)) ],
+    lastname: ['', (Validators.required,Validators.maxLength(20)) ],
+    userName: ['', (Validators.required,Validators.maxLength(20)) ],
     email: ['', Validators.email],
-    address: ['', Validators.required,],
-    state: ['', Validators.required, ],
-    country: ['', Validators.required, ],
-    Phone: ['', Validators.required, ],
-    postalCode: ['', Validators.required, ],
+    address: ['', (Validators.required,Validators.maxLength(100))],
+    state: ['',  (Validators.required,Validators.maxLength(20))],
+    country: ['', (Validators.required, Validators.maxLength(20))],
+    Phone: ['', (Validators.required,Validators.maxLength(11)) ],
+    postalCode: ['', (Validators.required,Validators.maxLength(20)) ],
 
     Passwords: this.fb.group({
-      Password: ['', [Validators.required, ]],
+      Password: ['', [Validators.required,Validators.minLength(6) ]],
       ConfirmPassword: ['', Validators.required]
     }, { Validators: this.comparePasswords })
   });
@@ -84,8 +84,8 @@ export class RegisterComponent implements OnInit {
      if (getFirstName.errors?.required) {
        return 'First Name is Required😑'
      }
-     if (getFirstName.errors?.maxLength) {
-       return 'First Name must not exceed 50 characters😑'
+     if (getFirstName.errors?.maxlength) {
+       return 'Firstname must not exceed 20 characters😑'
      }
    }
    return
@@ -96,8 +96,8 @@ export class RegisterComponent implements OnInit {
      if (getLastName.errors?.required) {
        return 'Last Name is Required😑'
      }
-     if (getLastName.errors?.maxLength) {
-       return 'Last Name must not exceed 50 characters😑'
+     if (getLastName.errors?.maxlength) {
+       return 'Lastname must not exceed 20 Characters😑'
      }
    }
    return
@@ -108,7 +108,7 @@ export class RegisterComponent implements OnInit {
      if (getUserName.errors?.required) {
        return 'User Name is Required😑'
      }
-     if (getUserName.errors?.maxLength) {
+     if (getUserName.errors?.maxlength) {
        return 'User Name must not exceed 50 characters😑'
      }
    }
@@ -120,7 +120,7 @@ export class RegisterComponent implements OnInit {
      if (getEmail.errors?.required) {
        return 'Email is Required😑'
      }
-     if (getEmail.errors?.maxLength) {
+     if (getEmail.errors?.maxlength) {
        return 'Email must not exceed 50 characters😑'
      }
     if (getEmail.errors?.email) {
@@ -135,7 +135,7 @@ export class RegisterComponent implements OnInit {
      if (getAddress.errors?.required) {
        return 'Address is Required😑'
      }
-     if (getAddress.errors?.maxLength) {
+     if (getAddress.errors?.maxlength) {
        return 'Address must not exceed 50 characters😑'
      }
    }
@@ -143,11 +143,11 @@ export class RegisterComponent implements OnInit {
  }
   shoeStateErrors(){
         const getState = this.formModel.get('state');
-   if (getState?.touched && !getState.valid) {
+   if (getState?.touched && !getState.valid ) {
      if (getState.errors?.required) {
        return 'State is Required😑'
      }
-     if (getState.errors?.maxLength) {
+     if (getState.errors?.maxlength) {
        return 'State must not exceed 50 characters😑'
      }
    }
@@ -159,7 +159,7 @@ export class RegisterComponent implements OnInit {
      if (getCountry.errors?.required) {
        return 'Country is Required😑'
      }
-     if (getCountry.errors?.maxLength) {
+     if (getCountry.errors?.maxlength) {
        return 'Country must not exceed 100 characters😑'
      }
    }
@@ -171,7 +171,7 @@ export class RegisterComponent implements OnInit {
      if (getPhone.errors?.required) {
        return 'Phone is Required😑'
      }
-     if (getPhone.errors?.maxLength) {
+     if (getPhone.errors?.maxlength) {
        return 'Phone must not exceed 11 Numbers😑'
      }
    }
@@ -183,7 +183,7 @@ export class RegisterComponent implements OnInit {
      if (getPostalCode.errors?.required) {
        return 'Postal Code is Required😑'
      }
-     if (getPostalCode.errors?.maxLength) {
+     if (getPostalCode.errors?.maxlength) {
        return 'Postal Code must not exceed 10 Numbers😑'
      }
    }
@@ -195,8 +195,8 @@ export class RegisterComponent implements OnInit {
      if (getPassword.errors?.required) {
        return 'Password is Required😑'
      }
-     if (getPassword.errors?.minLength) {
-       return 'Minimum length of Password is 6😑'
+     if (getPassword.errors?.minlength) {
+       return 'Minimum length of Password is 6, must contain a Special Character, a Capital letter & a number.😑'
      }
    }
    return
@@ -207,8 +207,8 @@ export class RegisterComponent implements OnInit {
      if (getConfirmPassword.errors?.required) {
        return 'Password is Invalid or do not Match😑'
      }
-     if (getConfirmPassword.errors?.minLength) {
-       return 'Minimum length of Password is 6😑'
+     if (getConfirmPassword.errors?.minlength) {
+       return 'Minimum length of Password is 6, must contain a Special Character, a Capital letter & a number.😑'
      }
    }
    return
@@ -231,7 +231,13 @@ export class RegisterComponent implements OnInit {
         this.route.navigate(['/login'])
       },
       error:(err)=>{
-        this.alertify.error(err || 'An Error occured please try again filling form correctly 😣')
+         if (err instanceof HttpErrorResponse) {
+          const errmsg = new Array<{Name:string; errors:string}>()
+
+         if (err.status === 400) {
+           this.alertify.error('Please fill all required fields!!!')
+         }
+       }
       }
       
     })

@@ -27,6 +27,7 @@ export class CategoriesComponent implements OnInit {
 
   //#########################################################################################
   catList:Categories[] = [];
+  errorInfo: string = "";
 
   constructor(private store: Store<AppState>,private CategoryApi:CategoriesService,private alertify: AlertsService,) { }
 
@@ -69,7 +70,7 @@ export class CategoriesComponent implements OnInit {
         this.catList = res 
       },
       error:(err)=>{
-        this.alertify.error(err)
+        this.alertify.error(this.errorInfo = err.error)
       }
     })
   }

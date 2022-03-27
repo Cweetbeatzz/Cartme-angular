@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class UploadCategoryComponent implements OnInit {
   // ##########################################
 
   categoryForm: FormGroup = new FormGroup({});
+  errorInfo: string = "";
 
   // ##########################################
 
@@ -69,34 +70,19 @@ export class UploadCategoryComponent implements OnInit {
    //
    this.api.UploadCategory(this.categoryForm.value).subscribe({
      next:(res:any)=>{
-       if (res.errors === 'Name') {
-          this.alertify.error('Title must be at least 5 Characters')
-        }
-        else{
          this.sweetalert.timedNofication('Created Successfully 😊')
          this.categoryForm.reset()
          this.route.navigate(['categories'])
-        }
-        
-      
-      //  else{
-      //    res.errors.forEach((element: { code: any; }) => {
-      //     if (element.code === 'Name') {
-      //       this.alertify.error('Title must be at least 5 Characters')
-      //     }else{
-      //       this.alertify.error('Creation Failed...')
-      //     }
-      //    });
-      //  }
      },
-     error:(err)=>{
-      if (err) {
-        this.alertify.error(err)
-      }
-      else{
-        this.alertify.error('Error creating Category!!!')
-      }
-      
+     error:(err:any)=>{
+       if (err instanceof HttpErrorResponse) {
+          const errmsg = new Array<{Name:string; errors:string}>()
+
+         if (err.status === 400) {
+           this.alertify.error('Category name must be at least 5 Characters!!!')
+         }
+       }
+        
      }
    })
    
