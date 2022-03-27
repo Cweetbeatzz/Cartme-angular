@@ -39,7 +39,7 @@ export class UploadCategoryComponent implements OnInit {
 
   categoryFormValidations(){
          this.categoryForm = this.fb.group({
-    name: ['', Validators.required]
+    name: ['', (Validators.required,Validators.minLength(3),Validators.maxLength(20))]
   });
   }
 
@@ -54,8 +54,11 @@ export class UploadCategoryComponent implements OnInit {
      if (getCategoryName.errors?.required) {
        return 'Category Name is Required😑'
      }
-     if (getCategoryName.errors?.maxLength) {
-       return 'Category Name must not exceed 50 characters😑'
+     if (getCategoryName.errors?.minlength) {
+       return 'Category Name must be at least 3 Characters😑'
+     }
+     if (getCategoryName.errors?.maxlength) {
+       return 'Category Name must not exceed 20 characters😑'
      }
    }
    return
@@ -79,7 +82,11 @@ export class UploadCategoryComponent implements OnInit {
           const errmsg = new Array<{Name:string; errors:string}>()
 
          if (err.status === 400) {
-           this.alertify.error('Category name must be at least 5 Characters!!!')
+          //  forEach(element => {
+             
+          //  });
+           this.alertify.error(this.errorInfo = err.message)
+          //  this.alertify.error('Category name must be at least 5 Characters!!! 😑')
          }
        }
         

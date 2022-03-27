@@ -27,7 +27,7 @@ export class AlertsService {
 
     customAlert(){
       alertify.alert().setting({
-
+        
       }).show()
     }
 
