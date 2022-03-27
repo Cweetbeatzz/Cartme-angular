@@ -57,6 +57,8 @@ import { EditCategoryComponent } from './components/category/edit-category/edit-
 import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
 import { ProductListComponent } from './components/product/product-list/product-list.component';
+import { SearchPipe } from './Pipes/search.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { ProductListComponent } from './components/product/product-list/product-
     CategoriesComponent,
     SignUpComponent,
     RegisterComponent,
+    SearchPipe,
+    SortPipe,
   
 
   ],
