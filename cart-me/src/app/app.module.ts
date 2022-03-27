@@ -116,7 +116,7 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
+    // {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
     SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
   bootstrap: [AppComponent]
 })
