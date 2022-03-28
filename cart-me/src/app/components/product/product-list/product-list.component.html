@@ -175,7 +175,7 @@
 <br/>
 <br/>
 
-<div class="text-center container" *ngIf="prodList">
+<div class="text-center container" *ngIf="prodList.length">
     <table class="table table-borderless table-striped">
         <thead>
             <tr>
@@ -200,8 +200,10 @@
     </table>
 </div>
 <br/>
-<div class="text-center container" *ngIf="!prodList">
-    <h2>NO CONTENT</h2>
+<div class="text-center container" *ngIf="!prodList.length">
+    <div class="m-2">
+        <a class="display-4">NO CONTENT 🙄</a>
+    </div>
 </div>
 <br/>
 <br/>

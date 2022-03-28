@@ -31,15 +31,15 @@ export class RegisterComponent implements OnInit {
   // ##########################################
 
   formModel = this.fb.group({
-    firstname: ['', (Validators.required,Validators.maxLength(20)) ],
-    lastname: ['', (Validators.required,Validators.maxLength(20)) ],
-    userName: ['', (Validators.required,Validators.maxLength(20)) ],
-    email: ['', Validators.email],
-    address: ['', (Validators.required,Validators.maxLength(100))],
-    state: ['',  (Validators.required,Validators.maxLength(20))],
-    country: ['', (Validators.required, Validators.maxLength(20))],
-    Phone: ['', (Validators.required,Validators.maxLength(11)) ],
-    postalCode: ['', (Validators.required,Validators.maxLength(20)) ],
+    firstname: ['', [Validators.required,Validators.maxLength(20)] ],
+    lastname: ['', [Validators.required,Validators.maxLength(20)] ],
+    userName: ['', [Validators.required,Validators.maxLength(20)] ],
+    email: ['', [Validators.required,Validators.email]],
+    address: ['', [Validators.required,Validators.maxLength(100)]],
+    state: ['',  [Validators.required,Validators.maxLength(20)]],
+    country: ['', [Validators.required,Validators.maxLength(20)]],
+    Phone: ['', [Validators.required,Validators.maxLength(11)] ],
+    postalCode: ['', [Validators.required,Validators.maxLength(20)] ],
 
     Passwords: this.fb.group({
       Password: ['', [Validators.required,Validators.minLength(6) ]],
