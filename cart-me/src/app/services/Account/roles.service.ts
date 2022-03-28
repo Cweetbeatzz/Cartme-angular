@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Roles } from 'src/app/models/Customers/roles';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,24 +15,23 @@ export class RolesService {
 
    //#######################################################################
   DeleteRole(id:string) {
-    return this.http.delete(`${this.ApiUrl}/api/Account/Roles/Delete/${id}`);
-
+    return this.http.delete(`${this.ApiUrl}/api/Roles/Delete/${id}`);
   }
   //#######################################################################
-  getRoles() {
-    return this.http.get(this.ApiUrl + '/api/Account/Roles/get' );
+  getRoles():Observable<Roles[]> {
+    return this.http.get<Roles[]>(this.ApiUrl + '/api/Roles' );
   }
     //#######################################################################
   getRolesById(id:string) {
-    return this.http.delete(`${this.ApiUrl}/api/Account/Roles/get/${id}`);
+    return this.http.get(`${this.ApiUrl}/api/Roles/${id}`);
 
   }
   //#######################################################################
-  createRole() {
-    return this.http.get(this.ApiUrl + '/api/Account/Roles/create' );
+  createRole(role:Roles) {
+    return this.http.post(this.ApiUrl + '/api/Roles/create',role );
   }
   //#######################################################################
-  assignRole() {
-    return this.http.get(this.ApiUrl + '/api/Account/Roles/assign' );
+  updateRole(role:Roles, id:string) {
+    return this.http.put(`${this.ApiUrl}/api/Roles/Edit/${id}`, role);
   }
 }

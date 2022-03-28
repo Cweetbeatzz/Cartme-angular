@@ -29,10 +29,23 @@ export class HeaderComponent implements OnInit {
       return false;
   }
   // #####################################
-
+  // manual log out
   Logout() {
     localStorage.removeItem('token');
     this.sweetalert.timedNofication('You are Logged Out🙄🙂🙄')
     this.route.navigateByUrl('/');
+  }
+
+  // #####################################
+  //logout call from api
+  logout2(){
+    this.service.LogOut().subscribe({
+      next:(data)=>{
+        this.sweetalert.timedNofication('You are Logged Out🙄🙂🙄')
+      },
+      error:(err)=>{
+        this.alertify.error("Error Sigining Out...")
+      }
+    })
   }
 }

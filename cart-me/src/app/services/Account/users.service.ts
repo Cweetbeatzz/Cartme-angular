@@ -30,19 +30,18 @@ export class UsersService {
 
   }
   //#######################################################################
-  LogOut(formData: Login) {
-    return this.http.post(this.ApiUrl + '/api/Account/logout', formData);
+  LogOut() {
+    return this.http.get(this.ApiUrl + '/api/Account/logout');
 
   }
   //#######################################################################
-  EditUser(data: Customers) {
-    return this.http.put(this.ApiUrl + '/api/Account/Edit', data);
+  EditUser(data: Customers, id:string) {
+    return this.http.put(`${this.ApiUrl}/api/Account/Edit/${id}`, data);
 
   }
   //#######################################################################
   DeleteUser(id:string) {
     return this.http.delete(`${this.ApiUrl}/api/Account/Delete/${id}`);
-
   }
   //#######################################################################
   getUser() {

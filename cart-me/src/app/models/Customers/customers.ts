@@ -1,3 +1,5 @@
+import { Roles } from "./roles";
+
 export interface Customers {
  id?:string,
  firstname: string,
@@ -11,4 +13,5 @@ export interface Customers {
  postalCode: number,
  Password: string,
  ConfirmPassword?: string,
+ roles?:Roles[]
 }
