@@ -1,3 +1,5 @@
+import { Photo } from "./photo"
+
 export interface Products {
  id?:string,
  chefName: string  
@@ -8,5 +10,5 @@ export interface Products {
  price: number 
  foodCategory: string  
  categoryId: number
- imageUpload: string  
+ photos?: Photo[]  
 }
