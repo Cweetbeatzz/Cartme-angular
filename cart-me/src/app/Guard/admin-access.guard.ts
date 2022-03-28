@@ -7,14 +7,15 @@ import { AlertsService } from '../services/Alerts/alerts.service';
   providedIn: 'root'
 })
 export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-
+  
+  isAdmin:boolean = false
   constructor(private alertify: AlertsService){}
   //##############################################################
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       // this.alertify.success('Access Granted...')
-    return true;
+    return false;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
