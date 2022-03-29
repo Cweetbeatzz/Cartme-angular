@@ -36,13 +36,13 @@ constructor (private action$: Actions, private userservice:UsersService){}
  })
  //##########################################################
 
- get$ = createEffect(() => {
-  return this.action$.pipe(ofType(getAllUsersRequestAction),mergeMap((action)=>{
-   return this.userservice.getUser().pipe(map((users)=> {
-    return getAllUsersSuccessAction({users});
-   }) )
-  }))
- })
+//  get$ = createEffect(() => {
+//   return this.action$.pipe(ofType(getAllUsersRequestAction),mergeMap((action)=>{
+//    return this.userservice.getUser().pipe(map((users)=> {
+//     return getAllUsersSuccessAction({users});
+//    }) )
+//   }))
+//  })
  //##########################################################
 
  getById$ = createEffect(() => {
@@ -54,13 +54,13 @@ constructor (private action$: Actions, private userservice:UsersService){}
  })
  //##########################################################
 
- update$ = createEffect(() => {
-  return this.action$.pipe(ofType(UpdateUsersRequestAction),switchMap((action)=>{
-   return this.userservice.EditUser(action.users).pipe(map((data)=> {
-    return UpdateUsersSuccessAction({users:action.users});
-   }) )
-  }))
- })
+//  update$ = createEffect(() => {
+//   return this.action$.pipe(ofType(UpdateUsersRequestAction),switchMap((action)=>{
+//    return this.userservice.EditUser(action.users).pipe(map((data)=> {
+//     return UpdateUsersSuccessAction({users:action.users});
+//    }) )
+//   }))
+//  })
 
   //##########################################################
 

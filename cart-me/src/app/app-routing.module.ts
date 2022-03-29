@@ -2,28 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/account/admin/admin.component';
-import { LoginComponent } from './components/account/login/login.component';
-import { RegisterComponent } from './components/account/register/register.component';
-import { SignUpComponent } from './components/account/sign-up/sign-up.component';
-import { UserDashboardComponent } from './components/account/user-dashboard/user-dashboard.component';
-import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
-import { UserEditComponent } from './components/account/user-edit/user-edit.component';
-import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
-import { UsersComponent } from './components/account/users/users.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CategoriesComponent } from './components/category/categories/categories.component';
-import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
-import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
-import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
-import { ProductListComponent } from './components/product/product-list/product-list.component';
-import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
-import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
-import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
 import { AuthGuardGuard } from './Guard/auth-guard.guard';
@@ -50,25 +33,11 @@ const routes: Routes = [];
         x.ProductModule
       )
     },
-    // {
-    //   path: 'users', loadChildren:() => import('./components/account/users.module').then((x)=>{
-    //     x.UserModule
-    //   })
-    // },
-    { path: 'users',
-      children:[
-    { path: '', component: UsersComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent,},
-    { path: 'editUser', component: UserEditComponent },
-    { path: 'deleteUser', component: UserDeleteComponent },
-    { path: 'rolesUser', component: UserRolesComponent },
-    { path: 'dashboard', component: UserDashboardComponent },
-      ] },
-
-    
-
-
+    {
+      path: 'users', loadChildren:() => import('./components/account/users.module').then((x)=>
+        x.UserModule
+      )
+    },
     { path: 'admin', component: AdminComponent, canActivate:[AuthGuardGuard,AdminAccessGuard]},
     { path: '', component: HomeComponent },
 
