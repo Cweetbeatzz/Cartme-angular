@@ -18,10 +18,10 @@
                         <a class="nav-link text-dark" [routerLinkActiveOptions]="{exact:true}" [routerLink]=" [ '/home'] " routerLinkActive="router-link-active "><strong>HOME</strong></a>
                     </li>
                     <li class="nav-item li" *ngIf="!checkLoggedIn()">
-                        <a class="nav-link  text-dark " [routerLink]="[ '/register']" routerLinkActive="router-link-active"><strong>REGISTER</strong></a>
+                        <a class="nav-link  text-dark " [routerLink]="[ '/users/register']" routerLinkActive="router-link-active"><strong>REGISTER</strong></a>
                     </li>
                     <li class="nav-item li" *ngIf="!checkLoggedIn()">
-                        <a class="nav-link  text-dark " [routerLink]="[ '/login']" routerLinkActive="router-link-active "><strong>LOGIN</strong></a>
+                        <a class="nav-link  text-dark " [routerLink]="[ '/users/login']" routerLinkActive="router-link-active "><strong>LOGIN</strong></a>
                     </li>
 
                     <li class="nav-item ">

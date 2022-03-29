@@ -66,13 +66,17 @@ const routes: Routes = [];
     //     x.UserModule
     //   })
     // },
+    { path: 'users',
+      children:[
+    { path: '', component: UsersComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent,},
     { path: 'editUser', component: UserEditComponent },
-    { path: 'users', component: UsersComponent },
     { path: 'deleteUser', component: UserDeleteComponent },
     { path: 'rolesUser', component: UserRolesComponent },
     { path: 'dashboard', component: UserDashboardComponent },
+      ] },
+
     
     {
       path: 'products',
