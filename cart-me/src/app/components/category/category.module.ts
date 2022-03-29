@@ -10,33 +10,37 @@ import { StoreModule } from "@ngrx/store";
 import { categoryReducer } from "src/app/Ngrx/reducers/category.reducers";
 import { CATEGORY_STATE_NAME } from "src/app/Ngrx/selectors/category.selector";
 
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import {MatTreeModule} from '@angular/material/tree';
+
 const routes:Routes = [
-   {
-    path:'',
-    component:CategoriesComponent,
-    children:[
     {
-      path: 'uploadcategory', component: UploadCategoryComponent
+      path: '',
+      children:[
+    { path: '', component: CategoriesComponent },
+    { path: 'uploadcategory', component: UploadCategoryComponent },
+    { path: 'editcategory/:id', component: EditCategoryComponent },
+    { path: 'deletecategory/:id', component: CategoryDeleteComponent },
+      ]
     },
-    {
-      path: 'editcategory/:id', component: EditCategoryComponent
-    },
-    {
-      path: 'deletecategory/:id', component: CategoryDeleteComponent
-    },
-    ]
-    
-   }
 ]
 
 @NgModule({
  declarations:[
-  // CategoryDeleteComponent,
-  //  UploadCategoryComponent,
-  //   EditCategoryComponent,
+  CategoriesComponent,
+  CategoryDeleteComponent,
+  UploadCategoryComponent,
+  EditCategoryComponent,
  ],
  imports:[CommonModule,ReactiveFormsModule, 
-  FormsModule,RouterModule.forChild(routes),StoreModule.forFeature(CATEGORY_STATE_NAME,categoryReducer)]
+  FormsModule,RouterModule.forChild(routes),
+  StoreModule.forFeature(CATEGORY_STATE_NAME,categoryReducer),
+  MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
+]
 })
 
 export class CategoryModule{}

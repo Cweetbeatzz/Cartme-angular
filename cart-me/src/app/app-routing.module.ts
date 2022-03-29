@@ -40,22 +40,11 @@ const routes: Routes = [];
     { path: 'search', component: SearchComponent },
     { path: 'checkout', component: CheckoutComponent},
     { path: 'cart', component: CartComponent },
-
     {
-      path: 'categories',
-      children:[
-    { path: '', component: CategoriesComponent },
-    { path: 'uploadcategory', component: UploadCategoryComponent },
-    { path: 'editcategory/:id', component: EditCategoryComponent },
-    { path: 'deletecategory/:id', component: CategoryDeleteComponent },
-      ]
+      path: 'categories', loadChildren:() => import('./components/category/category.module').then((x)=>
+        x.CategoryModule
+      )
     },
-
-    // {
-    //   path: 'categories', loadChildren:() => import('./components/category/category.module').then((x)=>{
-    //     x.CategoryModule
-    //   })
-    // },
     // {
     //   path: 'products', loadChildren:() => import('./components/product/product.module').then((x)=>{
     //     x.ProductModule

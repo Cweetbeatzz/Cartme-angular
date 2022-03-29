@@ -26,7 +26,6 @@ import { SearchComponent } from './components/search/search.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from './material/material.module';
-import { CategoriesComponent } from './components/category/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CategoriesService } from './services/Categories/categories.service';
 import { UsersService } from './services/Account/users.service';
@@ -51,9 +50,6 @@ import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
 import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
 import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
-import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
-import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
-import { UploadCategoryComponent } from './components/category/upload-category/upload-category.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
 import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { SearchPipe } from './Pipes/search.pipe';
@@ -80,17 +76,13 @@ import { CartService } from './services/Cart/cart.service';
     ProductDetailsComponent,
     ProductListComponent,
     LoginComponent,
-     AdminComponent,
-     UserEditComponent,
-     UserDeleteComponent,
-     UserRolesComponent,
-     UsersComponent,
-     UserChangePasswordComponent,
-     UserDashboardComponent,
-    CategoryDeleteComponent,
-    UploadCategoryComponent,
-    EditCategoryComponent,
-    CategoriesComponent,
+    AdminComponent,
+    UserEditComponent,
+    UserDeleteComponent,
+    UserRolesComponent,
+    UsersComponent,
+    UserChangePasswordComponent,
+    UserDashboardComponent,
     SignUpComponent,
     RegisterComponent,
     SearchPipe,
@@ -107,10 +99,9 @@ import { CartService } from './services/Cart/cart.service';
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    MatCardModule,MatTreeModule,
+    MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
     StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 
