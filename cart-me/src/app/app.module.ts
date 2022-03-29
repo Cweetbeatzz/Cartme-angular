@@ -42,16 +42,11 @@ import { UserDashboardComponent } from './components/account/user-dashboard/user
 import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
 import { UserEditComponent } from './components/account/user-edit/user-edit.component';
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
-import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
-import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
-import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
 import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
-import { ProductDetailsComponent } from './components/product/product-details/product-details.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
-import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { SearchPipe } from './Pipes/search.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
@@ -70,11 +65,6 @@ import { CartService } from './services/Cart/cart.service';
     UsersComponent,
     CartComponent,
     LoadingSpinnerComponent,
-    ProductsuploadComponent,
-    ProductsEditComponent,
-    ProductsDeleteComponent,
-    ProductDetailsComponent,
-    ProductListComponent,
     LoginComponent,
     AdminComponent,
     UserEditComponent,

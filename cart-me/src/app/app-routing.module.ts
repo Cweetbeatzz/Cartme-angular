@@ -45,11 +45,11 @@ const routes: Routes = [];
         x.CategoryModule
       )
     },
-    // {
-    //   path: 'products', loadChildren:() => import('./components/product/product.module').then((x)=>{
-    //     x.ProductModule
-    //   })
-    // },
+    {
+      path: 'products', loadChildren:() => import('./components/product/product.module').then((x)=>
+        x.ProductModule
+      )
+    },
     // {
     //   path: 'users', loadChildren:() => import('./components/account/users.module').then((x)=>{
     //     x.UserModule
@@ -67,16 +67,7 @@ const routes: Routes = [];
       ] },
 
     
-    {
-      path: 'products',
-      children:[
-    { path: '', component: ProductListComponent },
-    { path: 'uploadproduct', component: ProductsuploadComponent },
-    { path: 'editproduct/:id', component: ProductsEditComponent},
-    { path: 'deleteproduct/:id', component: ProductsDeleteComponent },
-    { path: 'product-details/:id', component: ProductDetailsComponent },
-      ]
-    },
+
 
     { path: 'admin', component: AdminComponent, canActivate:[AuthGuardGuard,AdminAccessGuard]},
     { path: '', component: HomeComponent },
