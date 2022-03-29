@@ -5,6 +5,7 @@ import { AdminComponent } from './components/account/admin/admin.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
+import { UserDashboardComponent } from './components/account/user-dashboard/user-dashboard.component';
 import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
 import { UserEditComponent } from './components/account/user-edit/user-edit.component';
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
@@ -71,6 +72,7 @@ const routes: Routes = [];
     { path: 'users', component: UsersComponent },
     { path: 'deleteUser', component: UserDeleteComponent },
     { path: 'rolesUser', component: UserRolesComponent },
+    { path: 'dashboard', component: UserDashboardComponent },
     
     {
       path: 'products',

@@ -18,6 +18,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { AccountComponent } from './account.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 const routes:Routes = [
    //default path
@@ -70,6 +71,8 @@ const routes:Routes = [
     // EmailConfirmComponent,
     // AccountComponent
     // SignUpComponent
+  
+    PricingComponent
   ],
  imports:[CommonModule,
   ReactiveFormsModule, FormsModule,RouterModule.forChild(routes),
