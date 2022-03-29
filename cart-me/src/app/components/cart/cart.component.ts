@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/Cart/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,11 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  cartList:any
+  cartList:any 
+  grandTotal:number = 0
+  
+   //##############################################################
 
-  constructor() { }
+  constructor(private cartApi:CartService) { }
+
+   //##############################################################
 
   ngOnInit(): void {
+    
   }
+ //##############################################################
+
+  addAutomaticallyToCart(){
+    this.cartApi.getProducts()
+  }
+
+   //##############################################################
+
+  clearCartItems(){
+    this.cartApi.clearCart()
+  }
+ //##############################################################
+
+  removeItem(item:any){
+    this.cartApi.removeItem(item)
+  }
+
+   //##############################################################
+
+  increase(){}
+
+ //##############################################################
+
+  decrease(){}
+
+ //##############################################################
+
+  checkout(){}
+
+   //##############################################################
 
 }

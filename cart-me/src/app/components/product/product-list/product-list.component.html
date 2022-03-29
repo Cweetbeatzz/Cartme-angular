@@ -21,7 +21,7 @@
         <h5 class="btn btn-outline-danger small btn-sm mr-2">{{prod.price | currency}}</h5>
        </div>
        <div>
-        <button class="btn btn-danger small btn-sm border-0 pt-2" id="addtocarttext">
+        <button class="btn btn-danger small btn-sm border-0 pt-2" id="addtocarttext" (click)="addProductToCart(prod)">
          <strong> CART</strong>
         </button>
        </div>
@@ -109,7 +109,7 @@
 <!-- ########################################################### -->
 
 <div >
-<div class="container shadow p-3" >
+<div class="container shadow p-3">
  <!-- <mat-form-field appearance="standard">
     <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>

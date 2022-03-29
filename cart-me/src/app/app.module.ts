@@ -59,6 +59,7 @@ import { ProductListComponent } from './components/product/product-list/product-
 import { SearchPipe } from './Pipes/search.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { CartService } from './services/Cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,7 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
-    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
+    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
