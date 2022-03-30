@@ -80,7 +80,7 @@ import { CartService } from './services/Cart/cart.service';
     MaterialModule,
     RouterModule, HttpClientModule,
     MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
     StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
