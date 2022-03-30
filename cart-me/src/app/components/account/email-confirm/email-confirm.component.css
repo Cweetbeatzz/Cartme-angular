@@ -1,6 +1,6 @@
 .content-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   min-height: calc(100vh - 520px) !important;

@@ -1,13 +1,15 @@
 <div class="page-wrapper">
  <div class="page-container">
-  <div class="content-wrapper">
-   <div class="message">
-    <h6>
+  <div class="container content-wrapper  ">
+   <div class="mx-auto col-12 mt-5">
+    <div class="message">
+    <h3 class="m-2">
      Your email has been verified successfully
-    </h6>
+    </h3>
 
-    <button class='btn btn-gradient' routerLink="/home">Continue</button>
+    <button class='btn btn-outline-primary m-2' [routerLink]="['/home']">Continue</button>
    </div>
+  </div>
 
    <ng-template #notVerified>
     <h6>Error</h6>

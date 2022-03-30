@@ -32,6 +32,7 @@ const routes:Routes = [
     { path: 'deleteUser', component: UserDeleteComponent },
     { path: 'rolesUser', component: UserRolesComponent },
     { path: 'dashboard', component: UserDashboardComponent },
+    { path: 'email-confirmed', component: EmailConfirmComponent },
       ]},
 ]
 
