@@ -42,7 +42,7 @@ export class EditCategoryComponent implements OnInit {
     if (this.categoryId !== null) {
       this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
         this.categoryDetail = data 
-        Object.assign(this.categoryDetail,data)
+        // Object.assign(this.categoryDetail,data)
 
     // pre-filling form
     this.categoryEditForm = this.fb.group({

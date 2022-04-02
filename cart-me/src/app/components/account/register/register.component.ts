@@ -238,7 +238,8 @@ export class RegisterComponent implements OnInit {
            this.alertify.error('Please fill all required fields!!!')
          }
        }
-      }
+      },
+      complete:() =>{}
       
     })
   }
