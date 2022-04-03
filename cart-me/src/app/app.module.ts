@@ -51,6 +51,7 @@ import { SearchPipe } from './Pipes/search.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { CartService } from './services/Cart/cart.service';
+import { UserCreateComponent } from './components/account/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { CartService } from './services/Cart/cart.service';
     AdminComponent,
     SearchPipe,
     SortPipe,
+    UserCreateComponent,
   
 
   ],

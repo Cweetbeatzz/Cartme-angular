@@ -1,0 +1,137 @@
+<br>
+<div class="container">
+ <div class="card box-shadow col-sm-8 mx-auto">
+
+  <div class="card-head">
+   <div class="RegisterLabel">
+    <h1>
+     <strong>REGISTER</strong>
+    </h1>
+   </div>
+  </div>
+  <hr>
+
+  <div class="row text-center p-1">
+   <div class="col-md-6 mx-auto">
+    <form asp-action="Register" #form="ngForm" (submit)="OnSubmit(form)">
+     <div class="form-group">
+      <input type="text" [(ngModel)]="formModel.firstname" placeholder="Firstname" name="firstname" #firstname="ngModel" class="form-control" />
+      <div class="text-danger">
+       <!-- {{shoeFirstNameErrors()}} -->
+      </div>
+     </div>
+     <div class="form-group">
+      <input type="text" [(ngModel)]="formModel.lastname" placeholder="Lastname" name="Lastname" #lastname="ngModel" class="form-control" maxlength="20">
+      <div class="text-danger">
+       <div *ngIf="lastname.touched && !lastname.valid">
+           <div *ngIf="lastname.errors?.required">
+                Last Name is Required😑
+           </div>
+           <div *ngIf="lastname.errors?.maxlength">
+                Lastname must not exceed 20 characters😑
+           </div>
+       </div>
+      </div>
+     </div>
+     <div class="form-group">
+      <input type="text" [(ngModel)]="formModel.userName" placeholder="Username" name="Username" #userName="ngModel" class="form-control" />
+      <div class="text-danger">
+       <!-- {{shoeUserNameErrors()}} -->
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="email" [(ngModel)]="formModel.email" placeholder="Email" name="email" #email="ngModel" class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoeEmailErrors()}} -->
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" [(ngModel)]="formModel.address" placeholder="Address" name="Address" #address="ngModel" class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoeAddressErrors()}} -->
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" [(ngModel)]="formModel.Phone" placeholder="Phone" name="Phone" #Phone="ngModel" class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoePhoneErrors()}} -->
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" [(ngModel)]="formModel.state" placeholder="State" name="State" #state="ngModel" class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoeStateErrors()}} -->
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" [(ngModel)]="formModel.country" placeholder="Country" name="Country" #country="ngModel" class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoeCountryErrors()}} -->
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-md-12">
+       <input type="text" [(ngModel)]="formModel.postalCode" placeholder="PostalCode" #postalCode="ngModel" name="PostalCode"
+        class="form-control" />
+       <div class="text-danger">
+        <!-- {{shoePostalCodeErrors()}} -->
+       </div>
+      </div>
+     </div>
+
+     <div formGroupName="Passwords">
+      <div class="form-group row">
+       <div class="col-md-12">
+        <input type="password" [(ngModel)]="formModel.Password" placeholder="Password" name="Password" #Password="ngModel" class="form-control" />
+        <div class="text-danger">
+         <!-- {{shoePasswordErrors()}} -->
+        </div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <div class="col-md-12">
+        <input type="password" [(ngModel)]="formModel.ConfirmPassword" placeholder="Confirm Password" #ConfirmPassword="ngModel" name="ConfirmPassword"
+         class="form-control" />
+        <div class="text-danger">
+         <!-- {{shoeConfirmPasswordErrors()}} -->
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="form-group">
+      <button type="submit" value="Create" class="btn btn-primary text-white"><strong>SUBMIT</strong>
+      </button>
+     </div>
+     <br>
+
+     <button class="btn btn-default " [routerLink]="[ '/users/login']" routerLinkActive="router-link-active ">
+      <strong>
+       Already have an Account?
+      </strong>
+     </button>
+     <hr class="btn-primary" />
+    </form>
+   </div>
+
+  </div>
+
+ </div>
+</div>
+<br>
+<br>
+<br>
+<hr class="btn-info " />
+<router-outlet></router-outlet>
+
+<!-- ############################################ -->
