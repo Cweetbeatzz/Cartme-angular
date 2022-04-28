@@ -8,7 +8,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
-import { AdminAccessGuard } from './Guard/admin-access.guard';
 
 const routes: Routes = [];
 
