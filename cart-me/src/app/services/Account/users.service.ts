@@ -14,11 +14,14 @@ export class UsersService {
 
   ApiUrl = environment.APIURL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private fb: FormBuilder,private http: HttpClient) { }
+
+ 
+  // #######################################################################
 
 
-  Register(formData: Customers):Observable<Customers> {
-    return this.http.post<Customers>(this.ApiUrl + '/api/Account/Register', formData);
+  Register(data:Customers) {
+    return this.http.post<Customers>(this.ApiUrl + '/api/Account/Register', data);
   }
 
   //#######################################################################
@@ -27,26 +30,22 @@ export class UsersService {
 
   }
   //#######################################################################
-  LogOut(formData: Login) {
-    return this.http.post(this.ApiUrl + '/api/Account/logout', formData);
+  LogOut() {
+    return this.http.get(this.ApiUrl + '/api/Account/logout');
 
   }
   //#######################################################################
-  EditUser(data: Customers) {
-    return this.http.put(this.ApiUrl + '/api/Account/Edit', data);
+  EditUser(data: Customers, id:string) {
+    return this.http.put(`${this.ApiUrl}/api/Account/Edit/${id}`, data);
 
   }
   //#######################################################################
   DeleteUser(id:string) {
     return this.http.delete(`${this.ApiUrl}/api/Account/Delete/${id}`);
-
   }
   //#######################################################################
-  getUser():Observable<Customers[]> {
-    return this.http.get<Customers[]>(this.ApiUrl + '/api/Account/get' ).pipe(map((data )=>{
-      const users:Customers[] = [];
-      return users
-    }));
+  getUser() {
+    return this.http.get(this.ApiUrl + '/api/Account/get' );
   }
   //#######################################################################
   getUserById(id:string){

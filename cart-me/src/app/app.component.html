@@ -2,6 +2,15 @@
     <div>
         <app-header></app-header>
     </div>
-    <!-- <app-loading-spinner></app-loading-spinner> -->
+
+    <div>
+    <router-outlet></router-outlet>
+    <app-loading-spinner *ngIf="showLoading | async"></app-loading-spinner>
+
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+    
 </div>
-<router-outlet></router-outlet>

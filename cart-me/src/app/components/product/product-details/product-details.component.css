@@ -1,0 +1,21 @@
+#cardimg1 {
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
+}
+
+#nftcollection {
+  color: rgb(224, 122, 53);
+  font-size: 20px;
+}
+
+#thewholeblock {
+  display: flex;
+}
+
+
+@media (max-width: 768px) {
+  #thewholeblock {
+    display: block;
+  }
+}

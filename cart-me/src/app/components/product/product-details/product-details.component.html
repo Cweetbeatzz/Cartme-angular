@@ -1,0 +1,72 @@
+<div>
+    <div>
+    <br />
+    <br />
+    <br />
+    <div className="container bg-danger m-3">
+     <div className="col-12 mx-auto" id="thewholeblock" *ngIf="prodDetails">
+   
+      <div class="col-12 col-md-6 mx-auto mb-4">
+       <img class="card-img-top img-fluid mx-auto mx-md-auto" id='cardimg1' src="assets/images/Goatmeat.webp" alt="" />
+      </div>
+
+      <div className="card-body col-6 col-md-6">
+          <div class="text-center">
+              <label>Chef Name</label>
+              <hr/>
+            <h4 className="card-title text-center" id="nftcollection">{{prodDetails.chefName}}</h4>
+          </div>
+          <br/>
+
+        <div class="text-center">
+            <label>Product Name</label>
+            <hr />
+            <h5 className="card-title text-center" id="nftcollection">{{prodDetails.mealName}}</h5>
+        </div>
+        <br />
+
+        <div class="text-center">
+            <label>Description</label>
+            <hr />
+            <h6 className="card-title text-center" id="nftcollection">{{prodDetails.description}}</h6>
+        </div>
+        <br />
+
+        <div class="text-center">
+            <label>Price</label>
+            <hr />
+            <h6 className="card-title text-center" id="nftcollection">{{prodDetails.price | currency}}</h6>
+        </div>
+        <br />
+       
+       <hr />
+    
+       <div className="text-center">
+           <div className="ml-3 " id="">
+            <button class="btn btn-success pt-2 mr-2 " >
+                <strong> LIKE</strong>
+            </button>
+            <button class="btn btn-danger pt-2 mr-2">
+                <strong> CART</strong>
+            </button>
+            <button class="btn btn-primary pt-2" >
+                <strong> BUY</strong>
+            </button>
+           </div>
+       </div>
+
+      </div>
+      <br />
+      <hr/>
+     </div>
+     
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+
+    </div>
+   </div>
+</div>
+<router-outlet></router-outlet>

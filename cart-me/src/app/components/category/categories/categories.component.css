@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  color: black;
+}
+
+/* td,
+th {
+  width: 25%;
+} */
+
+.container {
+  height: auto;
+  /* background-color: rgb(211, 211, 211); */
+}

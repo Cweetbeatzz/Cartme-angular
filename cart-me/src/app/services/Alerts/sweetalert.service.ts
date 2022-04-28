@@ -14,7 +14,7 @@ export class SweetalertService {
     Swal.fire({
       title: 'Hello!',
       text: message,
-      timer: 2000
+      timer: 4000
     })
   }
 

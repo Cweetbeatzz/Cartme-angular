@@ -16,19 +16,16 @@ export class CategoriesService {
   //#########################################################################################
 
   GetAllCategory():Observable<Categories[]> {
-    return this.http.get(this.APIURL + '/api/Categories/').pipe(map((data)=>{
-      const categories:Categories[] = [];
-      return categories
-    }))
+    return this.http.get<Categories[]>(this.APIURL + '/api/Categories/')
   }
   //#########################################################################################
-  UploadCategory(category: Categories):Observable<Categories> {
+  UploadCategory(category: Categories):Observable<Categories>{
     return this.http.post<Categories>(this.APIURL + '/api/Categories/Create', category)
   }
   //#########################################################################################
 
-  UpdateCategory(category: Categories) {
-    return this.http.put(this.APIURL + '/api/Categories/Edit/{id}', category)
+  UpdateCategory(category: Categories, id:string) {
+    return this.http.put(`${this.APIURL}/api/Categories/Edit/${id}`, category)
   }
   //#########################################################################################
 
@@ -36,8 +33,8 @@ export class CategoriesService {
     return this.http.delete(`${this.APIURL}/api/Categories/Delete/${id}`)
   }
   //#########################################################################################
-  GetCategoryById(id: string) {
-    return this.http.get(`${this.APIURL}/api/Categories/get/${id}`)
+  GetCategoryById(id: any) {
+    return this.http.get(`${this.APIURL}/api/Categories/${id}`)
   }
   //#########################################################################################
 }

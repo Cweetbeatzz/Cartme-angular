@@ -8,6 +8,12 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { StoreModule} from '@ngrx/store'
 import { EffectsModule} from '@ngrx/effects'
 import { StoreDevtoolsModule} from '@ngrx/store-devtools'
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import {MatTreeModule} from '@angular/material/tree';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +26,6 @@ import { SearchComponent } from './components/search/search.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from './material/material.module';
-import { ProductsComponent } from './components/product/products/products.component';
-import { CategoriesComponent } from './components/category/categories/categories.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CategoriesService } from './services/Categories/categories.service';
 import { UsersService } from './services/Account/users.service';
@@ -38,13 +42,16 @@ import { UserDashboardComponent } from './components/account/user-dashboard/user
 import { UserDeleteComponent } from './components/account/user-delete/user-delete.component';
 import { UserEditComponent } from './components/account/user-edit/user-edit.component';
 import { UserRolesComponent } from './components/account/user-roles/user-roles.component';
-import { DetailPropertiesComponent } from './components/product/detail-properties/detail-properties.component';
-import { ProductsDeleteComponent } from './components/product/products-delete/products-delete.component';
-import { ProductsEditComponent } from './components/product/products-edit/products-edit.component';
-import { ProductsuploadComponent } from './components/product/productsupload/productsupload.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { AlertsService } from './services/Alerts/alerts.service';
 import { SweetalertService } from './services/Alerts/sweetalert.service';
+import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
+import { SignUpComponent } from './components/account/sign-up/sign-up.component';
+import { SearchPipe } from './Pipes/search.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { CartService } from './services/Cart/cart.service';
+import { UserCreateComponent } from './components/account/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -56,23 +63,14 @@ import { SweetalertService } from './services/Alerts/sweetalert.service';
     SearchComponent,
     CheckoutComponent,
     FooterComponent,
-    CategoriesComponent,
-    UsersComponent,
     CartComponent,
     LoadingSpinnerComponent,
-    ProductsuploadComponent,
-    ProductsEditComponent,
-    ProductsDeleteComponent,
-    DetailPropertiesComponent,
-    LoginComponent,
-     AdminComponent,
-     UserEditComponent,
-     UserDeleteComponent,
-     UserRolesComponent,
-     UsersComponent,
-     UserChangePasswordComponent,
-     UserDashboardComponent,
-     RegisterComponent
+    AdminComponent,
+    SearchPipe,
+    SortPipe,
+    UserCreateComponent,
+  
+
   ],
   imports: [
     BrowserModule,
@@ -83,13 +81,16 @@ import { SweetalertService } from './services/Alerts/sweetalert.service';
     ModalModule.forRoot(),
     MaterialModule,
     RouterModule, HttpClientModule,
-    StoreModule.forRoot({}),
+    MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
+    StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 
   ],
-  providers: [SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService],
+  providers: [
+    // {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
+    SweetalertService,AlertsService,CategoriesService, UsersService, ProductsService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

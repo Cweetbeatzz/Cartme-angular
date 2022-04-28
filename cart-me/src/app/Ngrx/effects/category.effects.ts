@@ -52,13 +52,13 @@ constructor (private action$: Actions, private categoryservice:CategoriesService
  })
  //##########################################################
 
- update$ = createEffect(() => {
-  return this.action$.pipe(ofType(updateCategoryRequestAction),exhaustMap((action)=>{
-   return this.categoryservice.UpdateCategory(action.category).pipe(map((data)=> {
-    return updateCategorySuccessAction({category:action.category});
-   }) )
-  }))
- })
+//  update$ = createEffect(() => {
+//   return this.action$.pipe(ofType(updateCategoryRequestAction),exhaustMap((action)=>{
+//    return this.categoryservice.UpdateCategory(action.category).pipe(map((data)=> {
+//     return updateCategorySuccessAction({category:action.category});
+//    }) )
+//   }))
+//  })
 
   //##########################################################
 

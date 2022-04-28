@@ -1,0 +1,215 @@
+<br>
+<div class="container">
+<div class="text-center">
+    <!-- <ng-template > -->
+        <p>
+            <a class="btn btn-primary" style="width: 300px;" [routerLink]="[ '/products/uploadproduct']">Create New Product</a>
+        </p>
+    <!-- </ng-template> -->
+</div>
+
+ <br>
+ <div>
+  <div class="text-center">
+   <h1><strong>PRODUCTS</strong></h1>
+   <hr class="btn-primary" style="width: 300px;" />
+   <div class="row">
+    <div class="bd-example bd-example-images m-1 mx-auto" *ngFor="let prod of prodList">
+     <div class="text-center">
+      <img src="assets/images/Goatmeat.webp" class="artwork mb-2" height="120 " width="120" [routerLink]="['/products/product-details',prod.id]"/>
+      <h6 class="text-dark">{{prod.mealName}}</h6>
+      <span class="navbar-expand-sm  d-flex mx-auto my-auto justify-content-center">
+       <div>
+        <h5 class="btn btn-outline-danger small btn-sm mr-2">{{prod.price | currency}}</h5>
+       </div>
+       <div>
+        <button class="btn btn-danger small btn-sm border-0 pt-2" id="addtocarttext" (click)="addProductToCart(prod)">
+         <strong> CART</strong>
+        </button>
+       </div>
+      </span>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+
+</div>
+<br/>
+<br/>
+<br />
+
+<!-- ########################################################### -->
+
+<div class="container shadow p-3 d-flex ">
+    <mat-card class="example-card m-1">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Chicken</mat-card-title>
+            <mat-card-subtitle>African Meals</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/Devillechicken.jpg" alt="" height="200" class="">
+        <mat-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button class="btn btn-info mx-1">LIKE</button>
+            <button mat-button class="btn btn-warning">CART</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="example-card m-1">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Meat Ball Salad</mat-card-title>
+            <mat-card-subtitle>African Meals</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/kij.jpg" alt="" height="200" class="">
+        <mat-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button class="btn btn-info mx-1">LIKE</button>
+            <button mat-button class="btn btn-warning">CART</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="example-card m-1">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Jollof Rice</mat-card-title>
+            <mat-card-subtitle>African Meals</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/Goatmeat.webp" alt="" height="200" class="">
+        <mat-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button class="btn btn-info mx-1">LIKE</button>
+            <button mat-button class="btn btn-warning">CART</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<br/>
+<br />
+<br />
+
+<!-- ########################################################### -->
+
+<div >
+<div class="container shadow p-3">
+ <!-- <mat-form-field appearance="standard">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field> -->
+
+ <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+   <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+    <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="mealName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Meal Name </th>
+    <td mat-cell *matCellDef="let row"> {{row.mealName}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="chefName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Chef Name </th>
+    <td mat-cell *matCellDef="let row"> {{row.chefName}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+    <td mat-cell *matCellDef="let row"> {{row.price | currency}} </td>
+   </ng-container>
+
+   <!-- Name Column -->
+   <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+    <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+   </ng-container>
+
+   <!-- Actions Column -->
+   <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+    <td mat-cell *matCellDef="let row">
+     <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/products/editproduct',row.id]"><strong>EDIT</strong></a>
+     <a class="btn btn-danger btn-sm" [routerLink]="['/products/deleteproduct',row.id]"><strong>DELETE</strong></a>
+    </td>
+   </ng-container>
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+   <!-- Row shown when there is no matching data. -->
+   <!-- <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr> -->
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of Products"></mat-paginator>
+ </div>
+</div>
+</div>
+
+<br/>
+<br/>
+
+<div class="text-center container" *ngIf="prodList.length">
+    <table class="table table-borderless table-striped">
+        <thead>
+            <tr>
+                <th>
+                    NAME
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cat of prodList">
+                <td>
+                    {{cat.mealName}}
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                        [routerLink]="['/products/editproduct', cat.id]"><strong>EDIT</strong></a> |
+                    <a class="btn btn-danger btn-sm"
+                        [routerLink]="['/products/deleteproduct', cat.id]"><strong>DELETE</strong></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<div class="text-center container" *ngIf="!prodList.length">
+    <div class="m-2">
+        <a class="display-4">NO CONTENT 🙄</a>
+    </div>
+</div>
+<br/>
+<br/>
+<br />
+<br />
+<router-outlet></router-outlet>
+<!-- ###################################################### -->

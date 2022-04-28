@@ -1,0 +1,29 @@
+<div class="page-wrapper">
+ <div class="page-container">
+  <div class="container content-wrapper  ">
+   <div class="mx-auto col-12 mt-5">
+    <div class="message">
+    <h3 class="m-2">
+     Your email has been verified successfully
+    </h3>
+
+    <button class='btn btn-outline-primary m-2' [routerLink]="['/home']">Continue</button>
+   </div>
+  </div>
+
+   <ng-template #notVerified>
+    <h6>Error</h6>
+   </ng-template>
+
+   <div class="artwork-image"></div>
+  </div>
+ </div>
+</div>
+
+<ng-template #loading>
+ <button class="btn loading_button" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+   style="width: 1.5rem; height: 1.5rem;"></span>
+  <span class="ms-2">Loading...</span>
+ </button>
+</ng-template>

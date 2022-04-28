@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -7,48 +7,64 @@ import { Categories } from 'src/app/models/Categories/categories';
 import { updateCategorySuccessAction } from 'src/app/Ngrx/actions/category.action';
 import { getCategoryById } from 'src/app/Ngrx/selectors/category.selector';
 import { AppState } from 'src/app/Ngrx/store/app.state';
+import { AlertsService } from 'src/app/services/Alerts/alerts.service';
+import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
+import { CategoriesService } from 'src/app/services/Categories/categories.service';
 
 @Component({
   selector: 'app-edit-category',
   templateUrl: './edit-category.component.html',
   styleUrls: ['./edit-category.component.css']
 })
-export class EditCategoryComponent implements OnInit,OnDestroy {
+export class EditCategoryComponent implements OnInit {
 
   //##################################################################
 
-  category:Categories | undefined
-  CategoryForm: FormGroup = new FormGroup({});
-  categorySub: Subscription = new Subscription;
+  categoryId: any;
+  categoryDetail:any
+  categoryEditForm: FormGroup = new FormGroup({});
+  dataLoaded:boolean = false
 
-  constructor(private reroute:Router,private route:ActivatedRoute,private store: Store<AppState>) { }
+  constructor(private route: ActivatedRoute, private api:CategoriesService,private reroute:Router,
+    private sweetalert:SweetalertService,private alertify:AlertsService,private fb:FormBuilder) { }
 
  //##################################################################
 
   ngOnInit(): void {
+     //
+    this.dataLoaded = false
     //get the id of an object
-    this.route.paramMap.subscribe((params)=>{
-      const id = params.get('id')
-      this.categorySub = this.store.select(getCategoryById,{id}).subscribe((data)=>{
-       this.category = data
-       this.validateee()
-      })
+    this.route.params.subscribe((data)=>{
+      this.categoryId = data.id  
     })
+
+    //get product details to edit
+    if (this.categoryId !== null) {
+      this.api.GetCategoryById(this.categoryId).toPromise().then(data =>{
+        this.categoryDetail = data 
+        // Object.assign(this.categoryDetail,data)
+
+    // pre-filling form
+    this.categoryEditForm = this.fb.group({
+      name: new FormControl(this.categoryDetail.name)
+    })
+
+    this.dataLoaded = true
+
+    }).catch(err=>{
+      console.log(err)
+    })
+    }
   }
   //##################################################################
 
-  validateee(){
-    this.CategoryForm = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(null,[ Validators.required, Validators.maxLength(50)])
-  });
-  } 
+
 
   // ##########################################
 // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
  showCategoryNameErrors(){
-   const getCategoryName = this.CategoryForm?.get('name');
+   const getCategoryName = this.categoryEditForm?.get('name');
    if (getCategoryName?.touched && !getCategoryName.valid) {
      if (getCategoryName.errors?.required) {
        return 'Category Name is Required'
@@ -63,22 +79,26 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
   //##################################################################
 
   editCategory() {
-   if (!this.CategoryForm?.valid) {
+   if (!this.categoryEditForm.valid) {
      return
    }
-
-    const catForm:Categories = {
-     name: this.CategoryForm.value.name
-    }
-    this.store.dispatch(updateCategorySuccessAction({category:catForm}))
-    this.reroute.navigate(['category'])
+      this.api.UpdateCategory(this.categoryEditForm.value,this.categoryId).subscribe({
+      next:(res)=>{
+        this.sweetalert.timedNofication('Category Updated Successfully.')
+        this.categoryEditForm.reset()
+        this.reroute.navigate(['/categories'])
+      },
+      error:(err)=>{
+        if (err) {
+          this.alertify.error(err)
+        }
+        else{
+          this.alertify.error('Unable to Edit!!!')
+        }
+      }
+    })
   }
 
   //##################################################################
 
-  ngOnDestroy(): void {
-    if (this.categorySub) {
-      this.categorySub.unsubscribe()
-    }
-  }
 }
