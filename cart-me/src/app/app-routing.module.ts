@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
-import { AuthGuardGuard } from './Guard/auth-guard.guard';
 
 const routes: Routes = [];
 
@@ -38,7 +37,7 @@ const routes: Routes = [];
         x.UserModule
       )
     },
-    { path: 'admin', component: AdminComponent, canActivate:[AuthGuardGuard,AdminAccessGuard]},
+    { path: 'admin', component: AdminComponent, },
     { path: '', component: HomeComponent },
 
   ])],
