@@ -23,3 +23,13 @@ describe('CategoriesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+// fdescribe('CategoriesComponent',() => {
+//   it('First Test',()=>{
+//     console.log('First Test Called...')
+//     // const tax  = 10 * 2
+//     expect(10).toBe(10)
+//   })
+
+// })

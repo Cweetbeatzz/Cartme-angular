@@ -20,6 +20,7 @@ export class UploadCategoryComponent implements OnInit {
 
   categoryForm: FormGroup = new FormGroup({});
   errorInfo: string = "";
+  NonEditable:boolean = true
 
   // ##########################################
 
@@ -41,7 +42,9 @@ export class UploadCategoryComponent implements OnInit {
          this.categoryForm = this.fb.group({
     name: ['', (Validators.required,Validators.minLength(3),Validators.maxLength(20))]
   });
+
   }
+
 
 
 
