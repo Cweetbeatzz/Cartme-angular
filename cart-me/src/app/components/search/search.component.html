@@ -1,7 +1,7 @@
 <div class="col-sm-12 container Searchcontainer">
-    <form class=" serach-form col-md-7 d-flex" method="post">
+    <form class=" serach-form col-md-7 d-flex" method="post" form="Ngform">
         <input class="search-input mb-2 pl-2 w-100 " name="search" placeholder="Search For Meal..." ngModel>
-        <button class="searchbtn"><strong>SEARCH</strong></button>
+        <button class="searchbtn" onclick="onSubmit(form)"><strong>SEARCH</strong></button>
     </form>
 </div>
 <router-outlet></router-outlet>
