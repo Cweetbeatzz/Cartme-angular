@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { RolesService } from '../services/Account/roles.service';
 import { AlertsService } from '../services/Alerts/alerts.service';
 
 @Injectable({
@@ -9,12 +10,15 @@ import { AlertsService } from '../services/Alerts/alerts.service';
 export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
   
   isAdmin:boolean = false
-  constructor(private alertify: AlertsService){}
+  constructor(private alertify: AlertsService, private roleService: RolesService,private router: Router,){}
   //##############################################################
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      // this.alertify.success('Access Granted...')
+      if(this.roleService.getRoles()){
+        return true;
+      }
+    this.router.navigate(["no-access"]);
     return false;
   }
   canActivateChild(
