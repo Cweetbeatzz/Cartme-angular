@@ -416,4 +416,14 @@
 <br>
 <hr class="btn-info " />
 
+    <button
+    angular4-paystack
+    [paystackOptions]="options"
+    (paymentInit)="paymentInit()"
+    (onClose)="paymentCancel()"
+    (callback)="paymentDone($event)"
+  >
+    Pay with Paystack
+  </button>
+
 <router-outlet></router-outlet>

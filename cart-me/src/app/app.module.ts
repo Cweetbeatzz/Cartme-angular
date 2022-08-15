@@ -14,6 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import {MatTreeModule} from '@angular/material/tree';
+import { Angular4PaystackModule } from 'angular4-paystack';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { CartService } from './services/Cart/cart.service';
 import { UserCreateComponent } from './components/account/user-create/user-create.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +86,7 @@ import { UserCreateComponent } from './components/account/user-create/user-creat
     MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,
     StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([]),
+    Angular4PaystackModule.forRoot('pk_test_bb97d85a930fd37191f5491b003d5747c0ff72ec'),
     StoreDevtoolsModule.instrument({logOnly:environment.production,}),
     StoreRouterConnectingModule.forRoot({ serializer:CustomSeralizer})
 
