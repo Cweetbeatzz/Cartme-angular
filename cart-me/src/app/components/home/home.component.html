@@ -416,7 +416,9 @@
 <br>
 <hr class="btn-info " />
 
-    <button
+<!-- PAYSTACK -->
+
+ <!-- <button
     class="btn btn-primary small btn-sm border-0 d-inline-flex p-1 pt-2 pb-md-2 pl-md-2 pr-md-2"
     angular4-paystack
     [paystackOptions]="options"
@@ -425,6 +427,21 @@
     (callback)="paymentDone($event)"
   >
     Pay with Paystack
-  </button>
+  </button> -->
+
+  <!-- PLAID -->
+
+  <!-- <button ngxPlaidLink
+    env="sandbox"
+    publicKey="YOURPUBLICKEY"
+    institution=""
+    [countryCodes]="['US', 'CA', 'GB']"
+    (Success)="onPlaidSuccess($event)"
+    (Exit)="onPlaidExit($event)"
+    (Load)="onPlaidLoad($event)"
+    (Event)="onPlaidEvent($event)"
+    (Click)="onPlaidClick($event)"
+    >Link Your Bank Account
+  </button> -->
 
 <router-outlet></router-outlet>

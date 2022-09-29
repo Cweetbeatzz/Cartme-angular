@@ -1,10 +1,15 @@
 export interface CreateRole {
- id?:string,
+ id?: string,
  RoleName: string,
 }
 
+export interface GetRoles {
+ id?: string,
+ RoleName: boolean,
+
+}
 export interface Roles {
- id?:string,
+ id?: string,
  logicistics: boolean,
  manager: boolean,
  seller: boolean,
