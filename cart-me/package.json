@@ -23,6 +23,7 @@
     "@angular/router": "~12.2.0",
     "@cloudinary/ng": "^1.2.0",
     "@cloudinary/url-gen": "^1.7.0",
+    "@microsoft/signalr": "^6.0.9",
     "@ngrx/component": "github:ngrx/component-builds",
     "@ngrx/data": "^13.0.2",
     "@ngrx/effects": "^13.0.2",
