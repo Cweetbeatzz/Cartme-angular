@@ -12,7 +12,7 @@
         <div class="card-body col-sm-8 w-100 mx-auto">
             <form class="form" #form="ngForm" method="POST" autocomplete="off" (submit)="Onsubmit(form)">
                 <div class="form-group">
-                    <input placeholder="Email" type="email" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="formModel.Email" required>
+                    <input placeholder="Email" type="email" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="formModel.Email" required >
                 </div>
                 <div class="text-danger">
                     <div *ngIf="Email.touched && !Email.valid">

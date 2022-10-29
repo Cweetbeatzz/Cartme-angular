@@ -3,5 +3,5 @@ export interface Cartitems {
  Quantity: number,
  Price: number,
  Total: number,
- Image: string
+ Image?: string
 }

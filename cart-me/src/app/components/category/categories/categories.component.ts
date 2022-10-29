@@ -8,9 +8,9 @@ import { AppState } from 'src/app/Ngrx/store/app.state';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 import { CategoriesService } from 'src/app/services/Categories/categories.service';
 
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-categories',
@@ -19,19 +19,24 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class CategoriesComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','name','slug','sorting', 'actions' ];
+  displayedColumns: string[] = ['id', 'name', 'slug', 'sorting', 'actions'];
   dataSource!: MatTableDataSource<Categories>;
-  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   //#########################################################################################
-  catList:Categories[] = [];
+  catList: Categories[] = [];
   errorInfo: string = "";
+  // displayThis: string = 'Segun'
+  // displayThisBool: boolean = false
 
-  constructor(private store: Store<AppState>,private CategoryApi:CategoriesService,private alertify: AlertsService,) { }
-
-//#########################################################################################
+  constructor(private store: Store<AppState>, private CategoryApi: CategoriesService, private alertify: AlertsService,) { }
+  // openIt(data: Event) {
+  //   console.log(data.target)
+  //   this.displayThisBool = true
+  // }
+  //#########################################################################################
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -41,35 +46,35 @@ export class CategoriesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-//#########################################################################################
+  //#########################################################################################
 
   ngOnInit(): void {
     this.GetAllCategories()
     this.GetAllCategories2()
   }
-//#########################################################################################
+  //#########################################################################################
 
   GetAllCategories() {
     this.CategoryApi.GetAllCategory().subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res)
         this.dataSource = new MatTableDataSource(res)
         this.dataSource.paginator = this.paginator
         this.dataSource.sort = this.sort
       },
-      error:(err)=>{
+      error: (err) => {
         this.alertify.error(err)
       }
     })
   }
-//#########################################################################################
+  //#########################################################################################
 
-   GetAllCategories2() {
+  GetAllCategories2() {
     this.CategoryApi.GetAllCategory().subscribe({
-      next:(res)=>{
-        this.catList = res 
+      next: (res) => {
+        this.catList = res
       },
-      error:(err)=>{
+      error: (err) => {
         this.alertify.error(this.errorInfo = err.error)
       }
     })
