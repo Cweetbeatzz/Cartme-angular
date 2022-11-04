@@ -34,7 +34,6 @@ export class UploadCategoryComponent implements OnInit {
     this.categoryForm.reset()
     //check validations
     this.categoryFormValidations()
-
   }
  // ##########################################
 
@@ -44,10 +43,6 @@ export class UploadCategoryComponent implements OnInit {
   });
 
   }
-
-
-
-
   // ##########################################
 // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
