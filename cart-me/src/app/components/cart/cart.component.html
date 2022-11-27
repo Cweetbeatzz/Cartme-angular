@@ -3,7 +3,7 @@
     <h1><strong>CART</strong></h1>
 </div>
 <hr />
-<div class="container cartWrapper" *ngIf="cartList">
+<div class="container cartWrapper" *ngIf="cartList" id="displayBody">
  
     <div class="text-center">
         <table class="table table-borderless table-striped">
@@ -59,9 +59,9 @@
     </div>
 </div>
 
-<div class="text-center" *ngIf="!cartList">
-    <div class="m-2">
-    <a class="display-4">Empty Cart 🙄</a>
+<div class="text-center" *ngIf="!cartList" id="displayBody">
+    <div class="m-2" id="emptyCart">
+    <a class="display-4 mt-md-5">Empty Cart 🙄</a>
     </div>
     <div>
     <p>Hi... Please Search for Meals & order those Tasty Treats!!! 🤪😎😉</p>
