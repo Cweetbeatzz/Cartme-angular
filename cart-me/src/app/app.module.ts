@@ -51,7 +51,7 @@ import { CustomSeralizer } from './Ngrx/store/router/custom.seralizer';
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
 import { SearchPipe } from './Pipes/search.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
-import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/Errors/http-errors.interceptor';
 import { CartService } from './services/Cart/cart.service';
 import { UserCreateComponent } from './components/account/user-create/user-create.component';
 import { ChatsComponent } from './components/Chats/Chats.component';
