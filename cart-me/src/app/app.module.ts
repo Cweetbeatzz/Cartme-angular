@@ -14,7 +14,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatTreeModule } from '@angular/material/tree';
-import { Angular4PaystackModule } from 'angular4-paystack';
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -89,13 +88,12 @@ import { SignalrService } from './services/Signalr/signalr.service';
     MatCardModule, MatTreeModule, MatTableModule, MatFormFieldModule, MatPaginatorModule, MatSortModule,
     StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([]),
-    // Angular4PaystackModule.forRoot('pk_test_bb97d85a930fd37191f5491b003d5747c0ff72ec'),
     StoreDevtoolsModule.instrument({ logOnly: environment.production, }),
     StoreRouterConnectingModule.forRoot({ serializer: CustomSeralizer })
 
   ],
   providers: [
-    // {provide:HTTP_INTERCEPTORS,useClass:HttpErrorsInterceptor,multi:true},
+    // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi: true },
     SweetalertService, AlertsService, CategoriesService, UsersService, ProductsService, CartService, SignalrService],
   bootstrap: [AppComponent]
 })
