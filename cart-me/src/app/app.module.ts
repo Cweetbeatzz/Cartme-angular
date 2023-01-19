@@ -55,7 +55,20 @@ import { CartService } from './services/Cart/cart.service';
 import { UserCreateComponent } from './components/account/user-create/user-create.component';
 import { ChatsComponent } from './components/Chats/Chats.component';
 import { SignalrService } from './services/Signalr/signalr.service';
+import { AuthInterceptor } from './interceptors/Auth/auth.interceptor';
+import { TimerInterceptor } from './interceptors/Time/timer.interceptor';
+import { AdminInterceptor } from './interceptors/Permissions/Admin/admin.interceptor';
+import { CeoInterceptor } from './interceptors/Permissions/CEO/ceo.interceptor';
 
+
+export const interceptorProviders =
+  [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TimerInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AdminInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CeoInterceptor, multi: true },
+  ];
 
 @NgModule({
   declarations: [
@@ -90,10 +103,9 @@ import { SignalrService } from './services/Signalr/signalr.service';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production, }),
     StoreRouterConnectingModule.forRoot({ serializer: CustomSeralizer })
-
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi: true },
+    [interceptorProviders],
     SweetalertService, AlertsService, CategoriesService, UsersService, ProductsService, CartService, SignalrService],
   bootstrap: [AppComponent]
 })

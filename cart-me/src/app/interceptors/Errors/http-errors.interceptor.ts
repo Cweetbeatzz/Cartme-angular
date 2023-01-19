@@ -16,7 +16,7 @@ import { AlertsService } from '../../services/Alerts/alerts.service';
 
 export class HttpErrorsInterceptor implements HttpInterceptor {
 
-  constructor(private alertify: AlertsService,) { }
+  constructor(private alertify: AlertsService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     //error handling
