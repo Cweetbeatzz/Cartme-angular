@@ -61,6 +61,7 @@ import { AdminInterceptor } from './interceptors/Permissions/Admin/admin.interce
 import { CeoInterceptor } from './interceptors/Permissions/CEO/ceo.interceptor';
 import { ManagerInterceptor } from './interceptors/Permissions/Manager/manager.interceptor';
 import { BusyNotifierInterceptor } from './interceptors/Busy/busy-notifier.interceptor';
+import { NotificationInterceptor } from './interceptors/Notification/notification.interceptor';
 
 
 export const interceptorProviders =
@@ -72,6 +73,7 @@ export const interceptorProviders =
     { provide: HTTP_INTERCEPTORS, useClass: CeoInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: BusyNotifierInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ManagerInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: NotificationInterceptor, multi: true },
   ];
 
 @NgModule({
