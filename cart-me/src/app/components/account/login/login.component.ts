@@ -17,8 +17,8 @@ import Swal from 'sweetalert2'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: Router, private service: UsersService,private alertify: AlertsService,
-     private sweetalert:SweetalertService,private store:Store<AppState>) { }
+  constructor(private route: Router, private service: UsersService, private alertify: AlertsService,
+    private sweetalert: SweetalertService, private store: Store<AppState>) { }
 
   formModel = {
     Email: '',
@@ -41,19 +41,22 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['/home']);
         //setting loading spinner to false on request to server complete
         // this.store.dispatch(setLoadingSpinner({status:false}))
-        
+
         this.alertify.success('Login Successful😁😎😎')
-        
+
       },
-      error => {
-        if (error.status == 400) {
-          this.alertify.error('Invalid Credientials you are Unauthorized😑🤨');
-        }
-      }
+      //Check auth interceptor throws any errors instead of defining errors in every component
+
+
+      // error => {
+      //   if (error.status == 400) {
+      //     this.alertify.error('Invalid Credientials you are Unauthorized😑🤨');
+      //   }
+      // }
     );
   }
   // #####################################
- 
 
- 
+
+
 }
