@@ -18,26 +18,29 @@ import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { AccountComponent } from './account.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { LoggedInGuard } from "src/app/Guard/logged-in.guard";
 
-const routes:Routes = [
-   //default path
-   {path:'',redirectTo:'account/register',pathMatch:'full'},
-   
-  { path: '',
-      children:[
-    { path: '', component: UsersComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent,},
-    { path: 'editUser', component: UserEditComponent },
-    { path: 'deleteUser', component: UserDeleteComponent },
-    { path: 'rolesUser', component: UserRolesComponent },
-    { path: 'dashboard', component: UserDashboardComponent },
-    { path: 'email-confirmed', component: EmailConfirmComponent },
-      ]},
+const routes: Routes = [
+  //default path
+  { path: '', redirectTo: 'account/register', pathMatch: 'full' },
+
+  {
+    path: '',
+    children: [
+      { path: '', component: UsersComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent, },
+      { path: 'editUser', component: UserEditComponent, canActivate: [LoggedInGuard] },
+      { path: 'deleteUser', component: UserDeleteComponent, canActivate: [LoggedInGuard] },
+      { path: 'rolesUser', component: UserRolesComponent, canActivate: [LoggedInGuard, AdminAccessGuard] },
+      { path: 'dashboard', component: UserDashboardComponent, canActivate: [LoggedInGuard] },
+      { path: 'email-confirmed', component: EmailConfirmComponent, canActivate: [LoggedInGuard] },
+    ]
+  },
 ]
 
 @NgModule({
- declarations:[
+  declarations: [
     RegisterComponent,
     LoginComponent,
     UserEditComponent,
@@ -51,12 +54,12 @@ const routes:Routes = [
     SignUpComponent,
     PricingComponent
   ],
- imports:[
-   CommonModule,
-   ReactiveFormsModule, 
-   FormsModule,RouterModule.forChild(routes),
-   EffectsModule.forFeature([AuthEffects,UserEffects]),
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule, RouterModule.forChild(routes),
+    EffectsModule.forFeature([AuthEffects, UserEffects]),
   ]
 })
 
-export class UserModule{}
+export class UserModule { }

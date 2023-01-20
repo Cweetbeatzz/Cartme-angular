@@ -8,36 +8,38 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { AdminAccessGuard } from './Guard/admin-access.guard';
+import { LoggedInGuard } from './Guard/logged-in.guard';
 
 const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([
- 
+
     { path: 'header', component: HeaderComponent },
     { path: 'home', component: HomeComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'checkout', component: CheckoutComponent},
+    { path: 'checkout', component: CheckoutComponent },
     { path: 'cart', component: CartComponent },
     {
-      path: 'categories', loadChildren:() => import('./components/category/category.module').then((x)=>
+      path: 'categories', loadChildren: () => import('./components/category/category.module').then((x) =>
         x.CategoryModule
       )
     },
     {
-      path: 'products', loadChildren:() => import('./components/product/product.module').then((x)=>
+      path: 'products', loadChildren: () => import('./components/product/product.module').then((x) =>
         x.ProductModule
       )
     },
     {
-      path: 'users', loadChildren:() => import('./components/account/users.module').then((x)=>
+      path: 'users', loadChildren: () => import('./components/account/users.module').then((x) =>
         x.UserModule
       )
     },
-    { path: 'admin', component: AdminComponent, },
-    { path: '', component: HomeComponent },
+    { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, AdminAccessGuard], data: { role: 'Admin' } },
+    { path: '', component: HomeComponent, },
 
   ])],
   exports: [RouterModule]

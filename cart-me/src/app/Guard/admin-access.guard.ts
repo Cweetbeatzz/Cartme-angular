@@ -3,21 +3,26 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, C
 import { Observable } from 'rxjs';
 import { RolesService } from '../services/Account/roles.service';
 import { AlertsService } from '../services/Alerts/alerts.service';
+import { HttpRequest } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-  
-  isAdmin:boolean = false
-  constructor(private alertify: AlertsService, private roleService: RolesService,private router: Router,){}
+
+  isAdmin: boolean = false
+  constructor(private alertify: AlertsService, private roleService: RolesService, private router: Router, private request: HttpRequest<unknown>) { }
   //##############################################################
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.roleService.getRoles()){
-        return true;
-      }
+
+    const authorization = this.request.headers.get('Authorization')
+
+    if (authorization) {
+      JSON.parse(atob(authorization.split('.')[1]))
+      return true;
+    }
     this.router.navigate(["no-access"]);
     return false;
   }
