@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/Account/users.service';
 
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { AlertsService } from 'src/app/services/Alerts/alerts.service';
 import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
 
@@ -14,19 +14,19 @@ import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private route: Router, private service: UsersService,private alertify: AlertsService,private sweetalert:SweetalertService) {
-   }
-   // ##################################### 
+  constructor(private route: Router, private service: UsersService, private alertify: AlertsService, private sweetalert: SweetalertService) {
+  }
+  // ##################################### 
 
   ngOnInit(): void {
-   this.checkLoggedIn()
+    this.checkLoggedIn()
   }
   // #####################################
-  checkLoggedIn(){
-    if (localStorage.getItem('token') != null) {
+  checkLoggedIn() {
+    if (localStorage.getItem('token') !== null) {
       return true;
-    } 
-      return false;
+    }
+    return false;
   }
   // #####################################
   // manual log out
@@ -38,12 +38,12 @@ export class HeaderComponent implements OnInit {
 
   // #####################################
   //logout call from api
-  logout2(){
+  logout2() {
     this.service.LogOut().subscribe({
-      next:(data)=>{
+      next: (data) => {
         this.sweetalert.timedNofication('You are Logged Out🙄🙂🙄')
       },
-      error:(err)=>{
+      error: (err) => {
         this.alertify.error("Error Sigining Out...")
       }
     })

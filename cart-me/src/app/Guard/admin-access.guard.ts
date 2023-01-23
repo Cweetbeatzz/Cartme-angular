@@ -20,10 +20,14 @@ export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeact
     const authorization = this.request.headers.get('Authorization')
 
     if (authorization) {
-      JSON.parse(atob(authorization.split('.')[1]))
-      return true;
+      const data = JSON.parse(atob(authorization.split('.')[1]))
+      if (data.roles2.includes('Admin')) {
+        return true;
+      }
     }
     this.router.navigate(["no-access"]);
+
+
     return false;
   }
   canActivateChild(
