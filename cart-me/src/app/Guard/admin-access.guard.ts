@@ -25,8 +25,7 @@ export class AdminAccessGuard implements CanActivate, CanActivateChild, CanDeact
         return true;
       }
     }
-    this.router.navigate(["no-access"]);
-
+    this.router.navigate(["/"]);
 
     return false;
   }

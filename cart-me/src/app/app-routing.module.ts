@@ -38,6 +38,7 @@ const routes: Routes = [];
         x.UserModule
       )
     },
+    // { path: 'admin', component: AdminComponent },
     { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, AdminAccessGuard], data: { role: 'Admin' } },
     { path: '', component: HomeComponent, },
 

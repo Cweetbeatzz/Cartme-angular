@@ -12,28 +12,32 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductByCategoryComponent } from './product-by-category/product-by-category.component';
 
-import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-import {MatCardModule} from '@angular/material/card';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material/card';
+import { MatTreeModule } from '@angular/material/tree';
+import { Roles } from "src/app/models/Roles/Roles";
+import { AdminAccessGuard } from "src/app/Guard/admin-access.guard";
 
-const routes:Routes = [
-     {
-      path: '',
-      children:[
-    { path: '', component: ProductListComponent },
-    { path: 'uploadproduct', component: ProductsuploadComponent },
-    { path: 'editproduct/:id', component: ProductsEditComponent},
-    { path: 'deleteproduct/:id', component: ProductsDeleteComponent },
-    { path: 'product-details/:id', component: ProductDetailsComponent },
-      ]
-    },
+
+
+const routes: Routes = [
+  {
+    path: '',
+    children: [
+      { path: '', component: ProductListComponent },
+      { path: 'uploadproduct', component: ProductsuploadComponent},
+      { path: 'editproduct/:id', component: ProductsEditComponent, data: { role: 'Admin' } },
+      { path: 'deleteproduct/:id', component: ProductsDeleteComponent, data: { role: 'Admin' } },
+      { path: 'product-details/:id', component: ProductDetailsComponent, data: { role: 'Admin' } },
+    ]
+  },
 ]
 
 @NgModule({
- declarations:[
+  declarations: [
     ProductsuploadComponent,
     ProductsEditComponent,
     ProductsDeleteComponent,
@@ -41,10 +45,10 @@ const routes:Routes = [
     ProductListComponent,
     ProductByCategoryComponent,
   ],
- imports:[CommonModule,ReactiveFormsModule, 
-  FormsModule,RouterModule.forChild(routes),
-  StoreModule.forFeature(PRODUCT_STATE_NAME,productReducer),
-  MatCardModule,MatTreeModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatSortModule,]
+  imports: [CommonModule, ReactiveFormsModule,
+    FormsModule, RouterModule.forChild(routes),
+    StoreModule.forFeature(PRODUCT_STATE_NAME, productReducer),
+    MatCardModule, MatTreeModule, MatTableModule, MatFormFieldModule, MatPaginatorModule, MatSortModule,]
 })
 
-export class ProductModule{}
+export class ProductModule { }
