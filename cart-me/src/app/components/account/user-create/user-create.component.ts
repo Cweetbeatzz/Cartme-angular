@@ -13,24 +13,24 @@ import { SweetalertService } from 'src/app/services/Alerts/sweetalert.service';
 export class UserCreateComponent implements OnInit {
 
   // ##########################################
-  
-  constructor(public RegService: UsersService,private alertify: AlertsService,private sweetalert:SweetalertService,
+
+  constructor(public RegService: UsersService, private alertify: AlertsService, private sweetalert: SweetalertService,
     private route: Router,) { }
 
   // ##########################################
   formModel = {
-     firstname: '',
-     lastname: '',
-     userName: '',
-     email: '',
-     address: '',
-     state: '',
-     country: '',
-     Phone: '',
-     postalCode: '',
-     Password: '',
-     ConfirmPassword: '',
-     roles:''
+    firstname: '',
+    lastname: '',
+    userName: '',
+    email: '',
+    address: '',
+    state: '',
+    country: '',
+    Phone: '',
+    postalCode: '',
+    Password: '',
+    ConfirmPassword: '',
+    roles: ''
   }
   // ##########################################
 
@@ -40,22 +40,22 @@ export class UserCreateComponent implements OnInit {
   // ##########################################
   // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
- shoeFirstNameErrors(){
+  shoeFirstNameErrors() {
 
- }
+  }
 
- // ##########################################
+  // ##########################################
 
- OnSubmit(form:NgForm){
-   this.RegService.Register(form.value).subscribe({
-     next:(res)=>{
-        this.sweetalert.timedNofication('Registeration Successfull.😁😎')
-        this.route.navigate(['/login'])
-     },
-     error:(err) =>{
-       this.alertify.error('An Error Occured...😑🤨');
-     },
-     complete:()=>{}
-   })
+  OnSubmit(form: NgForm) {
+    this.RegService.Register(form.value).subscribe({
+      next: (res) => {
+        this.sweetalert.timedNofication('Registeration Successfull.😁😎');
+        this.route.navigate(['/login']);
+      },
+      error: (err) => {
+        this.alertify.error('An Error Occured...😑🤨');
+      },
+      complete: () => { }
+    })
   }
 }

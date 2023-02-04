@@ -18,8 +18,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatTreeModule } from '@angular/material/tree';
-import { Roles } from "src/app/models/Roles/Roles";
-import { AdminAccessGuard } from "src/app/Guard/admin-access.guard";
 
 
 
@@ -28,7 +26,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: ProductListComponent },
-      { path: 'uploadproduct', component: ProductsuploadComponent},
+      { path: 'uploadproduct', component: ProductsuploadComponent },
       { path: 'editproduct/:id', component: ProductsEditComponent, data: { role: 'Admin' } },
       { path: 'deleteproduct/:id', component: ProductsDeleteComponent, data: { role: 'Admin' } },
       { path: 'product-details/:id', component: ProductDetailsComponent, data: { role: 'Admin' } },
