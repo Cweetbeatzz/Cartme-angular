@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdminAccessGuard } from './Guard/admin-access.guard';
 import { LoggedInGuard } from './Guard/logged-in.guard';
+import { PrintComponent } from './components/print/print.component';
 
 const routes: Routes = [];
 
@@ -23,6 +24,7 @@ const routes: Routes = [];
     { path: 'search', component: SearchComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'cart', component: CartComponent },
+    { path: 'print', component: PrintComponent },
     {
       path: 'categories', loadChildren: () => import('./components/category/category.module').then((x) =>
         x.CategoryModule

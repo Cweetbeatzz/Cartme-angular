@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-
+  goToLink(url: string) {
+    window.open(url, "_blank");
+  }
   //########################################################
 
 

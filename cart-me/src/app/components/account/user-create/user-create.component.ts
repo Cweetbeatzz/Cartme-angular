@@ -41,8 +41,7 @@ export class UserCreateComponent implements OnInit {
   // VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS *** VALIDATIONS ***
 
   shoeFirstNameErrors() {
-
-  }
+}
 
   // ##########################################
 

@@ -63,6 +63,7 @@ import { ManagerInterceptor } from './interceptors/Permissions/Manager/manager.i
 import { BusyNotifierInterceptor } from './interceptors/Busy/busy-notifier.interceptor';
 import { NotificationInterceptor } from './interceptors/Notification/notification.interceptor';
 import { RetryInterceptor } from './interceptors/Retry/retry.interceptor';
+import { PrintComponent } from './components/print/print.component';
 
 
 export const interceptorProviders =
@@ -93,7 +94,7 @@ export const interceptorProviders =
     AdminComponent,
     SearchPipe,
     SortPipe,
-    UserCreateComponent, ChatsComponent
+    UserCreateComponent, ChatsComponent, PrintComponent
 
 
   ],
